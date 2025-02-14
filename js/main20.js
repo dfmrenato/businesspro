@@ -1,1 +1,0 @@
-document.getElementById("javascript-teste").innerHTML = "oi"
