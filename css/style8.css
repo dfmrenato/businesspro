@@ -56,18 +56,11 @@
     cursor: text;
     background-color: var(--cor-esbranquiçada);
     border-radius: 8px;
-    transition-duration: 0.4s;
     font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
 }
 .formulario-campo-primario:hover {
-    padding: 10px 25px;
-    color: var(--cor-principal);
-    border: 3px solid var(--cor-principal);
-    cursor: text;
-    background-color: var(--cor-esbranquiçada);
-    border-radius: 8px;
-    transition-duration: 0.4s;
-    font-family: 'Poppins', sans-serif;
+    border: 2px solid var(--cor-secundaria);
 }
 
 /*Conteúdo principal do site*/
