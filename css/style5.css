@@ -20,17 +20,32 @@
 }
 
 /*Classes reutilizáveis*/
+/**Botões*/
 .botao-primario {
     padding: 10px 25px;
     color: var(--cor-esbranquiçada);
     border: none;
     cursor: pointer;
-    background-color: var(--cor-principal);
+    background-color: var(--botao-primario);
     border-radius: 8px;
     transition-duration: 0.4s;
     font-family: 'Poppins', sans-serif;
 }
 .botao-primario:hover {
+    background-color: var(--cor-escura);
+}
+.botao-secundario {
+    padding: 10px 25px;
+    color: var(--cor-esbranquiçada);
+    border: none;
+    cursor: pointer;
+    background-color: var(--botao-secundario);
+    border-radius: 8px;
+    transition-duration: 0.4s;
+    font-family: 'Poppins', sans-serif;
+}
+.botao-secundario:hover {
+    color: var(--cor-esbranquiçada);
     background-color: var(--cor-escura);
 }
 
