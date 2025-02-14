@@ -58,6 +58,7 @@
     border-radius: 8px;
     font-family: 'Poppins', sans-serif;
     box-sizing: border-box;
+    transition-duration: 0.4s;
 }
 .formulario-campo-primario:hover {
     box-shadow: 0px 0px 0px 2px var(--cor-principal) inset;
