@@ -20,7 +20,7 @@
                 <ul>
                     <li><a href="" class="botao-secundario">Home</a></li>
                     <li>
-                        <form action="">
+                        <form id="cabecalho-pesquisa" action="">
                             <input class="formulario-campo-primario" type="text" placeholder="Pesquisar" name="pesquisa">
                             <button class="botao-primario" type="submit"><img src="img/icon/pesquisa.png" width="20px" height="20px"></button>
                         </form>
@@ -34,7 +34,6 @@
         <main>
             Conteúdo do business pro muito bom <br>
             <button class="botao-primario">Criar minha conta empresarial!</button> <br>
-            <p id="jsteste"></p> <br>
             <button class="botao-primario" onclick="document.getElementById('jsverifyonline').innerHTML = `${(window.navigator.onLine ? 'on' : 'off') + 'line'}`">Verificar se você tem internet</button> <br>
             <p id="jsverifyonline"><p> <br>
         </main>
