@@ -1,4 +1,4 @@
-document.getElementById('cabecalhopesquisa').addEventListener('submit', function(event) {
+document.getElementById('cabecalhopesquisa').addEventListener('submit', (event) => {
     event.preventDefault();  // Previne o envio real do formulário
 
     // Obtém os valores dos campos do formulário
@@ -8,3 +8,7 @@ document.getElementById('cabecalhopesquisa').addEventListener('submit', function
     alert(`Dados do Formulário:
     Pesquisa: ${pesquisa}`);
 });
+
+function verificar_internet() {
+    document.getElementById('jsverifyonline').innerHTML = `Você está ${(window.navigator.onLine ? 'on' : 'off') + 'line'}`
+}
