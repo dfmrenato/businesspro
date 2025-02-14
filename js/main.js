@@ -1,8 +1,5 @@
-const form = document.getElementById('cabecalhopesquisa');
-form.addEventListener('submit', (event) => {
-    event.preventDefault();
-    alert("a")
+function pesquisar() {
     const form = document.getElementById('cabecalhopesquisa');
     const pesq = form.elements['pesquisa'];
-    alert(`Você pesquisou: ${pesq.value}`)
-});
+    alert(`Você pesquisou: ${pesq.value}`);
+}
