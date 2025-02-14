@@ -48,6 +48,27 @@
     color: var(--cor-esbranquiçada);
     background-color: var(--cor-escura);
 }
+/**Formulários */
+.formulario-campo-primario {
+    padding: 10px 25px;
+    color: var(--cor-principal);
+    border: none;
+    cursor: text;
+    background-color: var(--cor-esbranquiçada);
+    border-radius: 8px;
+    transition-duration: 0.4s;
+    font-family: 'Poppins', sans-serif;
+}
+.formulario-campo-primario:hover {
+    padding: 10px 25px;
+    color: var(--cor-principal);
+    border: 3px solid var(--cor-principal);
+    cursor: text;
+    background-color: var(--cor-esbranquiçada);
+    border-radius: 8px;
+    transition-duration: 0.4s;
+    font-family: 'Poppins', sans-serif;
+}
 
 /*Conteúdo principal do site*/
 body {
