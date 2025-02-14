@@ -1,1 +1,1 @@
-console.log(`funcio nando`)
+document.body.innerHTML = document.body.innerHTML+"ois"

@@ -30,8 +30,6 @@
     border-radius: 8px;
     transition-duration: 0.4s;
     font-family: 'Poppins', sans-serif;
-    align-content: center;
-    display: inline-flex;
 }
 .botao-primario:hover {
     background-color: var(--cor-escura);
