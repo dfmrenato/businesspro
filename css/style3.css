@@ -3,10 +3,10 @@
 
 /*Variáveis*/
 :root {
-    --cor-escura: #724207;
-    --cor-principal: #a8630e;
-    --cor-secundaria: #eaa371;
-    --cor-esbranquiçada: #ffebd5;
+    --cor-escura: rgb(76, 45, 7);
+    --cor-principal: #70522a;
+    --cor-secundaria: #d4af7d;
+    --cor-esbranquiçada: #f4ebdf;
     --cor-de-fundo: var(--cor-esbranquiçada);
     --botao-primario: var(--cor-principal);
     --botao-secundario: #00000000;
@@ -26,8 +26,9 @@
     border: none;
     cursor: pointer;
     background-color: var(--cor-principal);
-    border-radius: 5%;
-    transition-duration: 0.2s;
+    border-radius: 20%;
+    transition-duration: 0.4s;
+    font-family: 'Poppins', sans-serif;
 }
 .botao-primario:hover {
     background-color: var(--cor-escura);
@@ -52,6 +53,8 @@ body {
             .logo a{
                 font-size: 30px;
                 font-weight: bold;
+                color: var(--cor-esbranquiçada);
+                margin: 0 35px;
             }
 
             ul {
