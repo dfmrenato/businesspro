@@ -1,6 +1,7 @@
-document.getElementById('cabecalho-pesquisa').addEventListener('submit', (event) => {
+const form = document.getElementById('cabecalho-pesquisa');
+form.addEventListener('submit', (event) => {
     event.preventDefault();
     const form = document.getElementById('cabecalho-pesquisa');
-    const pesquisa = form.elements['pesquisa']; // accessing element by name
-    window.alert(`Você pesquisou: ${pesquisa}`)
-})
+    const pesq = form.elements['pesquisa'];
+    alert(`Você pesquisou: ${pesq.value}`)
+});
