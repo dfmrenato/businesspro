@@ -30,7 +30,7 @@
     border-radius: 8px;
     transition-duration: 0.4s;
     font-family: 'Poppins', sans-serif;
-    padding-inline: 0;
+    max-height: fit-content;
 }
 .botao-primario:hover {
     background-color: var(--cor-escura);
@@ -44,7 +44,7 @@
     border-radius: 8px;
     transition-duration: 0.4s;
     font-family: 'Poppins', sans-serif;
-    padding-inline: 0;
+    max-height: fit-content;
 }
 .botao-secundario:hover {
     color: var(--cor-esbranquiçada);
