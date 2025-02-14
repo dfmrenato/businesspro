@@ -6,9 +6,6 @@ document.getElementById('cabecalhopesquisa').addEventListener('submit', (event) 
 
     // Exibe um alerta com os dados preenchidos
     window.alert(`Pesquisa: ${pesquisa}`);
-
-    // Apaga o digitado
-    document.getElementById('cabecalhopesquisa').elements["pesquisa"].value = "";
 });
 
 function verificar_internet() {
