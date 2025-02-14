@@ -1,1 +1,1 @@
-document.body.innerHTML = document.body.innerHTML+"ois"
+document.getElementById("javascript-teste").innerHTML = "oi"
