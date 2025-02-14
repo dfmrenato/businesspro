@@ -3,7 +3,7 @@
 
 /*Variáveis*/
 :root {
-    --cor-escura: rgb(76, 45, 7);
+    --cor-escura: #4c2d07;
     --cor-principal: #70522a;
     --cor-secundaria: #d4af7d;
     --cor-esbranquiçada: #f4ebdf;
@@ -21,7 +21,7 @@
 
 /*Classes reutilizáveis*/
 /**Botões*/
-.botao-primario {
+.BotaoPrimario {
     padding: 10px 25px;
     color: var(--cor-esbranquiçada);
     border: none;
@@ -35,10 +35,10 @@
     justify-content: center;
     height: 100%;
 }
-.botao-primario:hover {
+.BotaoPrimario:hover {
     background-color: var(--cor-escura);
 }
-.botao-secundario {
+.BotaoSecundario {
     padding: 10px 25px;
     color: var(--cor-esbranquiçada);
     border: none;
@@ -52,12 +52,12 @@
     justify-content: center;
     height: 100%;
 }
-.botao-secundario:hover {
+.BotaoSecundario:hover {
     color: var(--cor-esbranquiçada);
     background-color: var(--cor-escura);
 }
 /**Formulários */
-.formulario-campo-primario {
+.FormularioCampoPrimario {
     padding: 10px 25px;
     color: var(--cor-principal);
     border: none;
@@ -68,7 +68,7 @@
     box-sizing: border-box;
     transition-duration: 0.4s;
 }
-.formulario-campo-primario:hover {
+.FormularioCampoPrimario:hover {
     box-shadow: 0px 0px 0px 2px var(--cor-principal) inset;
 }
 
@@ -90,10 +90,10 @@ body {
             align-items: center;
             padding: 20px 0;
             
-            .logo a{
+            .Logo a{
                 font-size: 30px;
                 font-weight: bold;
-                color: var(--cor-esbranquiçada);
+                color: var(--cor-escura);
                 margin: 0 35px;
             }
 
