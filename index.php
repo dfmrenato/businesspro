@@ -5,9 +5,9 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <link rel="stylesheet" href="css/style16.css">
+        <link rel="stylesheet" href="css/style17.css">
 
-        <title>Business PRO v16</title>
+        <title>Business PRO v17</title>
     </head>
     <body>
 
@@ -15,7 +15,7 @@
         <header>
             <nav>
                 <div class="logo">
-                    <a href="index.html">Business PRO</a>
+                    <a href="">Business PRO</a>
                 </div>
                 <ul>
                     <li><a href="#" class="botao-secundario">Home</a></li>
@@ -33,7 +33,11 @@
         <!-- Corpo -->
         <main>
             Conteúdo do business pro muito bom <br>
-            <a href="#"><button class="botao-primario">Criar minha conta empresarial!</button></a>
+            <a href="#"><button class="botao-primario">Criar minha conta empresarial!</button></a> <br>
+            <?php
+                $txt = "PHP";
+                echo "I love $txt!";
+            ?>
         </main>
 
     </body>
