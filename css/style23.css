@@ -30,6 +30,9 @@
     border-radius: 8px;
     transition-duration: 0.4s;
     font-family: 'Poppins', sans-serif;
+    display: flexbox;
+    align-items: center;
+    justify-content: center;
 }
 .botao-primario:hover {
     background-color: var(--cor-escura);
@@ -43,6 +46,9 @@
     border-radius: 8px;
     transition-duration: 0.4s;
     font-family: 'Poppins', sans-serif;
+    display: flexbox;
+    align-items: center;
+    justify-content: center;
 }
 .botao-secundario:hover {
     color: var(--cor-esbranquiçada);
