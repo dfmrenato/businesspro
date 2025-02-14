@@ -1,7 +1,12 @@
-const form = document.getElementById('cabecalho-pesquisa');
+const form = document.getElementById('cabecalhopesquisa');
 form.addEventListener('submit', (event) => {
     event.preventDefault();
-    const form = document.getElementById('cabecalho-pesquisa');
+    alert("a")
+    const form = document.getElementById('cabecalhopesquisa');
     const pesq = form.elements['pesquisa'];
     alert(`Você pesquisou: ${pesq.value}`)
 });
+
+document.getElementById().onclick(() => {
+
+})
