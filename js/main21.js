@@ -1,1 +1,0 @@
-document.getElementsByClassName("javascript-teste").item(0).innerHTML = "oi!"
