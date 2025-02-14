@@ -107,6 +107,9 @@ body {
                     a {
                         color: var(--cor-esbranquiçada);
                     }
+                    form {
+                        display: flex;
+                    }
                 }
             }
         }
