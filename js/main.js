@@ -6,7 +6,3 @@ form.addEventListener('submit', (event) => {
     const pesq = form.elements['pesquisa'];
     alert(`Você pesquisou: ${pesq.value}`)
 });
-
-document.getElementById().onclick(() => {
-
-})
