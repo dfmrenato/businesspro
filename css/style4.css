@@ -26,7 +26,7 @@
     border: none;
     cursor: pointer;
     background-color: var(--cor-principal);
-    border-radius: 20%;
+    border-radius: 8px;
     transition-duration: 0.4s;
     font-family: 'Poppins', sans-serif;
 }
@@ -39,6 +39,7 @@ body {
     background-color: var(--cor-de-fundo);
     font-family: 'Poppins', sans-serif;
 
+    /*Cabeçalho*/
     header {
         background-color: var(--cor-secundaria);
         text-decoration: none;
@@ -70,5 +71,10 @@ body {
                 }
             }
         }
+    }
+
+    /*Corpo*/
+    main {
+        margin: 10px 10px;
     }
 }
