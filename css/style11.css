@@ -60,7 +60,7 @@
     box-sizing: border-box;
 }
 .formulario-campo-primario:hover {
-    box-shadow: 0px 0px 0px 10px var(--cor-secundaria) inset;
+    box-shadow: 0px 0px 0px 2px var(--cor-principal) inset;
 }
 
 /*Conteúdo principal do site*/
