@@ -65,7 +65,7 @@ document.getElementById('RegistroFormulario').addEventListener('submit', async (
 
         const data = await response.json();
 
-        if (response.status === 409) {
+        if (response.status == 409) {
             alert('E-mail já cadastrado. Use outro ou tente fazer login.');
             return;
         }
@@ -77,7 +77,7 @@ document.getElementById('RegistroFormulario').addEventListener('submit', async (
         console.log('Usuário adicionado:', data);
         alert('Usuário cadastrado com sucesso!');
     } catch (error) {
-        console.error('Erro:', error);
-        alert('Erro ao cadastrar usuário.');
+        console.error(error);
+        alert('Erro ao cadastrar usuário: '+error);
     }
 });
