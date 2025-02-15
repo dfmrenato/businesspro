@@ -32,15 +32,25 @@ app.get('/', (req, res) => {
 // Rota para adicionar um usuário
 app.post('/add-user', async (req, res) => {
   const { nome, email, senha } = req.body;
-
+  
   try {
-    const usersCollection = db.collection('usuarios'); // Nome da coleção
-    const newUser = { nome, email, senha };
+      if (!nome || !email || !senha) {
+          return res.status(400).json({ message: 'Nome, email e senha são obrigatórios' });
+      }
 
-    const result = await usersCollection.insertOne(newUser);
-    res.status(201).json(result.ops[0]);
+      const usersCollection = db.collection('usuarios');
+      const newUser = { nome, email, senha };
+
+      // Adicionando um log para verificar os dados que estão sendo enviados
+      console.log('Inserindo usuário:', newUser);
+
+      const result = await usersCollection.insertOne(newUser);
+      console.log('Usuário inserido:', result);
+      
+      res.status(201).json(result.ops[0]); // Respondendo com o usuário inserido
   } catch (error) {
-    res.status(500).json({ message: 'Erro ao adicionar usuário', error });
+      console.error('Erro ao adicionar usuário:', error);
+      res.status(500).json({ message: 'Erro ao adicionar usuário', error: error.message });
   }
 });
 
