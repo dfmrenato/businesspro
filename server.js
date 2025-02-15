@@ -47,7 +47,7 @@ app.post('/add-user', async (req, res) => {
       const result = await usersCollection.insertOne(newUser);
       console.log('Usuário inserido:', result);
       
-      res.status(201).json(result.ops[0]); // Respondendo com o usuário inserido
+      res.status(201).json(result); // Respondendo com o usuário inserido
   } catch (error) {
       console.error('Erro ao adicionar usuário:', error);
       res.status(500).json({ message: 'Erro ao adicionar usuário', error: error.message });
