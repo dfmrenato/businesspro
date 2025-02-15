@@ -95,6 +95,9 @@ body {
                 font-weight: bold;
                 color: var(--cor-escura);
                 margin: 0 35px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
             }
 
             .Lista {
@@ -120,7 +123,7 @@ body {
             }
             /*Responsivo */
             @media (max-width: 960px) {
-                
+
                 font-size: 20px;
 
                 .Lista {
@@ -153,5 +156,11 @@ body {
     /*Corpo*/
     main {
         margin: 10px 10px;
+    }
+
+    /*Rodapé*/ 
+    footer {
+        background-color: var(--cor-secundaria);
+        color: var(--cor-esbranquiçada);
     }
 }

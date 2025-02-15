@@ -13,13 +13,13 @@ document.querySelector('.MenuIcone').addEventListener('click', () => {
     let lista = document.querySelector('.Lista');
     if(lista.classList.contains("ativo")) {
         lista.classList.remove('ativo');
-        document.querySelector('.MenuIcone img').src = "img/icone/fechar.png";
+        document.querySelector('.MenuIcone img').src = "img/icone/menu.png";
     } else {
         lista.classList.add('ativo');
-        document.querySelector('.MenuIcone img').src = "img/icone/menu.png";
+        document.querySelector('.MenuIcone img').src = "img/icone/fechar.png";
     };
 })
 
-function verificar_internet() {
-    document.getElementById('OnlineIndicador').innerHTML = `Você está ${(window.navigator.onLine ? 'on' : 'off') + 'line'}`
-}
+document.getElementById("BotaoVerificarInternet").addEventListener('click', () => {
+    ocument.getElementById('OnlineIndicador').innerHTML = `Você está ${(window.navigator.onLine ? 'on' : 'off') + 'line'}`
+})
