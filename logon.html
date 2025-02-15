@@ -7,7 +7,7 @@
 
         <link rel="stylesheet" href="css/style.css">
 
-        <title>Registrar ou entrar</title>
+        <title>!!! Registrar ou entrar</title>
         <link rel="shortcut icon" href="img/BusinessPro.png">
     </head>
     <body>
@@ -55,20 +55,20 @@
                     document.getElementById('RegistroFormulario').addEventListener('submit', async (e) => {
                         e.preventDefault();
                         
-                        const nome = document.getElementById('NomeR').value;
-                        const email = document.getElementById('EmailR').value;
-                        const senha = document.getElementById('SenhaR').value;
+                        const nome = document.getElementById('RegistroFormulario').elements["nome"].value;
+                        const email = document.getElementById('RegistroFormulario').elements["email"].value;
+                        const senha = document.getElementById('RegistroFormulario').elements["senha"].value;
 
                         const response = await fetch('http://localhost:3000/add-user', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify({ nome, email, senha })
-                    });
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify({ nome, email, senha })
+                        });
 
-                    const data = await response.json();
-                    console.log(data);
+                        const data = await response.json();
+                        console.log(data);
 
                     });
                 </script>
