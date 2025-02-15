@@ -171,20 +171,20 @@ body {
             align-content: center;
             
             .Opcao {
-                margin-right: 15px;
                 color: var(--cor-esbranquiçada);
                 transition-duration: 0.4s;
                 padding: 10px;
                 border-radius: 10px;
+
+                input:checked {
+                    background-color: var(--cor-escura);
+                }
             }
 
             .Opcao:hover {
                 background-color: var(--cor-escura);
             }
 
-            .Opcao:checked {
-                background-color: var(--cor-escura);
-            }
         }
 
         .Logon {
