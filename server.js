@@ -1,31 +1,43 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const cors = require('cors');
 
 const app = express();
+const port = 3000; // ou qualquer outra porta que você preferir
+
+// Middleware para permitir que o Express aceite JSON
 app.use(express.json());
-app.use(cors());
 
-// Conexão com o MongoDB (substitua pela sua URL do MongoDB)
-mongoose.connect('mongodb+srv://renatosantos36:2t9s1qGOojyShgs7@projetocluster.i1z4e.mongodb.net/?retryWrites=true&w=majority&appName=ProjetoCluster')
-  .then(() => console.log('Conectado ao MongoDB'))
-  .catch(err => console.error('Erro ao conectar ao MongoDB:', err));
+// Conectar ao MongoDB usando o link de conexão fornecido
+mongoose.connect('mongodb+srv://renatosantos36:2t9s1qGOojyShgs7@projetocluster.i1z4e.mongodb.net/?retryWrites=true&w=majority&appName=ProjetoCluster', {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+}).then(() => {
+    console.log('Conectado ao MongoDB');
+}).catch(err => {
+    console.log('Erro ao conectar ao MongoDB:', err);
+});
 
-// Defina um modelo de dados
-const Usuario = mongoose.model('Usuario', new mongoose.Schema({
-  nome: String,
-  email: String,
-}));
-
-// Rota para enviar dados para o MongoDB
-app.post('/addUsuario', async (req, res) => {
-  const { nome, email, senha } = req.body;
-  const usuario = new Usuario({ nome, email, senha });
-  await usuario.save();
-  res.send('Usuário adicionado com sucesso');
+// Rota de exemplo
+app.get('/', (req, res) => {
+    res.send('Olá, mundo! Conectado ao MongoDB!');
 });
 
 // Iniciar o servidor
-app.listen(3000, () => {
-  console.log('Servidor rodando na porta 3000');
+app.listen(port, () => {
+    console.log(`Servidor rodando na porta ${port}`);
+});
+
+const User = require('./models/User');
+
+// Rota para adicionar um usuário
+app.post('/add-user', async (req, res) => {
+    const { nome, email, senha } = req.body;
+    
+    try {
+        const newUser = new User({ nome, email, senha });
+        await newUser.save();
+        res.status(201).json(newUser);
+    } catch (error) {
+        res.status(500).json({ message: 'Erro ao adicionar usuário', error });
+    }
 });
