@@ -118,7 +118,7 @@ document.getElementById('LoginFormulario').addEventListener('submit', async (eve
                 }
                 console.log('Usuário logado:', data);
                 sessionStorage.setItem('UsuarioLogado', email);
-                window.location.replace("./index.html");
+                window.location.replace("./");
                 break;
         }
 
