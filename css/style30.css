@@ -97,7 +97,7 @@ body {
                 margin: 0 35px;
             }
 
-            ul {
+            .Lista {
                 display: flex;
                 align-items: center;
 
@@ -115,16 +115,29 @@ body {
 
             .MenuIcone {
                 display: none;
+                position: relative;
+                z-index: 10;
             }
             /*Responsivo */
             @media (max-width: 960px) {
-                ul {
+                .Lista {
                     position: fixed;
-                    background-color: red;
                     top: 0;
                     width: 100%;
                     height: 100%;
                     left: 100%;
+                    transition: 0.3s;
+                    flex-direction: column;
+                    justify-content: center;
+
+                    li {
+                        font-size: 20px;
+                        margin: 20px 0;
+                    }
+                }
+
+                .Lista.ativo {
+                    left: 0%;
                 }
 
                 .MenuIcone {

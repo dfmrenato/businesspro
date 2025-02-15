@@ -10,7 +10,12 @@ document.getElementById('CabecalhoPesquisa').addEventListener('submit', (event) 
 });
 
 document.querySelector('.MenuIcone').addEventListener('click', () => {
-    alert("Clicado");
+    let lista = document.querySelector('.Lista');
+    if(lista.classList.contains("ativo")) {
+        lista.classList.remove('ativo');
+    } else {
+        lista.classList.add('ativo');
+    };
 })
 
 function verificar_internet() {
