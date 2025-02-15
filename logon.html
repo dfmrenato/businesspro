@@ -7,7 +7,7 @@
 
         <link rel="stylesheet" href="css/style.css">
 
-        <title>Registrar ou entrar</title>
+        <title>!!! Registrar ou entrar</title>
         <link rel="shortcut icon" href="img/BusinessPro.png">
     </head>
     <body>
@@ -60,7 +60,7 @@
                         const senha = document.getElementById('RegistroFormulario').elements["senha"].value;
 
                         try {
-                            const response = await fetch('http://localhost:3000/add-user', {
+                            const response = await fetch('https://d421-74-249-85-201.ngrok-free.app/add-user', {
                                 method: 'POST',
                                 headers: {
                                     'Content-Type': 'application/json'
