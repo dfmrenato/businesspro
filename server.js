@@ -7,7 +7,7 @@ app.use(express.json());
 app.use(cors());
 
 // Conexão com o MongoDB (substitua pela sua URL do MongoDB)
-mongoose.connect('mongodb://localhost:27017/meu-banco', { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect('mongodb://localhost:27017/bancodedados', { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log('Conectado ao MongoDB'))
   .catch(err => console.error('Erro ao conectar ao MongoDB:', err));
 
