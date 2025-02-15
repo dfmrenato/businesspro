@@ -25,14 +25,14 @@ document.getElementById('MenuIcone').addEventListener('click', () => {
 
 // Abrir o menu de login ou registro
 document.getElementById('LoginOpcao').addEventListener('click', () => {
-    document.getElementById('LoginOpcao').classList.add('ativo');
-    document.getElementById('LoginMenu').classList.add('ativo');
-    document.getElementById('RegistroOpcao').classList.remove('ativo');
-    document.getElementById('RegistroMenu').classList.remove('ativo');
+    document.querySelector('#LoginOpcao').classList.add('ativo');
+    document.querySelector('#LoginMenu').classList.add('ativo');
+    document.querySelector('#RegistroOpcao').classList.remove('ativo');
+    document.querySelector('#RegistroMenu').classList.remove('ativo');
 });
 document.getElementById('RegistroOpcao').addEventListener('click', () => {
-    document.getElementById('LoginOpcao').classList.remove('ativo');
-    document.getElementById('LoginMenu').classList.remove('ativo');
-    document.getElementById('RegistroOpcao').classList.add('ativo');
-    document.getElementById('RegistroMenu').classList.add('ativo');
+    document.querySelector('#LoginOpcao').classList.remove('ativo');
+    document.querySelector('#LoginMenu').classList.remove('ativo');
+    document.querySelector('#RegistroOpcao').classList.add('ativo');
+    document.querySelector('#RegistroMenu').classList.add('ativo');
 });
