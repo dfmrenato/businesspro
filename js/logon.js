@@ -48,4 +48,4 @@ document.getElementById('ExibirSenhaL').addEventListener('click', (event) => {
     }
 });
 
-document.write("MongoDB API Version: "+mongodb.ServerApiVersion)
+document.getElementById('IndicadorMongo').innerHTML = ("MongoDB API Version: "+mongodb.ServerApiVersion)
