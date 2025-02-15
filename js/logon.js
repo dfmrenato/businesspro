@@ -45,3 +45,34 @@ document.getElementById('ExibirSenhaL').addEventListener('click', (event) => {
         document.querySelector('#ExibirSenhaL img').src = "img/icone/ExibirSenha.png";
     }
 });
+
+// Cadastrar usuário novo na DB
+document.getElementById('RegistroFormulario').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    
+    const nome = document.getElementById('RegistroFormulario').elements["nome"].value;
+    const email = document.getElementById('RegistroFormulario').elements["email"].value;
+    const senha = document.getElementById('RegistroFormulario').elements["senha"].value;
+
+    try {
+        const response = await fetch('https://evolved-legible-spider.ngrok-free.app/add-user', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ nome, email, senha })
+        });
+
+        if (!response.ok) {
+            throw new Error('Falha na solicitação');
+        }
+
+        const data = await response.json();
+        console.log('Usuário adicionado:', data);
+        alert('Usuário cadastrado com sucesso!');
+    } catch (error) {
+        console.error('Erro:', error);
+        alert('Erro ao cadastrar usuário.');
+    }
+
+});

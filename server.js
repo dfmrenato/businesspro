@@ -15,8 +15,8 @@ const uri = 'mongodb+srv://renatosantos36:2t9s1qGOojyShgs7@projetocluster.i1z4e.
 let db;
 
 // Conectar ao MongoDB
-MongoClient.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then((client) => {
+const client = MongoClient.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
+client.then((client) => {
     db = client.db('usuarios');  // Acessa o banco de dados padrão
     console.log('Conectado ao MongoDB');
   })
@@ -48,6 +48,8 @@ app.post('/add-user', async (req, res) => {
       console.log('Usuário inserido:', result);
       
       res.status(201).json(result); // Respondendo com o usuário inserido
+
+      
   } catch (error) {
       console.error('Erro ao adicionar usuário:', error);
       res.status(500).json({ message: 'Erro ao adicionar usuário', error: error.message });
