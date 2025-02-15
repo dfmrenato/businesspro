@@ -172,16 +172,17 @@ body {
             
             .Opcao {
                 color: var(--cor-esbranquiçada);
+                background-color: #00000000;
                 transition-duration: 0.4s;
                 padding: 10px;
                 border-radius: 10px;
-
-                input:checked {
-                    background-color: var(--cor-escura);
-                }
             }
 
             .Opcao:hover {
+                background-color: var(--cor-escura);
+            }
+
+            .Opcao.ativo {
                 background-color: var(--cor-escura);
             }
 
