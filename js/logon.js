@@ -81,3 +81,41 @@ document.getElementById('RegistroFormulario').addEventListener('submit', async (
         alert('Erro ao cadastrar usuário: '+error);
     }
 });
+
+// Logar com conta da DB
+document.getElementById('LoginFormulario').addEventListener('submit', async (event) => {
+
+    event.preventDefault();
+
+    const email = document.getElementById('LoginFormulario').elements["email"].value;
+    const senha = document.getElementById('LoginFormulario').elements["senha"].value;
+
+    try {
+        const response = await fetch('https://evolved-legible-spider.ngrok-free.app/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ email, senha })
+        });
+
+        const data = await response.json();
+
+        if (response.status == 404) {
+            alert('Conta inexistente. Verifique seu email e senha ou tente se cadastrar.');
+            return;
+        }
+
+        if (!response.ok) {
+            throw new Error(data.message || 'Falha na solicitação');
+        }
+
+        console.log('Usuário logado:', data);
+        sessionStorage.setItem('usuario_logado', email);
+
+    } catch (error) {
+        console.error(error);
+        alert('Erro ao realizar login: '+error);
+    }
+
+})

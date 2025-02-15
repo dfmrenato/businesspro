@@ -3,11 +3,22 @@ const { MongoClient } = require('mongodb');
 const cors = require('cors');
 
 const app = express();
-const port = 3000; // ou qualquer outra porta que você preferir
+const port = 3000; 
 
-// Middleware para permitir que o Express aceite JSON
+// Configuração do CORS para permitir o frontend específico
+const corsOptions = {
+    origin: 'https://renatoaugusto-go.github.io', // Permite requisições apenas deste site
+    methods: 'GET,POST', // Métodos permitidos
+    allowedHeaders: 'Content-Type',
+};
+
+app.use(cors(corsOptions)); // Middleware principal de CORS
+
+// Permite requisições preflight (importante para o navegador validar permissões antes da requisição real)
+app.options('*', cors(corsOptions));
+
+// Middleware para aceitar JSON
 app.use(express.json());
-app.use(cors());
 
 // Conectar ao MongoDB usando o link de conexão fornecido
 const uri = 'mongodb+srv://renatosantos36:2t9s1qGOojyShgs7@projetocluster.i1z4e.mongodb.net/?retryWrites=true&w=majority&appName=ProjetoCluster';
@@ -55,6 +66,32 @@ app.post('/add-user', async (req, res) => {
     } catch (error) {
         console.error('Erro ao adicionar usuário:', error);
         res.status(500).json({ message: 'Erro ao adicionar usuário', error: error.message });
+    }
+});
+
+// Rota para login
+app.post('/login', async (req, res) => {
+    const { email, senha } = req.body;
+
+    try {
+        if (!email || !senha) {
+            return res.status(400).json({ message: 'Email e senha são obrigatórios' });
+        }
+
+        const usersCollection = (await client).db('businesspro').collection('usuarios');
+        const existingUser = await usersCollection.findOne({ email });
+
+        if(existingUser) {
+
+            if()
+
+        } else {
+            return res.status(404).json({ message: 'E-mail não cadastrado' });
+        }
+        
+    } catch (error) {
+        console.error('Erro ao fazer login:', error);
+        res.status(500).json({ message: 'Erro ao fazer login', error: error.message });
     }
 });
 
