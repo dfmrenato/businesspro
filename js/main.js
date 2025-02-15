@@ -21,4 +21,5 @@ document.querySelector('.MenuIcone').addEventListener('click', () => {
         lista.classList.add('ativo');
         document.querySelector('.MenuIcone img').src = "img/icone/fechar.png";
     };
+    alert("!!!")
 })
