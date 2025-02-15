@@ -13,12 +13,12 @@ document.getElementById('RegistroOpcao').addEventListener('click', () => {
 });
 
 // Exibir senha
-document.getElementById('ExibirSenha').addEventListener('submit', (event) => {
+document.getElementById('ExibirSenha').addEventListener('click', (event) => {
     // Previne o envio real do formulário
     event.preventDefault();
 
     var x = document.getElementById("Senha");
-    
+
     if (x.type === "password") {
         x.type = "text";
         x.placeholder = "1234";
