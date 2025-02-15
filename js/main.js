@@ -1,5 +1,7 @@
+// Pesquisar no cabeçalho
 document.getElementById('CabecalhoPesquisa').addEventListener('submit', (event) => {
-    event.preventDefault();  // Previne o envio real do formulário
+    // Previne o envio real do formulário
+    event.preventDefault();
 
     // Obtém os valores dos campos do formulário
     const pesquisa = document.getElementById('CabecalhoPesquisa').elements["pesquisa"].value;
@@ -9,6 +11,7 @@ document.getElementById('CabecalhoPesquisa').addEventListener('submit', (event) 
     document.getElementById('CabecalhoPesquisa').elements["pesquisa"].value = "";
 });
 
+// Abrir o menu do cabeçalho em dispositivos pequenos
 document.querySelector('.MenuIcone').addEventListener('click', () => {
     let lista = document.querySelector('.Lista');
     if(lista.classList.contains("ativo")) {
@@ -18,8 +21,4 @@ document.querySelector('.MenuIcone').addEventListener('click', () => {
         lista.classList.add('ativo');
         document.querySelector('.MenuIcone img').src = "img/icone/fechar.png";
     };
-})
-
-document.getElementById("BotaoVerificarInternet").addEventListener('click', () => {
-    ocument.getElementById('OnlineIndicador').innerHTML = `Você está ${(window.navigator.onLine ? 'on' : 'off') + 'line'}`
 })

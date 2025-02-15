@@ -158,9 +158,4 @@ body {
         margin: 10px 10px;
     }
 
-    /*Rodapé*/ 
-    footer {
-        background-color: var(--cor-secundaria);
-        color: var(--cor-esbranquiçada);
-    }
 }
