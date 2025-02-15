@@ -176,13 +176,23 @@ body {
                 transition-duration: 0.4s;
                 padding: 10px;
                 border-radius: 10px;
-                input {
-                    color: red;
-                }
             }
 
             .Opcao:hover {
                 background-color: var(--cor-escura);
+            }
+
+            .Opcao:checked {
+                background-color: var(--cor-escura);
+            }
+        }
+
+        .Logon {
+            .Login {
+                display: none;
+            }
+            .Registro {
+                display: none;
             }
         }
     }
