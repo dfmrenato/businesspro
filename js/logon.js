@@ -47,8 +47,8 @@ document.getElementById('ExibirSenhaL').addEventListener('click', (event) => {
 });
 
 // Cadastrar usuário novo na DB
-document.getElementById('RegistroFormulario').addEventListener('submit', async (e) => {
-    e.preventDefault();
+document.getElementById('RegistroFormulario').addEventListener('submit', async (event) => {
+    event.preventDefault();
     
     const nome = document.getElementById('RegistroFormulario').elements["nome"].value;
     const email = document.getElementById('RegistroFormulario').elements["email"].value;
@@ -63,16 +63,21 @@ document.getElementById('RegistroFormulario').addEventListener('submit', async (
             body: JSON.stringify({ nome, email, senha })
         });
 
-        if (!response.ok) {
-            throw new Error('Falha na solicitação');
+        const data = await response.json();
+
+        if (response.status === 409) {
+            alert('E-mail já cadastrado. Use outro ou tente fazer login.');
+            return;
         }
 
-        const data = await response.json();
+        if (!response.ok) {
+            throw new Error(data.message || 'Falha na solicitação');
+        }
+
         console.log('Usuário adicionado:', data);
         alert('Usuário cadastrado com sucesso!');
     } catch (error) {
         console.error('Erro:', error);
         alert('Erro ao cadastrar usuário.');
     }
-
 });
