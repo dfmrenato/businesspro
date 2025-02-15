@@ -24,25 +24,15 @@ document.getElementById('MenuIcone').addEventListener('click', () => {
 })
 
 // Abrir o menu de login ou registro
-// Selecionando todos os botões de rádio pelo nome "logon_seletor"
-let radios = document.querySelectorAll('input[name="logon_seletor"]');
-
-// Associando o evento 'change' a cada botão de rádio
-radios.forEach(radio => {
-    radio.addEventListener('change', () => {
-        switch (radio.id) {
-            case "registrar":
-                document.getElementById("Registro").classList.add("ativo");
-                document.getElementById("Login").classList.remove("ativo");
-                break;
-
-            case "logar":
-                document.getElementById("Login").classList.add("ativo");
-                document.getElementById("Registro").classList.remove("ativo");
-                break;
-        
-            default:
-                break;
-        }
-    });
+document.getElementById('RegistroOpcao').addEventListener('change', () => {
+    let menu_r = document.getElementById('RegistroMenu');
+    let menu_l = document.getElementById('LoginMenu');
+    menu_r.classList.add('ativo');
+    menu_l.classList.remove('ativo');
+});
+document.getElementById('LoginOpcao').addEventListener('change', () => {
+    let menu_r = document.getElementById('RegistroMenu');
+    let menu_l = document.getElementById('LoginMenu');
+    menu_l.classList.add('ativo');
+    menu_r.classList.remove('ativo');
 });
