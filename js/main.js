@@ -24,13 +24,13 @@ document.getElementById('MenuIcone').addEventListener('click', () => {
 })
 
 // Abrir o menu de login ou registro
-document.getElementById('RegistroOpcao').addEventListener('change', () => {
+document.getElementById('RegistroOpcao').addEventListener('click', () => {
     let menu_r = document.getElementById('RegistroMenu');
     let menu_l = document.getElementById('LoginMenu');
     menu_r.classList.add('ativo');
     menu_l.classList.remove('ativo');
 });
-document.getElementById('LoginOpcao').addEventListener('change', () => {
+document.getElementById('LoginOpcao').addEventListener('click', () => {
     let menu_r = document.getElementById('RegistroMenu');
     let menu_l = document.getElementById('LoginMenu');
     menu_l.classList.add('ativo');
