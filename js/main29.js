@@ -9,6 +9,10 @@ document.getElementById('CabecalhoPesquisa').addEventListener('submit', (event) 
     document.getElementById('CabecalhoPesquisa').elements["pesquisa"].value = "";
 });
 
+document.querySelector('.MenuIcone').addEventListener('click', () => {
+    alert("Clicado");
+})
+
 function verificar_internet() {
     document.getElementById('OnlineIndicador').innerHTML = `Você está ${(window.navigator.onLine ? 'on' : 'off') + 'line'}`
 }
