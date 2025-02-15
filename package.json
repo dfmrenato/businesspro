@@ -1,0 +1,16 @@
+{
+  "name": "projetodecurso",
+  "version": "1.0.0",
+  "description": "Repositório do nosso projeto de curso (Business PRO)",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.2",
+    "mongoose": "^8.10.1"
+  }
+}

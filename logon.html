@@ -51,6 +51,27 @@
                     </form>
                 </div>
 
+                <script>
+                    document.getElementById('RegistroFormulario').addEventListener('submit', async function(e) {
+                        e.preventDefault();
+                
+                        const nome = document.getElementById('nome').value;
+                        const email = document.getElementById('email').value;
+                        const senha = document.getElementById('senha').value;
+                
+                        const response = await fetch('http://localhost:3000/addUsuario', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                            },
+                            body: JSON.stringify({ nome, email, senha })
+                        });
+                
+                        const data = await response.text();
+                        alert(data); // Exibe a resposta do servidor
+                    });
+                </script>
+
                 <!-- Login-->
                 <div id="LoginMenu" class="LogOption">
                     <h1>Entrar na sua conta</h1>
