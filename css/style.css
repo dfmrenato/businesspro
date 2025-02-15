@@ -164,15 +164,21 @@ body {
         .LogonSeletor {
             display: flex;
             margin: 0 auto;
-            padding: 10px;
             background-color: var(--cor-principal);
             border-radius: 10px;
             max-width: fit-content;
+            align-items: center;
+            align-content: center;
             
             .Opcao {
                 margin-right: 15px;
                 color: var(--cor-esbranquiçada);
                 transition-duration: 0.4s;
+                padding: 10px;
+                border-radius: 10px;
+                input {
+                    color: red;
+                }
             }
 
             .Opcao:hover {
