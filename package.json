@@ -2,14 +2,19 @@
   "name": "projetodecurso",
   "version": "1.0.0",
   "description": "Repositório do nosso projeto de curso (Business PRO)",
+  "type": "module",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
     "url": "ProjetoDeCurso"
   },
   "author": "Renato",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.2",
+    "mongoose": "^8.10.1"
+  }
 }
