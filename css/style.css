@@ -163,7 +163,14 @@ body {
 
         .LogonSeletor {
             display: flex;
-            margin: 10px;
+            margin: 0 auto;
+            padding: 10px;
+            background-color: var(--cor-principal);
+            border-radius: 10px;
+            
+            input {
+                margin-right: 15px;
+            }
         }
     }
 
