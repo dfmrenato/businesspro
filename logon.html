@@ -7,7 +7,7 @@
 
         <link rel="stylesheet" href="css/style.css">
 
-        <title>!!! Registrar ou entrar</title>
+        <title>Registrar ou entrar</title>
         <link rel="shortcut icon" href="img/BusinessPro.png">
     </head>
     <body>
@@ -59,16 +59,26 @@
                         const email = document.getElementById('RegistroFormulario').elements["email"].value;
                         const senha = document.getElementById('RegistroFormulario').elements["senha"].value;
 
-                        const response = await fetch('http://localhost:3000/add-user', {
-                            method: 'POST',
-                            headers: {
-                                'Content-Type': 'application/json'
-                            },
-                            body: JSON.stringify({ nome, email, senha })
-                        });
+                        try {
+                            const response = await fetch('http://localhost:3000/add-user', {
+                                method: 'POST',
+                                headers: {
+                                    'Content-Type': 'application/json'
+                                },
+                                body: JSON.stringify({ nome, email, senha })
+                            });
 
-                        const data = await response.json();
-                        console.log(data);
+                            if (!response.ok) {
+                                throw new Error('Falha na solicitação');
+                            }
+
+                            const data = await response.json();
+                            console.log('Usuário adicionado:', data);
+                            alert('Usuário cadastrado com sucesso!');
+                        } catch (error) {
+                            console.error('Erro:', error);
+                            alert('Erro ao cadastrar usuário.');
+                        }
 
                     });
                 </script>

@@ -1,11 +1,13 @@
 const express = require('express');
 const { MongoClient } = require('mongodb');
+const cors = require('cors');
 
 const app = express();
 const port = 3000; // ou qualquer outra porta que você preferir
 
 // Middleware para permitir que o Express aceite JSON
 app.use(express.json());
+app.use(cors());
 
 // Conectar ao MongoDB usando o link de conexão fornecido
 const uri = 'mongodb+srv://renatosantos36:2t9s1qGOojyShgs7@projetocluster.i1z4e.mongodb.net/?retryWrites=true&w=majority&appName=ProjetoCluster';
