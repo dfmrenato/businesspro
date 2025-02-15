@@ -22,3 +22,27 @@ document.getElementById('MenuIcone').addEventListener('click', () => {
         document.querySelector('.MenuIcone img').src = "img/icone/fechar.png";
     };
 })
+
+// Abrir o menu de login ou registro
+// Selecionando todos os botões de rádio pelo nome "logon_seletor"
+let radios = document.querySelectorAll('input[name="logon_seletor"]');
+
+// Associando o evento 'change' a cada botão de rádio
+radios.forEach(radio => {
+    radio.addEventListener('change', () => {
+        switch (radio.id) {
+            case "registrar":
+                document.getElementById("Registro").classList.add("ativo");
+                document.getElementById("Login").classList.remove("ativo");
+                break;
+
+            case "logar":
+                document.getElementById("Login").classList.add("ativo");
+                document.getElementById("Registro").classList.remove("ativo");
+                break;
+        
+            default:
+                break;
+        }
+    });
+});
