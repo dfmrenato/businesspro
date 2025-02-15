@@ -117,7 +117,7 @@ document.getElementById('LoginFormulario').addEventListener('submit', async (eve
                     throw new Error(data.message || 'Falha na solicitação');
                 }
                 console.log('Usuário logado:', data);
-                sessionStorage.setItem('usuario_logado', email);
+                sessionStorage.setItem('UsuarioLogado', email);
                 window.location.replace("./index.html");
                 break;
         }
