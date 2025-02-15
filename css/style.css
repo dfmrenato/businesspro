@@ -171,7 +171,12 @@ body {
             
             .Opcao {
                 margin-right: 15px;
-                color: var(--cor-esbranquiçada)
+                color: var(--cor-esbranquiçada);
+                transition-duration: 0.4s;
+            }
+
+            .Opcao:hover {
+                background-color: var(--cor-escura);
             }
         }
     }
