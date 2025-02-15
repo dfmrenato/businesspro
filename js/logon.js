@@ -13,19 +13,35 @@ document.getElementById('RegistroOpcao').addEventListener('click', () => {
 });
 
 // Exibir senha
-document.getElementById('ExibirSenha').addEventListener('click', (event) => {
+document.getElementById('ExibirSenhaR').addEventListener('click', (event) => {
     // Previne o envio real do formulário
     event.preventDefault();
 
-    var x = document.getElementById("Senha");
+    var x = document.getElementById("SenhaR");
 
     if (x.type === "password") {
         x.type = "text";
         x.placeholder = "1234";
-        document.querySelector('.ExibirSenha img').src = "img/icone/OcultarSenha.png";
+        document.querySelector('#ExibirSenhaR img').src = "img/icone/OcultarSenha.png";
     } else {
         x.type = "password";
         x.placeholder = "****";
-        document.querySelector('.ExibirSenha img').src = "img/icone/ExibirSenha.png";
+        document.querySelector('#ExibirSenhaR img').src = "img/icone/ExibirSenha.png";
+    }
+});
+document.getElementById('ExibirSenhaL').addEventListener('click', (event) => {
+    // Previne o envio real do formulário
+    event.preventDefault();
+
+    var x = document.getElementById("SenhaL");
+
+    if (x.type === "password") {
+        x.type = "text";
+        x.placeholder = "1234";
+        document.querySelector('#ExibirSenhaL img').src = "img/icone/OcultarSenha.png";
+    } else {
+        x.type = "password";
+        x.placeholder = "****";
+        document.querySelector('#ExibirSenhaL img').src = "img/icone/ExibirSenha.png";
     }
 });
