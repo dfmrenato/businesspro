@@ -1,5 +1,3 @@
-const mongodb = require('mongodb');
-
 // Abrir o menu de login ou registro
 document.getElementById('LoginOpcao').addEventListener('click', () => {
     document.querySelector('#LoginOpcao').classList.add('ativo');
@@ -47,5 +45,3 @@ document.getElementById('ExibirSenhaL').addEventListener('click', (event) => {
         document.querySelector('#ExibirSenhaL img').src = "img/icone/ExibirSenha.png";
     }
 });
-
-document.getElementById('IndicadorMongo').innerHTML = ("MongoDB API Version: "+mongodb.ServerApiVersion)
