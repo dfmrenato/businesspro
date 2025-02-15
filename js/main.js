@@ -24,15 +24,30 @@ document.getElementById('MenuIcone').addEventListener('click', () => {
 })
 
 // Abrir o menu de login ou registro
-document.getElementById('RegistroOpcao').addEventListener('click', () => {
-    let menu_r = document.getElementById('RegistroMenu');
-    let menu_l = document.getElementById('LoginMenu');
-    menu_r.classList.add('ativo');
-    menu_l.classList.remove('ativo');
+// Selecionando todos os botões de rádio
+const radios = document.querySelectorAll('input[name="logon_seletor"]');
+
+// Função para mostrar o menu correspondente ao botão de rádio selecionado
+function toggleMenus() {
+    const menuRegistro = document.getElementById('RegistroMenu');
+    const menuLogin = document.getElementById('LoginMenu');
+
+    // Se o botão de "Registrar" estiver selecionado
+    if (document.getElementById('RegistroOpcao').checked) {
+        menuRegistro.classList.add('ativo');
+        menuLogin.classList.remove('ativo');
+    }
+    // Se o botão de "Logar" estiver selecionado
+    else if (document.getElementById('LoginOpcao').checked) {
+        menuLogin.classList.add('ativo');
+        menuRegistro.classList.remove('ativo');
+    }
+}
+
+// Adicionando evento 'change' a todos os botões de rádio
+radios.forEach(radio => {
+    radio.addEventListener('change', toggleMenus());
 });
-document.getElementById('LoginOpcao').addEventListener('click', () => {
-    let menu_r = document.getElementById('RegistroMenu');
-    let menu_l = document.getElementById('LoginMenu');
-    menu_l.classList.add('ativo');
-    menu_r.classList.remove('ativo');
-});
+
+// Chama a função ao carregar a página para garantir que o menu inicial esteja correto
+toggleMenus();
