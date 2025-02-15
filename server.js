@@ -17,7 +17,7 @@ let db;
 // Conectar ao MongoDB
 const client = MongoClient.connect(uri)
 client.then((client) => {
-    db = client.db('usuarios');  // Acessa o banco de dados padrão
+    db = client.db('businesspro');  // Acessa o banco de dados padrão
     console.log('Conectado ao MongoDB');
 }).catch((error) => {
     console.error('Erro ao conectar ao MongoDB:', error);
