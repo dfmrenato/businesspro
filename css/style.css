@@ -176,6 +176,7 @@ body {
                 transition-duration: 0.4s;
                 padding: 10px;
                 border-radius: 10px;
+                border: none;
             }
 
             .Opcao:hover {
