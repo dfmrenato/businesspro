@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 import app from "./app.js";
+import path from "path";
 
 ( async () => {
     try {
@@ -11,6 +12,10 @@ import app from "./app.js";
         }
 
         app.listen(5000, onListening)
+
+        app.get('/', (req,res) => {
+            res.sendFile('logon.html', {root: path.join(__dirname)})
+        })
     } catch (error) {
         console.error(`Erro: ${error}`);
         throw err;
