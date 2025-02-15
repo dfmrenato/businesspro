@@ -165,8 +165,8 @@ body {
         .LogonSeletor {
             display: flex;
             margin: 0 auto;
-            background-color: var(--cor-principal);
-            border-radius: 10px;
+            background-color: var(--cor-secundaria);
+            border-radius: 20px;
             max-width: fit-content;
             align-items: center;
             align-content: center;
@@ -176,23 +176,31 @@ body {
                 background-color: #00000000;
                 transition-duration: 0.4s;
                 padding: 10px;
-                border-radius: 10px;
+                border-radius: 20px;
                 border: none;
                 font-family: var(--fonte-principal);
                 cursor: pointer;
             }
 
             .Opcao:hover {
-                background-color: var(--cor-escura);
+                background-color: var(--cor-principal);
             }
 
             .Opcao.ativo {
-                background-color: var(--cor-escura);
+                background-color: var(--cor-principal);
             }
 
         }
 
         .Logon {
+            display: flex;
+            margin: 0 auto;
+            background-color: var(--cor-esbranquiçada);
+            border-radius: 10px;
+            max-width: fit-content;
+            align-items: center;
+            align-content: center;
+            
             .LogOption {
                 display: none;
             }
