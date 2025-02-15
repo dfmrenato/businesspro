@@ -7,7 +7,7 @@ app.use(express.json());
 app.use(cors());
 
 // Conexão com o MongoDB (substitua pela sua URL do MongoDB)
-mongoose.connect('mongodb://localhost:27017/bancodedados', { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect('mongodb+srv://renatosantos36:2t9s1qGOojyShgs7@projetocluster.i1z4e.mongodb.net/?retryWrites=true&w=majority&appName=ProjetoCluster')
   .then(() => console.log('Conectado ao MongoDB'))
   .catch(err => console.error('Erro ao conectar ao MongoDB:', err));
 
