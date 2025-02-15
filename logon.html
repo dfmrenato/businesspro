@@ -35,15 +35,15 @@
                 <!-- Registro-->
                 <div id="RegistroMenu" class="LogOption ativo">
                     <h1>Criar uma nova conta</h1>
-                    <form>
+                    <form id="RegistroFormulario">
                         <label for="NomeR">Nome</label><br>
-                        <input class="FormularioCampoPrimario" type="text" id="NomeR" name="nome" placeholder="Ovídio Antoninho Marques"><br>
+                        <input class="FormularioCampoPrimario" type="text" id="NomeR" name="nome" placeholder="Ovídio Antoninho Marques" required><br>
 
                         <label for="EmailR">E-mail</label><br>
-                        <input class="FormularioCampoPrimario" type="email" id="EmailR" name="email" placeholder="fulano@email.com"><br>
+                        <input class="FormularioCampoPrimario" type="email" id="EmailR" name="email" placeholder="fulano@email.com" required><br>
 
                         <label for="SenhaR">Senha</label><br>
-                        <input class="FormularioCampoPrimario" type="password" id="SenhaR" name="senha" placeholder="****">
+                        <input class="FormularioCampoPrimario" type="password" id="SenhaR" name="senha" placeholder="****" required>
                         <button class="ExibirSenha" id="ExibirSenhaR" type="button"><img src="img/icone/ExibirSenha.png" width="25px" height="25px"></button><br>
 
                         <input type="hidden" name="tipo" value="cadastro">
@@ -54,16 +54,16 @@
                 <!-- Login-->
                 <div id="LoginMenu" class="LogOption">
                     <h1>Entrar na sua conta</h1>
-                    <form>
+                    <form id="LoginFormulario">
                         <label for="EmailL">E-mail</label><br>
-                        <input class="FormularioCampoPrimario" type="email" id="EmailL" name="email" placeholder="fulano@email.com"><br>
+                        <input class="FormularioCampoPrimario" type="email" id="EmailL" name="email" placeholder="fulano@email.com" required><br>
 
                         <label for="SenhaL">Senha</label><br>
-                        <input class="FormularioCampoPrimario" type="password" id="SenhaL" name="senha" placeholder="****">
+                        <input class="FormularioCampoPrimario" type="password" id="SenhaL" name="senha" placeholder="****" required>
                         <button class="ExibirSenha" id="ExibirSenhaL" type="button"><img src="img/icone/ExibirSenha.png" width="25px" height="25px"></button><br>
 
                         <input type="hidden" name="tipo" value="login">
-                        <button class="BotaoPrimario" type="submit">Entrar</button>
+                        <button class="BotaoPrimario" type="submit" onclick="sessionStorage.setItem('usuario',document.getElementById('LoginFormulario').elements['email'].value)">Entrar</button>
                     </form>
                 </div>
 
