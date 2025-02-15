@@ -1,4 +1,4 @@
-// Pesquisar no cabeçalho
+/*// Pesquisar no cabeçalho
 document.getElementById('CabecalhoPesquisa').addEventListener('submit', (event) => {
     // Previne o envio real do formulário
     event.preventDefault();
@@ -9,7 +9,7 @@ document.getElementById('CabecalhoPesquisa').addEventListener('submit', (event) 
     // Exibe um alerta com os dados preenchidos
     window.alert(`Pesquisa: ${pesquisa}`);
     document.getElementById('CabecalhoPesquisa').elements["pesquisa"].value = "";
-});
+});*/
 
 // Abrir o menu do cabeçalho em dispositivos pequenos
 document.getElementById('MenuIcone').addEventListener('click', () => {
