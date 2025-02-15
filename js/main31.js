@@ -13,8 +13,10 @@ document.querySelector('.MenuIcone').addEventListener('click', () => {
     let lista = document.querySelector('.Lista');
     if(lista.classList.contains("ativo")) {
         lista.classList.remove('ativo');
+        document.querySelector('.MenuIcone img').src = "img/icone/fechar.png";
     } else {
         lista.classList.add('ativo');
+        document.querySelector('.MenuIcone img').src = "img/icone/menu.png";
     };
 })
 

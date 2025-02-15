@@ -120,6 +120,9 @@ body {
             }
             /*Responsivo */
             @media (max-width: 960px) {
+                
+                font-size: 20px;
+
                 .Lista {
                     position: fixed;
                     top: 0;
@@ -129,9 +132,9 @@ body {
                     transition: 0.3s;
                     flex-direction: column;
                     justify-content: center;
+                    background-color: var(--cor-secundaria);
 
                     li {
-                        font-size: 20px;
                         margin: 20px 0;
                     }
                 }
