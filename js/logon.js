@@ -11,3 +11,21 @@ document.getElementById('RegistroOpcao').addEventListener('click', () => {
     document.querySelector('#RegistroOpcao').classList.add('ativo');
     document.querySelector('#RegistroMenu').classList.add('ativo');
 });
+
+// Exibir senha
+document.getElementById('ExibirSenha').addEventListener('submit', (event) => {
+    // Previne o envio real do formulário
+    event.preventDefault();
+
+    var x = document.getElementById("Senha");
+    
+    if (x.type === "password") {
+        x.type = "text";
+        x.placeholder = "1234";
+        document.querySelector('.ExibirSenha img').src = "img/icone/OcultarSenha.png";
+    } else {
+        x.type = "password";
+        x.placeholder = "****";
+        document.querySelector('.ExibirSenha img').src = "img/icone/ExibirSenha.png";
+    }
+});

@@ -7,6 +7,7 @@
     --cor-principal: #70522a;
     --cor-secundaria: #d4af7d;
     --cor-esbranquiçada: #f4ebdf;
+    --cor-branca: #ffffff;
     --cor-de-fundo: var(--cor-esbranquiçada);
     --botao-primario: var(--cor-principal);
     --botao-secundario: #00000000;
@@ -165,11 +166,11 @@ body {
         .LogonSeletor {
             display: flex;
             margin: 0 auto;
+            margin-top: 20px;
             background-color: var(--cor-secundaria);
             border-radius: 20px;
             max-width: fit-content;
             align-items: center;
-            align-content: center;
             
             .Opcao {
                 color: var(--cor-esbranquiçada);
@@ -180,6 +181,7 @@ body {
                 border: none;
                 font-family: var(--fonte-principal);
                 cursor: pointer;
+                font-variant: small-caps;
             }
 
             .Opcao:hover {
@@ -213,6 +215,7 @@ body {
                     margin: 10px;
 
                     input {
+                        background-color: var(--cor-branca);
                         width: 100%;
                         border: none;
                         padding: 3%;
@@ -223,7 +226,17 @@ body {
                     input:hover {
                         box-shadow: 0px 0px 0px 2px var(--cor-principal) inset;
                     }
-                    button {
+                    input[name="senha"] {
+                        max-width: 88%;
+                    }
+                    .ExibirSenha {
+                        max-width: 12%;
+                        margin-left: 10px;
+                        cursor: pointer;
+                        border: none;
+                        background-color: #00000000;
+                    }
+                    .BotaoPrimario {
                         margin-top: 15px;
                     }
                 }
