@@ -78,14 +78,14 @@ app.post('/login', async (req, res) => {
             return res.status(400).json({ message: 'Email e senha são obrigatórios' });
         }
 
-        const usersCollection = (await client).db('businesspro').collection('usuarios');
+        const usersCollection = db.collection('usuarios');
         const existingUser = await usersCollection.findOne({ email });
 
         if(existingUser) {
 
             if(existingUser.senha == senha) {
-                console.log('Usuário logado:', result);
-                res.status(201).json(result);
+                console.log('Usuário logado:', email);
+                return res.status(201).json(email);
             } else {
                 return res.status(409).json({ message: 'Senha incorreta' });
             }
