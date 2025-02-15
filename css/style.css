@@ -156,9 +156,14 @@ body {
     /*Corpo*/
     main {
         margin: 10px 10px;
-        
+
         h1 {
             color: var(--cor-escura);
+        }
+
+        .LogonSeletor {
+            display: flex;
+            margin: 10px;
         }
     }
 
