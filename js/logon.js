@@ -118,7 +118,7 @@ document.getElementById('LoginFormulario').addEventListener('submit', async (eve
                 }
                 console.log('Usuário logado:', data);
                 sessionStorage.setItem('usuario_logado', email);
-                window.location.href == "index";
+                window.location.href == "./index.html";
                 break;
         }
 
