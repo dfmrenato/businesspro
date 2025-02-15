@@ -101,17 +101,26 @@ document.getElementById('LoginFormulario').addEventListener('submit', async (eve
 
         const data = await response.json();
 
-        if (response.status == 404) {
-            alert('Conta inexistente. Verifique seu email e senha ou tente se cadastrar.');
-            return;
-        }
+        switch (response.status) {
+            case 404:
+                alert('Conta inexistente. Verifique seu email e senha ou tente se cadastrar.');
+                return;
+                break;
 
-        if (!response.ok) {
-            throw new Error(data.message || 'Falha na solicitação');
+            case 409:
+                alert('Senha incorreta para o e-mail informado!');
+                return;
+                break;
+        
+            default:
+                if (!response.ok) {
+                    throw new Error(data.message || 'Falha na solicitação');
+                }
+                console.log('Usuário logado:', data);
+                sessionStorage.setItem('usuario_logado', email);
+                window.location.href == "index";
+                break;
         }
-
-        console.log('Usuário logado:', data);
-        sessionStorage.setItem('usuario_logado', email);
 
     } catch (error) {
         console.error(error);

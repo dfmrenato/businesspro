@@ -83,7 +83,12 @@ app.post('/login', async (req, res) => {
 
         if(existingUser) {
 
-            if()
+            if(existingUser.senha == senha) {
+                console.log('Usuário logado:', result);
+                res.status(201).json(result);
+            } else {
+                return res.status(409).json({ message: 'Senha incorreta' });
+            }
 
         } else {
             return res.status(404).json({ message: 'E-mail não cadastrado' });
