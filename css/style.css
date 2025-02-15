@@ -221,15 +221,23 @@ body {
                         border-radius: 8px;
                         margin-bottom: 8px;
                     }
-                    input[name="senha"] {
+                    input[id="SenhaR"] {
                         max-width: 88%;
                     }
+                    input[id="SenhaL"] {
+                        max-width: 85%;
+                    }
                     .ExibirSenha {
-                        max-width: 12%;
                         margin-left: 10px;
                         cursor: pointer;
                         border: none;
                         background-color: #00000000;
+                    }
+                    .ExibirSenha[id="ExibirSenhaR"] {
+                        max-width: 12%;
+                    }
+                    .ExibirSenha[id="ExibirSenhaL"] {
+                        max-width: 15%;
                     }
                     .BotaoPrimario {
                         margin-top: 15px;
