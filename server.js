@@ -61,6 +61,12 @@ app.post('/add-user', async (req, res) => {
         console.log('Usuário inserido:', result);
         res.status(201).json(result);
 
+        // Cadastrar empresa
+        (await client).db('businesspro').collection('empresas').insertOne({
+            nome: empresa,
+            proprietario: (await (await client).db('businesspro').collection('usuarios').findOne({ empresa }))._id
+        })
+
     } catch (error) {
         console.error('Erro ao adicionar usuário:', error);
         res.status(500).json({ error_message: error.message });
@@ -97,7 +103,6 @@ app.post('/login', async (req, res) => {
         res.status(500).json({ error_message: error.message });
     }
 });
-
 
 // Iniciar o servidor
 app.listen(port, () => {
