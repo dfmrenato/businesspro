@@ -5,8 +5,6 @@ if(!sessionStorage.getItem('UsuarioLogado')) {
 
 // Selecionar uma aba
 const Abas = document.getElementsByClassName('BarraLateralItem');
-for (const aba in Abas) {
-    aba.addEventListener('click', () => {
-        Notificar('Título', 'Você foi moggado');
-    });
-}
+Abas.forEach(aba => {
+    alert(aba.innerHTML)
+});
