@@ -212,6 +212,12 @@ body {
                 flex-direction: column;
                 margin: 20px; 
 
+                /*Responsivo */
+                @media (max-width: 960px) {
+                    margin: none;
+                    margin-top: 10px;
+                }
+
                 form {
                     margin: 10px;
 
@@ -241,6 +247,7 @@ body {
                     }
                     .BotaoPrimario {
                         margin-top: 15px;
+                        justify-self: anchor-center;
                     }
                 }
             }
