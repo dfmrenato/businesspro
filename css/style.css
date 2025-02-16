@@ -413,7 +413,7 @@ body {
                         .BotaoSecundario {
                             color: var(--cor-principal);
                         }
-                        .BotaoPrimario:hover {
+                        .BotaoSecundario:hover {
                             color: var(--cor-esbranquiçada);
                         }
                     }
