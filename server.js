@@ -45,7 +45,7 @@ app.post('/add-user', async (req, res) => {
 
     try {
         if (!nome || !empresa || !email || !senha) {
-            return res.status(400).json({ message: 'Nome, empresa, email e senha são obrigatórios' });
+            return res.status(400).json({ error_message: 'Nome, empresa, email e senha são obrigatórios' });
         }
 
         const usersCollection = db.collection('usuarios');
@@ -54,7 +54,7 @@ app.post('/add-user', async (req, res) => {
         const existingUser = await usersCollection.findOne({ email });
 
         if (existingUser) {
-            return res.status(409).json({ message: 'E-mail já cadastrado' }); // Código 409 = Conflito
+            return res.status(409).json({ error_message: 'O e-mail informado já está cadastrado. Tente fazer login.' }); // Código 409 = Conflito
         }
 
         const newUser = { nome, empresa, email, senha };
@@ -65,7 +65,7 @@ app.post('/add-user', async (req, res) => {
 
     } catch (error) {
         console.error('Erro ao adicionar usuário:', error);
-        res.status(500).json({ message: 'Erro ao adicionar usuário', error: error.message });
+        res.status(500).json({ error_message: error.message });
     }
 });
 
@@ -75,7 +75,7 @@ app.post('/login', async (req, res) => {
 
     try {
         if (!email || !senha) {
-            return res.status(400).json({ message: 'Email e senha são obrigatórios' });
+            return res.status(400).json({ error_message: 'Email e senha são obrigatórios' });
         }
 
         const usersCollection = db.collection('usuarios');
@@ -87,16 +87,16 @@ app.post('/login', async (req, res) => {
                 console.log('Usuário logado:', email);
                 return res.status(201).json({ email: email, nome: existingUser.nome, empresa: existingUser.empresa});
             } else {
-                return res.status(409).json({ message: 'Senha incorreta' });
+                return res.status(409).json({ error_message: 'Senha incorreta para o e-mail informado.' });
             }
 
         } else {
-            return res.status(404).json({ message: 'E-mail não cadastrado' });
+            return res.status(404).json({ error_message: 'E-mail incorreto ou conta não cadastrada.' });
         }
         
     } catch (error) {
         console.error('Erro ao fazer login:', error);
-        res.status(500).json({ message: 'Erro ao fazer login', error: error.message });
+        res.status(500).json({ error_message: error.message });
     }
 });
 

@@ -65,14 +65,11 @@ document.getElementById('RegistroFormulario').addEventListener('submit', async (
         });
 
         const data = await response.json();
-
-        if (response.status == 409) {
-            Notificar('Erro de cadastro', 'E-mail já cadastrado. Use outro ou tente fazer login.', 'OK');
-            return;
-        }
+        
+        if(data.error_message) return Notificar(`Erro de cadastro`, `${data.error_message}`, 'OK');
 
         if (!response.ok) {
-            throw new Error(data.message || 'Falha na solicitação');
+            throw new Error('Falha na solicitação');
         }
 
         console.log('Usuário adicionado:', data);
@@ -84,7 +81,7 @@ document.getElementById('RegistroFormulario').addEventListener('submit', async (
         
     } catch (error) {
         console.error(error);
-        Notificar('Erro ao cadastrar', error, 'OK');
+        Notificar('Erro ao realizar cadastro', error, 'OK');
     }
 });
 
@@ -107,30 +104,18 @@ document.getElementById('LoginFormulario').addEventListener('submit', async (eve
 
         const data = await response.json();
 
-        switch (response.status) {
-            case 404:
-                Notificar('Erro de login', 'Conta inexistente. Verifique seu email e senha ou tente se cadastrar.', 'OK');
-                return;
-                break;
+        if(data.error_message) return Notificar(`Erro de login`, `${data.error_message}`, 'OK');
 
-            case 409:
-                Notificar('Erro de login', 'Senha incorreta para o e-mail informado!', 'OK');
-                return;
-                break;
-        
-            default:
-                if (!response.ok) {
-                    throw new Error(data.message || 'Falha na solicitação');
-                }
-                console.log('Usuário logado:', data.email);
-
-                sessionStorage.setItem('UsuarioLogado', data.email);
-                sessionStorage.setItem('UsuarioLogadoNome', data.nome);
-                sessionStorage.setItem('UsuarioLogadoEmpresa', data.empresa);
-
-                window.location.replace("./dashboard");
-                break;
+        if (!response.ok) {
+            throw new Error('Falha na solicitação');
         }
+        console.log('Usuário logado:', data.email);
+
+        sessionStorage.setItem('UsuarioLogado', data.email);
+        sessionStorage.setItem('UsuarioLogadoNome', data.nome);
+        sessionStorage.setItem('UsuarioLogadoEmpresa', data.empresa);
+
+        window.location.replace("./dashboard");
 
     } catch (error) {
         console.error(error);
