@@ -249,14 +249,16 @@ body {
                     transition-duration: 0.4s;
                     cursor: pointer;
                     background-color: var(--botao-secundario);
-
-                    a {
-                        color: var(--cor-esbranquiçada);
-                    }
+                    color: var(--cor-esbranquiçada);
                 }
-
+                .BarraLateralItem.ativo {
+                    background-color: var(--botao-primario);
+                }
                 .BarraLateralItem:hover {
                     background-color: var(--botao-primario);
+                }
+                .BarraLateralItem.ativo:hover {
+                    background-color: var(--cor-escura);
                 }
             }
         }
