@@ -23,10 +23,14 @@
                     <img src="img/BusinessPro.png" id="BarraLateralAvatar">
                     <p id="BarraLateralUsuarioInfo">
                         <span class="ItemDescricao">
-                            Nome do usuário
+                            <script>
+                                document.write(sessionStorage.getItem('UsuarioLogadoNome'))
+                            </script>
                         </span>
                         <span class="ItemDescricao">
-                            Nome da empresa
+                            <script>
+                                document.write(sessionStorage.getItem('UsuarioLogadoEmpresa'))
+                            </script>
                         </span>
                     </p>
                 </div>

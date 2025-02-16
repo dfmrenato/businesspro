@@ -128,7 +128,7 @@ document.getElementById('LoginFormulario').addEventListener('submit', async (eve
                 sessionStorage.setItem('UsuarioLogadoNome', data.nome);
                 sessionStorage.setItem('UsuarioLogadoEmpresa', data.empresa);
 
-                //window.location.replace("./dashboard");
+                window.location.replace("./dashboard");
                 break;
         }
 
