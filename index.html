@@ -21,20 +21,12 @@
                 <ul class="Lista">
                     <script>
                         if(sessionStorage.getItem('UsuarioLogado') != null) {
-                            document.write(`<li><a href="" class="BotaoSecundario">Painel de controle</a></li>`);
+                            document.write(`<li><a href="dashboard" class="BotaoSecundario">Painel de controle</a></li>`);
                             document.write(`<li><button class="BotaoPrimario" onclick="UsuarioSair()">Sair</button></li>`);
                         } else {
                             document.write(`<li><a href="logon"><button class="BotaoPrimario">Começar!</button></a></li>`);
                         }
                     </script>
-                    <!--
-                    <li>
-                        <form id="CabecalhoPesquisa">
-                            <input class="FormularioCampoPrimario" type="text" placeholder="Pesquisar" name="pesquisa">
-                            <button class="BotaoPrimario" type="submit"><img src="img/icone/pesquisa.png" width="20px" height="20px"></button>
-                        </form>
-                    </li>
-                    -->
                     
                 </ul>
                 <div class="MenuIcone">

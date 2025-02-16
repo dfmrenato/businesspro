@@ -75,7 +75,7 @@ document.getElementById('RegistroFormulario').addEventListener('submit', async (
         }
 
         console.log('Usuário adicionado:', data);
-        Notificar('Bem-vindo!', 'Usuário cadastrado com sucesso!', 'Prosseguir', () => {window.location.replace("./")});
+        Notificar('Bem-vindo!', 'Usuário cadastrado com sucesso!', 'Prosseguir', () => {window.location.replace("./dashboard")});
 
         sessionStorage.setItem('UsuarioLogado', email);
         
@@ -121,7 +121,7 @@ document.getElementById('LoginFormulario').addEventListener('submit', async (eve
                 }
                 console.log('Usuário logado:', data);
                 sessionStorage.setItem('UsuarioLogado', email);
-                window.location.replace("./");
+                window.location.replace("./dashboard");
                 break;
         }
 
