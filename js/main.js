@@ -12,28 +12,50 @@ document.getElementById('CabecalhoPesquisa').addEventListener('submit', (event) 
 });*/
 
 // Abrir o menu do cabeçalho em dispositivos pequenos
-document.getElementById('MenuIcone').addEventListener('click', () => {
-    let lista = document.querySelector('.Lista');
-    if(lista.classList.contains("ativo")) {
-        lista.classList.remove('ativo');
-        document.querySelector('.MenuIcone img').src = "img/icone/menu.png";
-    } else {
-        lista.classList.add('ativo');
-        document.querySelector('.MenuIcone img').src = "img/icone/fechar.png";
-    };
-})
+if(document.getElementById('MenuIcone')) {
+    document.getElementById('MenuIcone').addEventListener('click', () => {
+        let lista = document.querySelector('.Lista');
+        if(lista.classList.contains("ativo")) {
+            lista.classList.remove('ativo');
+            document.querySelector('.MenuIcone img').src = "img/icone/menu.png";
+        } else {
+            lista.classList.add('ativo');
+            document.querySelector('.MenuIcone img').src = "img/icone/fechar.png";
+        };
+    });
+};
 
 // Caixa de alerta personalizada
-//document.getElementById("BotaoExibirAlerta").addEventListener('click', () => {
-//    document.querySelector('#CaixaAlerta').classList.add('ativo');
-//});
-document.getElementById('CaixaAlertaConfirmar').addEventListener('click', () => {
-    document.querySelector('#CaixaAlerta').classList.remove('ativo');
-});
-function Notificar(titulo, texto, botao) {
-    if(!botao) botao = "Confirmar";
-    document.getElementById("CaixaAlertaTitulo").innerHTML = titulo;
-    document.getElementById("CaixaAlertaTexto").innerHTML = texto;
-    document.getElementById("CaixaAlertaConfirmar").innerHTML = botao;
-    document.querySelector('#CaixaAlerta').classList.add('ativo');
+if(document.getElementById('CaixaAlerta')) {
+    document.getElementById('CaixaAlertaConfirmar').addEventListener('click', () => {
+        document.querySelector('#CaixaAlerta').classList.remove('ativo');
+    });
+    function Notificar(titulo, texto, botao) {
+        if(!botao) botao = "Confirmar";
+        document.getElementById("CaixaAlertaTitulo").innerHTML = titulo;
+        document.getElementById("CaixaAlertaTexto").innerHTML = texto;
+        document.getElementById("CaixaAlertaConfirmar").innerHTML = botao;
+        document.querySelector('#CaixaAlerta').classList.add('ativo');
+    };
+} else {
+    document.write(`
+        <!-- Caixa de alerta personalizada-->
+        <div id="CaixaAlerta" class="CaixaAlerta">
+            <div class="CaixaAlertaConteudo">
+                <h2 id="CaixaAlertaTitulo">Título</h2>
+                <p id="CaixaAlertaTexto">This is a custom alert box</p>
+                <button id="CaixaAlertaConfirmar" class="BotaoPrimario">Confirma</button>
+            </div>
+        </div>
+    `);
+    document.getElementById('CaixaAlertaConfirmar').addEventListener('click', () => {
+        document.querySelector('#CaixaAlerta').classList.remove('ativo');
+    });
+    function Notificar(titulo, texto, botao) {
+        if(!botao) botao = "Confirmar";
+        document.getElementById("CaixaAlertaTitulo").innerHTML = titulo;
+        document.getElementById("CaixaAlertaTexto").innerHTML = texto;
+        document.getElementById("CaixaAlertaConfirmar").innerHTML = botao;
+        document.querySelector('#CaixaAlerta').classList.add('ativo');
+    };
 }
