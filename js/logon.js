@@ -122,10 +122,11 @@ document.getElementById('LoginFormulario').addEventListener('submit', async (eve
                 if (!response.ok) {
                     throw new Error(data.message || 'Falha na solicitação');
                 }
-                console.log('Usuário logado:', data);
+                console.log('Usuário logado:', data.email);
 
-                sessionStorage.setItem('UsuarioLogado', email);
-                
+                sessionStorage.setItem('UsuarioLogado', data.email);
+                sessionStorage.setItem('UsuarioLogadoNome', data.nome);
+                sessionStorage.setItem('UsuarioLogadoEmpresa', data.empresa);
 
                 //window.location.replace("./dashboard");
                 break;

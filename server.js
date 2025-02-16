@@ -85,7 +85,7 @@ app.post('/login', async (req, res) => {
 
             if(existingUser.senha == senha) {
                 console.log('Usuário logado:', email);
-                return res.status(201).json(email);
+                return res.status(201).json({ email: email, nome: existingUser.nome, empresa: existingUser.empresa});
             } else {
                 return res.status(409).json({ message: 'Senha incorreta' });
             }
