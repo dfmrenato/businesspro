@@ -17,10 +17,10 @@ if(document.getElementById('MenuIcone')) {
         let lista = document.querySelector('.Lista');
         if(lista.classList.contains("ativo")) {
             lista.classList.remove('ativo');
-            document.querySelector('.MenuIcone img').src = "img/icone/menu.png";
+            document.querySelector('.MenuIcone').innerHTML = '<i class="fa-solid fa-bars"></i>';
         } else {
             lista.classList.add('ativo');
-            document.querySelector('.MenuIcone img').src = "img/icone/fechar.png";
+            document.querySelector('.MenuIcone').innerHTML = '<i class="fa-solid fa-xmark"></i>';
         };
     });
 };
