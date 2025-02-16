@@ -9,7 +9,7 @@
     --cor-secundaria: #d4af7d;
     --cor-esbranquiçada: #f4ebdf;
     --cor-branca: #fff9ef;
-    --cor-de-fundo: var(--cor-branca);
+    --cor-de-fundo: var(--cor-esbranquiçada);
     --botao-primario: var(--cor-principal);
     --botao-secundario: #00000000;
     --fonte-principal: 'Poppins', sans-serif;
@@ -124,6 +124,11 @@ body {
     font-family: var(--fonte-principal);
     user-select: none;
     min-height: 100vh;
+
+    #BodyDashboard {
+        display: flex;
+        background-color: var(--cor-branca);
+    }
 
     /*Cabeçalho*/
     header {
@@ -249,16 +254,19 @@ body {
                     transition-duration: 0.4s;
                     cursor: pointer;
                     background-color: var(--botao-secundario);
-                    color: var(--cor-branca);
+                    color: var(--cor-secundaria);
                 }
                 .BarraLateralItem.ativo {
                     background-color: var(--cor-secundaria);
+                    color: var(--cor-branca);
                 }
                 .BarraLateralItem:hover {
                     background-color: var(--cor-secundaria);
+                    color: var(--cor-branca);
                 }
                 .BarraLateralItem.ativo:hover {
                     background-color: var(--cor-principal);
+                    color: var(--cor-branca);
                 }
             }
         }
@@ -273,13 +281,14 @@ body {
                 cursor: pointer;
                 border: none;
                 background-color: var(--botao-secundario);
-                color: var(--cor-branca);
+                color: var(--cor-secundaria);
                 font-size: 16px;
                 font-family: var(--fonte-principal);
             }
 
             .BarraLateralItem:hover {
                 background-color: var(--botao-primario);
+                color: var(--cor-branca);
             }
         }
 
