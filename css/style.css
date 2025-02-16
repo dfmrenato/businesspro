@@ -403,8 +403,17 @@ body {
                         max-width: 15%;
                     }
                     .LogOptionBotoes {
+                        display: flex;
                         margin-top: 15px;
                         justify-self: center;
+                        gap: 4px;
+                        
+                        .BotaoSecundario {
+                            color: var(--cor-principal);
+                        }
+                        .BotaoPrimario:hover {
+                            color: var(--cor-esbranquiçada);
+                        }
                     }
                 }
             }
