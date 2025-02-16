@@ -8,8 +8,8 @@
     --cor-principal: #70522a;
     --cor-secundaria: #d4af7d;
     --cor-esbranquiçada: #f4ebdf;
-    --cor-branca: #ffffff;
-    --cor-de-fundo: var(--cor-esbranquiçada);
+    --cor-branca: #fff9ef;
+    --cor-de-fundo: var(--cor-branca);
     --botao-primario: var(--cor-principal);
     --botao-secundario: #00000000;
     --fonte-principal: 'Poppins', sans-serif;
@@ -202,7 +202,7 @@ body {
 
     /*Barra lateral*/
     .BarraLateral {
-        background-color: var(--cor-secundaria);
+        background-color: var(--cor-esbranquiçada);
         font-family: 'Poppins', sans-serif;
         display: flex;
         flex-direction: column;
@@ -249,16 +249,16 @@ body {
                     transition-duration: 0.4s;
                     cursor: pointer;
                     background-color: var(--botao-secundario);
-                    color: var(--cor-esbranquiçada);
+                    color: var(--cor-branca);
                 }
                 .BarraLateralItem.ativo {
-                    background-color: var(--botao-primario);
+                    background-color: var(--cor-secundaria);
                 }
                 .BarraLateralItem:hover {
-                    background-color: var(--botao-primario);
+                    background-color: var(--cor-secundaria);
                 }
                 .BarraLateralItem.ativo:hover {
-                    background-color: var(--cor-escura);
+                    background-color: var(--cor-principal);
                 }
             }
         }
@@ -273,13 +273,9 @@ body {
                 cursor: pointer;
                 border: none;
                 background-color: var(--botao-secundario);
-                color: var(--cor-esbranquiçada);
+                color: var(--cor-branca);
                 font-size: 16px;
                 font-family: var(--fonte-principal);
-
-                a {
-                    color: var(--cor-esbranquiçada);
-                }
             }
 
             .BarraLateralItem:hover {
