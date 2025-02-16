@@ -50,10 +50,8 @@ app.post('/add-user', async (req, res) => {
 
         const usersCollection = db.collection('usuarios');
 
-        // Verifica se o e-mail já existe no banco de dados
-        const existingUser = await usersCollection.findOne({ email });
-
-        if (existingUser) {
+        // Verifica se o e-mail ou empresa já existe no banco de dados
+        if (await usersCollection.findOne({ email }) || usersCollection.findOne({ empresa })) {
             return res.status(409).json({ error_message: 'O e-mail informado já está cadastrado. Tente fazer login.' }); // Código 409 = Conflito
         }
 
