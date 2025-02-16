@@ -7,7 +7,7 @@
 
         <link rel="stylesheet" href="css/style.css">
 
-        <title>V2</title>
+        <title>V3</title>
         <link rel="shortcut icon" href="img/BusinessPro.png">
     </head>
     <body>
@@ -23,12 +23,13 @@
 
         <!-- Corpo -->
         <main>
-            <button id="BotaoExibirAlerta" class="BotaoPrimario">Exibir alerta</button>
+            <button id="BotaoExibirAlerta" class="BotaoPrimario" onclick="Notificar('Alerta','Teste de alerta','Tá bom')">Exibir alerta</button>
 
+            <!-- Caixa de alerta personalizada-->
             <div id="CaixaAlerta" class="CaixaAlerta">
                 <div class="CaixaAlertaConteudo">
-                    <h2>Título</h2>
-                    <p>This is a custom alert box</p>
+                    <h2 id="CaixaAlertaTitulo">Título</h2>
+                    <p id="CaixaAlertaTexto">This is a custom alert box</p>
                     <button id="CaixaAlertaConfirmar" class="BotaoPrimario">Confirma</button>
                 </div>
             </div>

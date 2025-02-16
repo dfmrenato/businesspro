@@ -24,9 +24,16 @@ document.getElementById('MenuIcone').addEventListener('click', () => {
 })
 
 // Caixa de alerta personalizada
-document.getElementById("BotaoExibirAlerta").addEventListener('click', () => {
-    document.querySelector('#CaixaAlerta').classList.add('ativo');
-});
+//document.getElementById("BotaoExibirAlerta").addEventListener('click', () => {
+//    document.querySelector('#CaixaAlerta').classList.add('ativo');
+//});
 document.getElementById('CaixaAlertaConfirmar').addEventListener('click', () => {
     document.querySelector('#CaixaAlerta').classList.remove('ativo');
 });
+function Notificar(titulo, texto, botao) {
+    if(!botao) botao = "Confirmar";
+    document.getElementById("CaixaAlertaTitulo").innerHTML = titulo;
+    document.getElementById("CaixaAlertaTexto").innerHTML = texto;
+    document.getElementById("CaixaAlertaConfirmar").innerHTML = botao;
+    document.querySelector('#CaixaAlerta').classList.add('ativo');
+}
