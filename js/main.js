@@ -49,8 +49,8 @@ if(document.getElementById('CaixaAlerta')) {
         <div id="CaixaAlerta" class="CaixaAlerta">
             <div class="CaixaAlertaConteudo">
                 <h2 id="CaixaAlertaTitulo">Título</h2>
-                <p id="CaixaAlertaTexto">This is a custom alert box</p>
-                <button id="CaixaAlertaConfirmar" class="BotaoPrimario">Confirma</button>
+                <p id="CaixaAlertaTexto">Contexto</p>
+                <button id="CaixaAlertaConfirmar" class="BotaoPrimario">Confirmar</button>
             </div>
         </div>
     `);
