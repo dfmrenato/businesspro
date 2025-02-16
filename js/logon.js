@@ -22,11 +22,11 @@ document.getElementById('ExibirSenhaR').addEventListener('click', (event) => {
     if (x.type === "password") {
         x.type = "text";
         x.placeholder = "1234";
-        document.querySelector('#ExibirSenhaR img').src = "img/icone/OcultarSenha.png";
+        document.querySelector('#ExibirSenhaR').innerHTML = '<i class="fa-solid fa-eye-slash"></i>';
     } else {
         x.type = "password";
         x.placeholder = "****";
-        document.querySelector('#ExibirSenhaR img').src = "img/icone/ExibirSenha.png";
+        document.querySelector('#ExibirSenhaR').innerHTML = '<i class="fa-solid fa-eye"></i>';
     }
 });
 document.getElementById('ExibirSenhaL').addEventListener('click', (event) => {
@@ -38,11 +38,11 @@ document.getElementById('ExibirSenhaL').addEventListener('click', (event) => {
     if (x.type === "password") {
         x.type = "text";
         x.placeholder = "1234";
-        document.querySelector('#ExibirSenhaL img').src = "img/icone/OcultarSenha.png";
+        document.querySelector('#ExibirSenhaL').innerHTML = '<i class="fa-solid fa-eye-slash"></i>';
     } else {
         x.type = "password";
         x.placeholder = "****";
-        document.querySelector('#ExibirSenhaL img').src = "img/icone/ExibirSenha.png";
+        document.querySelector('#ExibirSenhaL').innerHTML = '<i class="fa-solid fa-eye"></i>';
     }
 });
 
