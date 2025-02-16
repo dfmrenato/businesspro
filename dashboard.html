@@ -21,10 +21,7 @@
                 <ul class="Lista">
                     <script>
                         if(sessionStorage.getItem('UsuarioLogado') != null) {
-                            document.write(`<li><a href="" class="BotaoSecundario">Painel de controle</a></li>`);
-                            document.write(`<li><button class="BotaoPrimario" onclick="UsuarioSair()">Sair</button></li>`);
-                        } else {
-                            document.write(`<li><a href="logon"><button class="BotaoPrimario">Começar!</button></a></li>`);
+                            document.write(`<li><a href="" class="BotaoSecundario">Painel de controle</a></li>`)
                         }
                     </script>
                     <!--
@@ -35,7 +32,7 @@
                         </form>
                     </li>
                     -->
-                    
+                    <li><a href="logon"><button class="BotaoPrimario">Começar!</button></a></li>
                 </ul>
                 <div class="MenuIcone">
                     <button class="BotaoSecundario" id="MenuIcone"><img src="img/icone/menu.png" width="20px" height="20px"></button>

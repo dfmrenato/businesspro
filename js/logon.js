@@ -78,6 +78,7 @@ document.getElementById('RegistroFormulario').addEventListener('submit', async (
         Notificar('Bem-vindo!', 'Usuário cadastrado com sucesso!', 'Prosseguir', () => {window.location.replace("./")});
 
         sessionStorage.setItem('UsuarioLogado', email);
+        
     } catch (error) {
         console.error(error);
         Notificar('Erro ao cadastrar', error, 'OK');

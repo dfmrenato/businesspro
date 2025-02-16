@@ -76,3 +76,11 @@ if(document.getElementById('CaixaAlerta')) {
         }
     };
 }
+
+// Deslogar
+function UsuarioSair() {
+    if(sessionStorage.getItem('UsuarioLogado')) {
+        sessionStorage.removeItem('UsuarioLogado');
+    };
+    Notificar('Saiu da sua conta', 'Seus dados foram salvos e você foi desconectado(a) da sua conta.', 'Recarregar página', () => {location.reload();});
+}
