@@ -375,7 +375,11 @@ body {
                         cursor: pointer;
                         border: none;
                         background-color: var(--botao-secundario);
-                        color: var(--cor-branca);
+                        color: var(--cor-principal);
+                        transition-duration: 0.4s;
+                    }
+                    .ExibirSenha:hover {
+                        color: var(--cor-escura)
                     }
                     .ExibirSenha[id="ExibirSenhaR"] {
                         max-width: 12%;
