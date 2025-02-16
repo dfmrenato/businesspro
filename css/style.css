@@ -216,7 +216,7 @@ body {
     /*Barra lateral*/
     .BarraLateral {
         background-color: var(--cor-esbranquiçada);
-        font-family: 'Poppins', sans-serif;
+        font-family: var(--fonte-principal);
         display: flex;
         flex-direction: column;
         justify-content: space-between;
