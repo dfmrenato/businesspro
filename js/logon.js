@@ -51,6 +51,7 @@ document.getElementById('RegistroFormulario').addEventListener('submit', async (
     event.preventDefault();
     
     const nome = document.getElementById('RegistroFormulario').elements["nome"].value;
+    const empresa = document.getElementById('RegistroFormulario').elements["empresa"].value;
     const email = document.getElementById('RegistroFormulario').elements["email"].value;
     const senha = document.getElementById('RegistroFormulario').elements["senha"].value;
 
@@ -60,7 +61,7 @@ document.getElementById('RegistroFormulario').addEventListener('submit', async (
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ nome, email, senha })
+            body: JSON.stringify({ nome, empresa, email, senha })
         });
 
         const data = await response.json();
@@ -78,6 +79,8 @@ document.getElementById('RegistroFormulario').addEventListener('submit', async (
         Notificar('Bem-vindo!', 'Usuário cadastrado com sucesso!', 'Prosseguir', () => {window.location.replace("./dashboard")});
 
         sessionStorage.setItem('UsuarioLogado', email);
+        sessionStorage.setItem('UsuarioLogadoNome', nome);
+        sessionStorage.setItem('UsuarioLogadoEmpresa', empresa);
         
     } catch (error) {
         console.error(error);
@@ -120,8 +123,12 @@ document.getElementById('LoginFormulario').addEventListener('submit', async (eve
                     throw new Error(data.message || 'Falha na solicitação');
                 }
                 console.log('Usuário logado:', data);
+
                 sessionStorage.setItem('UsuarioLogado', email);
-                window.location.replace("./dashboard");
+                sessionStorage.setItem('UsuarioLogadoNome', nome);
+                sessionStorage.setItem('UsuarioLogadoEmpresa', empresa);
+
+                //window.location.replace("./dashboard");
                 break;
         }
 

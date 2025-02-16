@@ -41,11 +41,11 @@ app.get('/', (req, res) => {
 
 // Rota para adicionar um usuário
 app.post('/add-user', async (req, res) => {
-    const { nome, email, senha } = req.body;
+    const { nome, empresa, email, senha } = req.body;
 
     try {
-        if (!nome || !email || !senha) {
-            return res.status(400).json({ message: 'Nome, email e senha são obrigatórios' });
+        if (!nome || !empresa || !email || !senha) {
+            return res.status(400).json({ message: 'Nome, empresa, email e senha são obrigatórios' });
         }
 
         const usersCollection = db.collection('usuarios');
@@ -57,7 +57,7 @@ app.post('/add-user', async (req, res) => {
             return res.status(409).json({ message: 'E-mail já cadastrado' }); // Código 409 = Conflito
         }
 
-        const newUser = { nome, email, senha };
+        const newUser = { nome, empresa, email, senha };
         const result = await usersCollection.insertOne(newUser);
 
         console.log('Usuário inserido:', result);
