@@ -22,3 +22,15 @@ document.getElementById('MenuIcone').addEventListener('click', () => {
         document.querySelector('.MenuIcone img').src = "img/icone/fechar.png";
     };
 })
+
+// Caixa de alerta personalizada
+const CaixaDeAlerta = document.getElementById('CaixaAlerta');
+const ConfirmarAlerta = document.getElementById('CaixaAlertaConfirmar');
+
+document.getElementById("BotaoExibirAlerta").addEventListener('click', () => {
+    CaixaDeAlerta.style.display = 'flex';
+});
+
+ConfirmarAlerta.addEventListener('click', () => {
+    CaixaDeAlerta.style.display = 'none';
+});
