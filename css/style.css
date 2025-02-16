@@ -208,8 +208,9 @@ body {
         flex-direction: column;
         justify-content: space-between;
         height: 100vh;
-        position: fixed;
         border: none;
+        width: 7.5%;
+        transition-duration: 0.4s;
 
         #BarraLateralConteudo {
             padding: 12px;
@@ -287,6 +288,9 @@ body {
             }
         }
 
+    }
+    .BarraLateral:hover {
+        width: fit-content;
     }
 
     /*Corpo*/
