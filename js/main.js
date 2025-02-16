@@ -24,13 +24,9 @@ document.getElementById('MenuIcone').addEventListener('click', () => {
 })
 
 // Caixa de alerta personalizada
-const CaixaDeAlerta = document.getElementById('CaixaAlerta');
-const ConfirmarAlerta = document.getElementById('CaixaAlertaConfirmar');
-
 document.getElementById("BotaoExibirAlerta").addEventListener('click', () => {
-    CaixaDeAlerta.style.display = 'flex';
+    document.querySelector('#CaixaAlerta').classList.add('ativo');
 });
-
-ConfirmarAlerta.addEventListener('click', () => {
-    CaixaDeAlerta.style.display = 'none';
+document.getElementById('CaixaAlertaConfirmar').addEventListener('click', () => {
+    document.querySelector('#CaixaAlerta').classList.remove('ativo');
 });

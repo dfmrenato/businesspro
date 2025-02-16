@@ -105,7 +105,14 @@
             margin-bottom: 20px;
             color: var(--cor-secundaria);
         }
+
+        .BotaoPrimario {
+            justify-self: center;
+        }
     }
+}
+.CaixaAlerta.ativo {
+    display: flex;
 }
 
 /*Conteúdo principal do site*/
