@@ -19,6 +19,7 @@
     box-sizing: border-box;
     text-decoration: none;
     list-style: none;
+    user-select: none;
 }
 
 /*Classes reutilizáveis*/
@@ -83,6 +84,7 @@
     height: 100%;
     background-color: #00000055;
     backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
     justify-content: center;
     align-items: center;
 
