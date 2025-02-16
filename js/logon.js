@@ -66,7 +66,7 @@ document.getElementById('RegistroFormulario').addEventListener('submit', async (
         const data = await response.json();
 
         if (response.status == 409) {
-            alert('E-mail já cadastrado. Use outro ou tente fazer login.');
+            Notificar('Erro de cadastro', 'E-mail já cadastrado. Use outro ou tente fazer login.', 'OK');
             return;
         }
 
@@ -75,13 +75,12 @@ document.getElementById('RegistroFormulario').addEventListener('submit', async (
         }
 
         console.log('Usuário adicionado:', data);
-        alert('Usuário cadastrado com sucesso!');
+        Notificar('Bem-vindo!', 'Usuário cadastrado com sucesso!', 'Prosseguir', () => {window.location.replace("./")});
 
         sessionStorage.setItem('UsuarioLogado', email);
-        window.location.replace("./");
     } catch (error) {
         console.error(error);
-        alert('Erro ao cadastrar usuário: '+error);
+        Notificar('Erro ao cadastrar', error, 'OK');
     }
 });
 
@@ -106,12 +105,12 @@ document.getElementById('LoginFormulario').addEventListener('submit', async (eve
 
         switch (response.status) {
             case 404:
-                alert('Conta inexistente. Verifique seu email e senha ou tente se cadastrar.');
+                Notificar('Erro de login', 'Conta inexistente. Verifique seu email e senha ou tente se cadastrar.', 'OK');
                 return;
                 break;
 
             case 409:
-                alert('Senha incorreta para o e-mail informado!');
+                Notificar('Erro de login', 'Senha incorreta para o e-mail informado!', 'OK');
                 return;
                 break;
         
@@ -127,7 +126,7 @@ document.getElementById('LoginFormulario').addEventListener('submit', async (eve
 
     } catch (error) {
         console.error(error);
-        alert('Erro ao realizar login: '+error);
+        Notificar('Erro ao realizar login', error, 'OK');
     }
 
 })

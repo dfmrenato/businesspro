@@ -30,12 +30,18 @@ if(document.getElementById('CaixaAlerta')) {
     document.getElementById('CaixaAlertaConfirmar').addEventListener('click', () => {
         document.querySelector('#CaixaAlerta').classList.remove('ativo');
     });
-    function Notificar(titulo, texto, botao) {
+    function Notificar(titulo, texto, botao, botao_funcao) {
         if(!botao) botao = "Confirmar";
         document.getElementById("CaixaAlertaTitulo").innerHTML = titulo;
         document.getElementById("CaixaAlertaTexto").innerHTML = texto;
         document.getElementById("CaixaAlertaConfirmar").innerHTML = botao;
         document.querySelector('#CaixaAlerta').classList.add('ativo');
+        if(botao_funcao) {
+            document.getElementById('CaixaAlertaConfirmar').addEventListener('click', () => {
+                document.querySelector('#CaixaAlerta').classList.remove('ativo');
+                botao_funcao();
+            });
+        }
     };
 } else {
     document.write(`
@@ -57,5 +63,16 @@ if(document.getElementById('CaixaAlerta')) {
         document.getElementById("CaixaAlertaTexto").innerHTML = texto;
         document.getElementById("CaixaAlertaConfirmar").innerHTML = botao;
         document.querySelector('#CaixaAlerta').classList.add('ativo');
+        if(!botao) botao = "Confirmar";
+        document.getElementById("CaixaAlertaTitulo").innerHTML = titulo;
+        document.getElementById("CaixaAlertaTexto").innerHTML = texto;
+        document.getElementById("CaixaAlertaConfirmar").innerHTML = botao;
+        document.querySelector('#CaixaAlerta').classList.add('ativo');
+        if(botao_funcao) {
+            document.getElementById('CaixaAlertaConfirmar').addEventListener('click', () => {
+                document.querySelector('#CaixaAlerta').classList.remove('ativo');
+                botao_funcao();
+            });
+        }
     };
 }
