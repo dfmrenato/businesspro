@@ -374,7 +374,8 @@ body {
                         margin-left: 10px;
                         cursor: pointer;
                         border: none;
-                        background-color: #00000000;
+                        background-color: var(--botao-secundario);
+                        color: var(--cor-branca);
                     }
                     .ExibirSenha[id="ExibirSenhaR"] {
                         max-width: 12%;
