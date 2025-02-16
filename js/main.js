@@ -57,7 +57,7 @@ if(document.getElementById('CaixaAlerta')) {
     document.getElementById('CaixaAlertaConfirmar').addEventListener('click', () => {
         document.querySelector('#CaixaAlerta').classList.remove('ativo');
     });
-    function Notificar(titulo, texto, botao) {
+    function Notificar(titulo, texto, botao, botao_funcao) {
         if(!botao) botao = "Confirmar";
         document.getElementById("CaixaAlertaTitulo").innerHTML = titulo;
         document.getElementById("CaixaAlertaTexto").innerHTML = texto;
