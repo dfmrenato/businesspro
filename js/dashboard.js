@@ -15,6 +15,7 @@ Abas.forEach(aba => {
         });
 
         aba.classList.add('ativo');
+        alert(aba.children.namedItem('span').id)
 
     });
 });
