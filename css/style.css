@@ -303,7 +303,7 @@ body {
             margin: 0 auto;
             margin-top: 20px;
             background-color: var(--cor-secundaria);
-            border-radius: 20px;
+            border-radius: 40px;
             max-width: fit-content;
             align-items: center;
             
@@ -312,7 +312,7 @@ body {
                 background-color: #00000000;
                 transition-duration: 0.4s;
                 padding: 10px;
-                border-radius: 20px;
+                border-radius: 40px;
                 border: none;
                 font-family: var(--fonte-principal);
                 cursor: pointer;
