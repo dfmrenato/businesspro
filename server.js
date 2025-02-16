@@ -65,7 +65,9 @@ app.post('/add-user', async (req, res) => {
         (await client).db('businesspro').collection('empresas').insertOne({
             nome: empresa,
             proprietario: (await (await client).db('businesspro').collection('usuarios').findOne({ empresa }))._id
-        })
+        })/*.then(async (empresa_registrada) => {
+            (await (await client).db('businesspro').collection('usuarios').findOne({ email })).empresa = empresa_registrada.insertedId;
+        })*/
 
     } catch (error) {
         console.error('Erro ao adicionar usuário:', error);
