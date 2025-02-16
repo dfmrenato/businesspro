@@ -122,6 +122,8 @@ body {
     background-color: var(--cor-de-fundo);
     font-family: var(--fonte-principal);
     user-select: none;
+    min-height: 100vh;
+    display: flex;
 
     /*Cabeçalho*/
     header {
@@ -198,9 +200,47 @@ body {
         }
     }
 
+    /*Barra lateral*/
+    .BarraLateral {
+        background-color: var(--cor-secundaria);
+        font-family: 'Poppins', sans-serif;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100vh;
+        position: fixed;
+        border: none;
+
+        #BarraLateralUsuario {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 24px;
+
+            #BarraLateralAvatar {
+                width: 50px;
+                height: 50px;
+                object-fit: cover;
+                border-radius: 20px;
+            }
+
+            #BarraLateralUsuarioInfo {
+                display: flex;
+                flex-direction: column;
+
+                span:last-child {
+                    color: #6b6b6b;
+                    font-size: 12px;
+                }
+            }
+        }
+
+    }
+
     /*Corpo*/
     main {
         margin: 10px 10px;
+        display: inline-block;
 
         h1 {
             color: var(--cor-escura);
