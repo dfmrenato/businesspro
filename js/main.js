@@ -11,6 +11,8 @@ document.getElementById('CabecalhoPesquisa').addEventListener('submit', (event) 
     document.getElementById('CabecalhoPesquisa').elements["pesquisa"].value = "";
 });*/
 
+// Botões da caixa de alerta
+
 // Abrir o menu do cabeçalho em dispositivos pequenos
 if(document.getElementById('MenuIcone')) {
     document.getElementById('MenuIcone').addEventListener('click', () => {
@@ -26,48 +28,31 @@ if(document.getElementById('MenuIcone')) {
 };
 
 // Caixa de alerta personalizada
-if(document.getElementById('CaixaAlerta')) {
-    document.getElementById('CaixaAlertaConfirmar').addEventListener('click', () => {
-        document.querySelector('#CaixaAlerta').classList.remove('ativo');
-    });
-    function Notificar(titulo, texto, botao, botao_funcao) {
-        if(!botao) botao = "Confirmar";
-        document.getElementById("CaixaAlertaTitulo").innerHTML = titulo;
-        document.getElementById("CaixaAlertaTexto").innerHTML = texto;
-        document.getElementById("CaixaAlertaConfirmar").innerHTML = botao;
-        document.querySelector('#CaixaAlerta').classList.add('ativo');
-        if(botao_funcao) {
-            document.getElementById('CaixaAlertaConfirmar').addEventListener('click', () => {
-                document.querySelector('#CaixaAlerta').classList.remove('ativo');
-                botao_funcao();
-            });
-        }
-    };
-} else {
+if(!document.getElementById('CaixaAlerta')) {
     document.write(`
         <!-- Caixa de alerta personalizada-->
         <div id="CaixaAlerta" class="CaixaAlerta">
             <div class="CaixaAlertaConteudo">
                 <h2 id="CaixaAlertaTitulo">Título</h2>
                 <p id="CaixaAlertaTexto">Contexto</p>
-                <button id="CaixaAlertaConfirmar" class="BotaoPrimario">Confirmar</button>
+                <div class="CaixaAlertaFooter">
+                    <button id="CaixaAlertaConfirmar" class="BotaoPrimario">Confirmar</button>
+                </div>
             </div>
         </div>
     `);
+
     document.getElementById('CaixaAlertaConfirmar').addEventListener('click', () => {
         document.querySelector('#CaixaAlerta').classList.remove('ativo');
     });
+
     function Notificar(titulo, texto, botao, botao_funcao) {
         if(!botao) botao = "Confirmar";
         document.getElementById("CaixaAlertaTitulo").innerHTML = titulo;
         document.getElementById("CaixaAlertaTexto").innerHTML = texto;
         document.getElementById("CaixaAlertaConfirmar").innerHTML = botao;
         document.querySelector('#CaixaAlerta').classList.add('ativo');
-        if(!botao) botao = "Confirmar";
-        document.getElementById("CaixaAlertaTitulo").innerHTML = titulo;
-        document.getElementById("CaixaAlertaTexto").innerHTML = texto;
-        document.getElementById("CaixaAlertaConfirmar").innerHTML = botao;
-        document.querySelector('#CaixaAlerta').classList.add('ativo');
+
         if(botao_funcao) {
             document.getElementById('CaixaAlertaConfirmar').addEventListener('click', () => {
                 document.querySelector('#CaixaAlerta').classList.remove('ativo');

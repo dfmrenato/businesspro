@@ -113,6 +113,19 @@
             justify-self: center;
         }
     }
+
+    .CaixaAlertaFooter {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .BotaoSecundario {
+            color: var(--cor-principal);
+        }
+        .BotaoSecundario:hover {
+            color: var(--cor-esbranquiçada);
+        }
+    }
 }
 .CaixaAlerta.ativo {
     display: flex;
@@ -389,9 +402,9 @@ body {
                     .ExibirSenha[id="ExibirSenhaL"] {
                         max-width: 15%;
                     }
-                    .BotaoPrimario {
+                    .LogOptionBotoes {
                         margin-top: 15px;
-                        justify-self: anchor-center;
+                        justify-self: center;
                     }
                 }
             }
