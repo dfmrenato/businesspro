@@ -247,6 +247,7 @@ body {
                     border-radius: 8px;
                     transition-duration: 0.4s;
                     cursor: pointer;
+                    background-color: var(--botao-secundario);
 
                     a {
                         color: var(--cor-esbranquiçada);
@@ -261,15 +262,17 @@ body {
 
         #BarraLateralLogout {
             padding: 12px;
-            display: flex;
-            flex-direction: column;
-            gap: 4px;
 
             .BarraLateralItem {
                 padding: 10px;
                 border-radius: 8px;
                 transition-duration: 0.4s;
                 cursor: pointer;
+                border: none;
+                background-color: var(--botao-secundario);
+                color: var(--cor-esbranquiçada);
+                font-size: 16px;
+                font-family: var(--fonte-principal);
 
                 a {
                     color: var(--cor-esbranquiçada);
