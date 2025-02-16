@@ -5,6 +5,6 @@ if(!sessionStorage.getItem('UsuarioLogado')) {
 
 // Selecionar uma aba
 const Abas = document.getElementsByClassName('BarraLateralItem');
-Abas.forEach(aba => {
-    alert(aba.innerHTML)
+Array.from(Abas).forEach(aba => {
+    alert(aba.innerHTML);
 });
