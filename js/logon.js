@@ -125,8 +125,7 @@ document.getElementById('LoginFormulario').addEventListener('submit', async (eve
                 console.log('Usuário logado:', data);
 
                 sessionStorage.setItem('UsuarioLogado', email);
-                sessionStorage.setItem('UsuarioLogadoNome', nome);
-                sessionStorage.setItem('UsuarioLogadoEmpresa', empresa);
+                
 
                 //window.location.replace("./dashboard");
                 break;
