@@ -4,7 +4,17 @@ if(!sessionStorage.getItem('UsuarioLogado')) {
 }
 
 // Selecionar uma aba
-const Abas = document.getElementsByClassName('BarraLateralItem');
-Array.from(Abas).forEach(aba => {
-    alert(aba.innerHTML);
+const Abas = Array.from(document.getElementsByClassName('BarraLateralItem'));
+Abas.forEach(aba => {
+    aba.addEventListener('click', () => {
+
+        Abas.forEach((aba2) => {
+            if (aba2.classList.contains('ativo')) {
+                aba2.classList.remove('ativo');
+            };
+        });
+
+        aba.classList.add('ativo');
+
+    });
 });
