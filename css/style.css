@@ -246,6 +246,7 @@ body {
                     padding: 10px;
                     border-radius: 8px;
                     transition-duration: 0.4s;
+                    cursor: pointer;
 
                     a {
                         color: var(--cor-esbranquiçada);
@@ -258,9 +259,27 @@ body {
             }
         }
 
-        /*#BarraLateralLogout .BotaoSecundario {
-            justify-self: end;
-        }*/
+        #BarraLateralLogout {
+            padding: 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+
+            .BarraLateralItem {
+                padding: 10px;
+                border-radius: 8px;
+                transition-duration: 0.4s;
+                cursor: pointer;
+
+                a {
+                    color: var(--cor-esbranquiçada);
+                }
+            }
+
+            .BarraLateralItem:hover {
+                background-color: var(--botao-primario);
+            }
+        }
 
     }
 
