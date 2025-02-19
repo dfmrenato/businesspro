@@ -5,8 +5,8 @@
 /*Variáveis*/
 :root {
     --cor-escura: #1d1d1c;
-    --cor-principal: #2a2928;
-    --cor-secundaria: #2e2e2e;
+    --cor-principal: #101010;
+    --cor-secundaria: #4f4b4b;
     --cor-esbranquiçada: #f4ebdf;
     --cor-branca: #fff9ef;
     --cor-de-fundo: var(--cor-esbranquiçada);
