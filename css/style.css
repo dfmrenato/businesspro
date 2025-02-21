@@ -294,9 +294,16 @@ body {
                 font-size: 16px;
                 font-family: var(--fonte-principal);
             }
-
+            .BarraLateralItem.ativo {
+                background-color: var(--cor-secundaria);
+                color: var(--cor-branca);
+            }
             .BarraLateralItem:hover {
-                background-color: var(--botao-primario);
+                background-color: var(--cor-secundaria);
+                color: var(--cor-branca);
+            }
+            .BarraLateralItem.ativo:hover {
+                background-color: var(--cor-principal);
                 color: var(--cor-branca);
             }
         }
