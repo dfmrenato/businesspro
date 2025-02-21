@@ -56,6 +56,7 @@ document.getElementById('RegistroFormulario').addEventListener('submit', async (
     const senha = document.getElementById('RegistroFormulario').elements["senha"].value;
 
     try {
+        // Comunicação com o backend
         const response = await fetch('https://evolved-legible-spider.ngrok-free.app/add-user', {
             method: 'POST',
             headers: {
@@ -72,6 +73,7 @@ document.getElementById('RegistroFormulario').addEventListener('submit', async (
             throw new Error('Falha na solicitação');
         }
 
+        // Código específico
         console.log('Usuário adicionado:', data);
         Notificar('Bem-vindo!', 'Usuário cadastrado com sucesso!', 'Prosseguir', () => {window.location.replace("./dashboard")});
 
@@ -87,13 +89,13 @@ document.getElementById('RegistroFormulario').addEventListener('submit', async (
 
 // Logar com conta da DB
 document.getElementById('LoginFormulario').addEventListener('submit', async (event) => {
-
     event.preventDefault();
 
     const email = document.getElementById('LoginFormulario').elements["email"].value;
     const senha = document.getElementById('LoginFormulario').elements["senha"].value;
 
     try {
+        // Comunicação com o backend
         const response = await fetch('https://evolved-legible-spider.ngrok-free.app/login', {
             method: 'POST',
             headers: {
@@ -109,6 +111,8 @@ document.getElementById('LoginFormulario').addEventListener('submit', async (eve
         if (!response.ok) {
             throw new Error('Falha na solicitação');
         }
+
+        // Código específico
         console.log('Usuário logado:', data.email);
 
         sessionStorage.setItem('UsuarioLogado', data.email);
