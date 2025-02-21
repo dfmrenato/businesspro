@@ -149,6 +149,11 @@
             border: none;
             background-color: var(--cor-branca);
             font-family: var(--fonte-principal);
+            padding: 10px;
+            transition-duration: 0.4s;
+        }
+        select:hover {
+            box-shadow: 0px 0px 0px 2px var(--cor-principal) inset;
         }
     }
 }
