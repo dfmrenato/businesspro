@@ -130,6 +130,11 @@
 .CaixaAlerta.ativo {
     display: flex;
 }
+.CabecalhoPequeno {
+    background-color: var(--cor-secundaria);
+    border-radius: 200px;
+    display: flex;
+}
 
 /*Conteúdo principal do site*/
 body {
