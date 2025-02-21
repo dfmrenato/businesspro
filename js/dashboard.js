@@ -4,7 +4,7 @@ if(!sessionStorage.getItem('UsuarioLogado')) {
 }
 
 // Selecionar uma aba
-const Abas = Array.from(document.getElementsByClassName('BarraLateralItem')).filter(aba => aba.parentElement.id === "BarraLateralItens");
+const Abas = Array.from(document.getElementsByClassName('BarraLateralItem')).filter(aba => aba.onclick == null);
 const CorpoAbas = Array.from(document.getElementsByClassName('CorpoAba'));
 Abas.forEach(aba => {
     aba.addEventListener('click', () => {

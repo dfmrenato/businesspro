@@ -36,7 +36,7 @@
                 </div>
 
                 <!-- Lista de itens -->
-                <ul id="BarraLateralItens">
+                <ul class="BarraLateralItens">
 
                     <!-- Início -->
                     <li class="BarraLateralItem ativo">
@@ -70,6 +70,16 @@
                         </span>
                     </li>
 
+                </ul>
+
+            </div>
+
+            <!-- Conteúdo inferior -->
+            <div id="BarraLateralLogout">
+
+                <!-- Lista de itens -->
+                <ul class="BarraLateralItens">
+
                     <!-- Configurações -->
                     <li class="BarraLateralItem">
                         <i class="fa-solid fa-gear"></i>
@@ -78,19 +88,16 @@
                         </span>
                     </li>
 
+                    <!-- Sair da conta -->
+                    <button onclick="UsuarioSair()" class="BarraLateralItem" id="BarraLateralLogoutBotao">
+                        <i class="fa-solid fa-right-from-bracket"></i>
+                        <span class="ItemDescricao">
+                            Sair da conta
+                        </span>
+                    </button>
 
                 </ul>
 
-            </div>
-
-            <!-- Conteúdo inferior -->
-            <div id="BarraLateralLogout">
-                <button onclick="UsuarioSair()" class="BarraLateralItem" id="BarraLateralLogoutBotao">
-                    <i class="fa-solid fa-right-from-bracket"></i>
-                    <span class="ItemDescricao">
-                        Sair da conta
-                    </span>
-                </button>
             </div>
 
         </nav>

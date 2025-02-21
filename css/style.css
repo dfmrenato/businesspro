@@ -224,6 +224,33 @@ body {
         border: none;
         transition-duration: 0.4s;
 
+        .BarraLateralItens {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+
+            .BarraLateralItem {
+                padding: 10px;
+                border-radius: 8px;
+                transition-duration: 0.4s;
+                cursor: pointer;
+                background-color: var(--botao-secundario);
+                color: var(--cor-secundaria);
+            }
+            .BarraLateralItem.ativo {
+                background-color: var(--cor-secundaria);
+                color: var(--cor-branca);
+            }
+            .BarraLateralItem:hover {
+                background-color: var(--cor-secundaria);
+                color: var(--cor-branca);
+            }
+            .BarraLateralItem.ativo:hover {
+                background-color: var(--cor-principal);
+                color: var(--cor-branca);
+            }
+        }
+        
         #BarraLateralConteudo {
             padding: 12px;
 
@@ -251,32 +278,6 @@ body {
                 }
             }
 
-            #BarraLateralItens {
-                display: flex;
-                flex-direction: column;
-                gap: 4px;
-
-                .BarraLateralItem {
-                    padding: 10px;
-                    border-radius: 8px;
-                    transition-duration: 0.4s;
-                    cursor: pointer;
-                    background-color: var(--botao-secundario);
-                    color: var(--cor-secundaria);
-                }
-                .BarraLateralItem.ativo {
-                    background-color: var(--cor-secundaria);
-                    color: var(--cor-branca);
-                }
-                .BarraLateralItem:hover {
-                    background-color: var(--cor-secundaria);
-                    color: var(--cor-branca);
-                }
-                .BarraLateralItem.ativo:hover {
-                    background-color: var(--cor-principal);
-                    color: var(--cor-branca);
-                }
-            }
         }
 
         #BarraLateralLogout {
