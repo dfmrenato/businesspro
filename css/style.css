@@ -145,9 +145,10 @@
         }
         select {
             border-radius: 200px;
-            color: var(--cor-esbranquiçada);
+            color: var(--cor-principal);
             border: none;
-            background-color: var(--botao-primario);
+            background-color: var(--cor-branca);
+            font-family: var(--fonte-principal);
         }
     }
 }
