@@ -134,6 +134,16 @@
     background-color: var(--cor-secundaria);
     border-radius: 200px;
     display: flex;
+
+    form {
+        display: flex;
+        gap: 12px;
+        padding: 12px;
+        
+        input {
+            border-radius: 200px;
+        }
+    }
 }
 
 /*Conteúdo principal do site*/
