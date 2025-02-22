@@ -247,6 +247,7 @@ body {
         border: none;
         transition-duration: 0.4s;
         left: 0;
+        position: static;
 
         .BarraLateralItens {
             display: flex;
@@ -335,6 +336,8 @@ body {
         /*Responsivo */
         @media (max-width: 960px) {
             left: -100%;
+            position: relative;
+            width: 200px;
         }
 
     }
