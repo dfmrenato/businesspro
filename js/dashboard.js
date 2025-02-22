@@ -40,7 +40,7 @@ if(AbaPadrao) {
 }
 
 // Pesquisar funcionários
-document.getElementById('FuncionariosCabecalhoPesquisa').addEventListener('submit', async (event) => {
+document.getElementById('FuncionariosPesquisa').addEventListener('submit', async (event) => {
     event.preventDefault();
 
     const empresa = window.sessionStorage.getItem('UsuarioLogadoEmpresa');
