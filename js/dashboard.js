@@ -21,7 +21,7 @@ document.addEventListener("touchmove", function (e) {
 document.addEventListener("touchend", function () {
   setTimeout(() => {
     sidebar.style.left = "-100%"; // Esconde a sidebar após um tempo
-  }, 3000);
+  }, 5000);
 });
 
 
