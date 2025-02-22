@@ -30,7 +30,7 @@ if(document.getElementById('MenuIcone')) {
 // Caixa de alerta personalizada
 if(!document.getElementById('CaixaAlerta')) {
     document.write(`
-        <!-- Caixa de alerta personalizada-->
+        <!-- Caixa de alerta personalizada -->
         <div id="CaixaAlerta" class="CaixaAlerta">
             <div class="CaixaAlertaConteudo">
                 <h2 id="CaixaAlertaTitulo">Título</h2>
