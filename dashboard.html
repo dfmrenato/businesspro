@@ -39,36 +39,44 @@
                 <ul class="BarraLateralItens">
 
                     <!-- Início -->
-                    <li class="BarraLateralItem ativo">
-                        <i class="fa-solid fa-house"></i>
-                        <span name="span" id="LateralAbaInicio" class="BarraLateralItemDescricao">
-                            Início
-                        </span>
-                    </li>
+                    <a href="#Inicio">
+                        <li class="BarraLateralItem">
+                            <i class="fa-solid fa-house"></i>
+                            <span name="span" id="LateralAbaInicio" class="BarraLateralItemDescricao">
+                                Início
+                            </span>
+                        </li>
+                    </a>
 
                     <!-- Funcionários -->
-                    <li class="BarraLateralItem">
-                        <i class="fa-solid fa-people-group"></i>
-                        <span name="span" id="LateralAbaFuncionarios" class="BarraLateralItemDescricao">
-                            Funcionários
-                        </span>
-                    </li>
+                    <a href="#Funcionarios">
+                        <li class="BarraLateralItem">
+                            <i class="fa-solid fa-people-group"></i>
+                            <span name="span" id="LateralAbaFuncionarios" class="BarraLateralItemDescricao">
+                                Funcionários
+                            </span>
+                        </li>
+                    </a>
 
                     <!-- Produtos -->
-                    <li class="BarraLateralItem">
-                        <i class="fa-solid fa-bag-shopping"></i>
-                        <span name="span" id="LateralAbaProdutos" class="BarraLateralItemDescricao">
-                            Produtos
-                        </span>
-                    </li>
+                    <a href="#Produtos">
+                        <li class="BarraLateralItem">
+                            <i class="fa-solid fa-bag-shopping"></i>
+                            <span name="span" id="LateralAbaProdutos" class="BarraLateralItemDescricao">
+                                Produtos
+                            </span>
+                        </li>
+                    </a>
 
                     <!-- Estatísticas -->
-                    <li class="BarraLateralItem">
-                        <i class="fa-solid fa-chart-line"></i>
-                        <span name="span" id="LateralAbaEstatisticas" class="BarraLateralItemDescricao">
-                            Estatísticas
-                        </span>
-                    </li>
+                    <a href="#Estatisticas">
+                        <li class="BarraLateralItem">
+                            <i class="fa-solid fa-chart-line"></i>
+                            <span name="span" id="LateralAbaEstatisticas" class="BarraLateralItemDescricao">
+                                Estatísticas
+                            </span>
+                        </li>
+                    </a>
 
                 </ul>
 
@@ -81,12 +89,14 @@
                 <ul class="BarraLateralItens">
 
                     <!-- Configurações -->
-                    <li class="BarraLateralItem">
-                        <i class="fa-solid fa-gear"></i>
-                        <span name="span" id="LateralAbaConfiguracoes" class="BarraLateralItemDescricao">
-                            Configurações
-                        </span>
-                    </li>
+                    <a href="#Configuracoes">
+                        <li class="BarraLateralItem">
+                            <i class="fa-solid fa-gear"></i>
+                            <span name="span" id="LateralAbaConfiguracoes" class="BarraLateralItemDescricao">
+                                Configurações
+                            </span>
+                        </li>
+                    </a>
 
                     <!-- Sair da conta -->
                     <button onclick="UsuarioSair()" class="BarraLateralItem" id="BarraLateralLogoutBotao">
@@ -106,7 +116,7 @@
         <main>
             
             <!-- Início -->
-            <div class="CorpoAba ativo" id="CorpoAbaInicio">
+            <div class="CorpoAba" id="CorpoAbaInicio">
                 
                 <h1>Início</h1>
                 <p>Conteúdo da página</p>
@@ -118,7 +128,6 @@
             <div class="CorpoAba" id="CorpoAbaFuncionarios">
                 
                 <h1>Funcionários</h1>
-                <br>
 
                 <!-- Aba superior-->
                 <div id="FuncionariosCabecalhoPesquisa" class="CabecalhoPequeno">
@@ -137,7 +146,6 @@
                 </div>
 
                 <!-- Lista de funcionários -->
-                <br><h2>Lista de funcionários</h2>
                 <div class="FuncionariosLista" id="FuncionariosLista">
 
                 </div>

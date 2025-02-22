@@ -458,6 +458,12 @@ body {
 
         .CorpoAba {
             display: none;
+
+            #CorpoAbaFuncionarios {
+                #FuncionariosLista {
+                    background-color: red;
+                }
+            }
         }
         .CorpoAba.ativo {
             display: block;
