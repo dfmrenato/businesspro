@@ -480,6 +480,7 @@ body {
 
             .BotaoPrimario {
                 border-radius: 200px;
+                flex: 0 1;
             }
         }
 
