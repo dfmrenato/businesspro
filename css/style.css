@@ -134,27 +134,23 @@
     background-color: var(--cor-esbranquiçada);
     border-radius: 200px;
     display: flex;
+    gap: 12px;
+    padding: 12px;
 
-    form {
-        display: flex;
-        gap: 12px;
-        padding: 12px;
-
-        input {
-            border-radius: 200px;
-        }
-        select {
-            border-radius: 200px;
-            color: var(--cor-principal);
-            border: none;
-            background-color: var(--cor-branca);
-            font-family: var(--fonte-principal);
-            padding: 10px;
-            transition-duration: 0.4s;
-        }
-        select:hover {
-            box-shadow: 0px 0px 0px 2px var(--cor-principal) inset;
-        }
+    input {
+        border-radius: 200px;
+    }
+    select {
+        border-radius: 200px;
+        color: var(--cor-principal);
+        border: none;
+        background-color: var(--cor-branca);
+        font-family: var(--fonte-principal);
+        padding: 10px;
+        transition-duration: 0.4s;
+    }
+    select:hover {
+        box-shadow: 0px 0px 0px 2px var(--cor-principal) inset;
     }
 }
 
@@ -468,10 +464,24 @@ body {
         .CorpoAba.ativo {
             display: block;
         }
+
     }
 
 }
 #BodyDashboard {
     display: flex;
     background-color: var(--cor-branca);
+
+    main {
+        
+        .DashboardAbaSuperior {
+            display: flex;
+            gap: 12px;
+
+            .BotaoPrimario {
+                border-radius: 200px;
+            }
+        }
+
+    }
 }
