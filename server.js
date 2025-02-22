@@ -109,3 +109,6 @@ app.post('/login', async (req, res) => {
 app.listen(port, () => {
     console.log(`Servidor rodando na porta ${port}`);
 });
+process.on('uncaughtException', (error) => {
+    return console.error(`Exceção não capturada: `+error);
+})
