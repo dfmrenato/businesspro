@@ -175,7 +175,7 @@
                     </form>
 
                     <!-- Adicionar -->
-                    <button class="BotaoPrimario" id="BotaoAdicionarProdutos">Adicionar produto</button>
+                    <button class="BotaoPrimario" id="BotaoAdicionarProduto">Adicionar produto</button>
 
                 </div>
 
@@ -213,46 +213,48 @@
 
             <!-- Adição -->
 
-            <!-- Formulário de adição de produto -->
-            <div id="DashboardFormularioProduto" class="DashboardFormulario">
-                <div class="DashboardFormularioConteudo">
-                    <h2>Título</h2>
-                    <form id="AdicionarProduto">
-                        a
-                    </form>
-                    <div class="DashboardFormularioFooter">
-                        <button id="AdicionarProdutoBotao" class="BotaoPrimario">Confirmar</button>
-                    </div>
-                </div>
-            </div>
-            
             <!-- Formulário de adição de funcionário -->
             <div id="DashboardFormularioFuncionario" class="DashboardFormulario">
                 <div class="DashboardFormularioConteudo">
-                    <h2>Título</h2>
+                    <h2>Adicionar funcionário</h2>
                     <form id="AdicionarFuncionario">
-                        b
+                        
+                        <label for="NomeAF">Nome</label><br>
+                        <input class="FormularioCampoPrimario" type="text" id="NomeAF" name="nome" placeholder="Ovídio Antoninho Marques" required><br>
+
+                        <label for="FuncaoAF">Função</label><br>
+                        <input class="FormularioCampoPrimario" type="text" id="FuncaoAF" name="funcao" placeholder="Vendedor" required><br>
+
+
                     </form>
                     <div class="DashboardFormularioFooter">
+                        <button id="CancelarFuncionarioBotao" class="BotaoSecundario">Cancelar</button>
                         <button id="AdicionarFuncionarioBotao" class="BotaoPrimario">Confirmar</button>
                     </div>
                 </div>
             </div>
 
-            <!-- Edição -->
-
-            <!-- Formulário de edição de produto -->
-            <div id="DashboardFormularioProdutoEditar" class="DashboardFormulario">
+            <!-- Formulário de adição de produto -->
+            <div id="DashboardFormularioProduto" class="DashboardFormulario">
                 <div class="DashboardFormularioConteudo">
-                    <h2>Título</h2>
-                    <form id="EditarProduto">
-                        c
+                    <h2>Adicionar produto</h2>
+                    <form id="AdicionarProduto">
+                        
+                        <label for="NomeAP">Nome</label><br>
+                        <input class="FormularioCampoPrimario" type="text" id="NomeAP" name="nome" placeholder="Fotografia" required><br>
+
+                        <label for="ValorAP">Valor (em R$)</label><br>
+                        <input class="FormularioCampoPrimario" type="number" id="ValorAP" name="valor" placeholder="5" required><br>
+
                     </form>
                     <div class="DashboardFormularioFooter">
-                        <button id="EditarProdutoBotao" class="BotaoPrimario">Confirmar</button>
+                        <button id="CancelarProdutoBotao" class="BotaoSecundario">Cancelar</button>
+                        <button id="AdicionarProdutoBotao" class="BotaoPrimario">Adicionar</button>
                     </div>
                 </div>
             </div>
+
+            <!-- Edição -->
             
             <!-- Formulário de adição de funcionário -->
             <div id="DashboardFormularioFuncionarioEditar" class="DashboardFormulario">
@@ -263,6 +265,19 @@
                     </form>
                     <div class="DashboardFormularioFooter">
                         <button id="EditarFuncionarioBotao" class="BotaoPrimario">Confirmar</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Formulário de edição de produto -->
+            <div id="DashboardFormularioProdutoEditar" class="DashboardFormulario">
+                <div class="DashboardFormularioConteudo">
+                    <h2>Título</h2>
+                    <form id="EditarProduto">
+                        c
+                    </form>
+                    <div class="DashboardFormularioFooter">
+                        <button id="EditarProdutoBotao" class="BotaoPrimario">Confirmar</button>
                     </div>
                 </div>
             </div>

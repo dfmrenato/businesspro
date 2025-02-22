@@ -39,6 +39,17 @@ if(AbaPadrao) {
     CorpoAbas.find(caba => caba.id.replace("Corpo","Lateral") == aba.children.namedItem('span').id).classList.add('ativo');
 }
 
+/// Funcionários 
+
+// Abrir caixa de adição de funcionário
+document.getElementById("BotaoAdicionarFuncionario").addEventListener('click', (event) => {
+    document.getElementById("DashboardFormularioFuncionario").classList.add("ativo");
+});
+document.getElementById("CancelarFuncionarioBotao").addEventListener('click', (event) => {
+    document.getElementById("DashboardFormularioFuncionario").classList.remove("ativo");
+});
+
+// Adicionar funcionários 
 // Pesquisar funcionários
 document.getElementById('FuncionariosPesquisa').addEventListener('submit', async (event) => {
     event.preventDefault();
@@ -76,3 +87,13 @@ document.getElementById('FuncionariosPesquisa').addEventListener('submit', async
 })
 
 // Pegar funcionários
+
+/// Produtos
+
+// Abrir caixa de adição de produtos
+document.getElementById("BotaoAdicionarProduto").addEventListener('click', (event) => {
+    document.getElementById("DashboardFormularioProduto").classList.add("ativo");
+});
+document.getElementById("CancelarProdutoBotao").addEventListener('click', (event) => {
+    document.getElementById("DashboardFormularioProduto").classList.remove("ativo");
+});
