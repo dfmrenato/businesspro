@@ -112,7 +112,7 @@ app.get('/obter-funcionarios', async (req, res) => {
     try {
         
         const retorno = (await client).db('businesspro').collection('empresas').find();
-        return res.status(201).json({ funcionarios: retorno});
+        return res.status(201).json({ funcionarios: retorno.toArray()});
 
     } catch (error) {
         console.error('Erro ao obter funcionários:', error);
