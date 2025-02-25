@@ -105,6 +105,21 @@ app.post('/login', async (req, res) => {
     }
 });
 
+// Rota para informar funcionários
+app.post('/obter-funcionarios', async (req, res) => {
+    const { empresa } = req.body;
+
+    try {
+        
+        const retorno = await client
+
+    } catch (error) {
+        console.error('Erro ao obter funcionários:', error);
+        res.status(500).json({ error_message: error.message });
+    };
+
+})
+
 // Iniciar o servidor
 app.listen(port, () => {
     console.log(`Servidor rodando na porta ${port}`);
