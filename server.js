@@ -106,7 +106,7 @@ app.post('/login', async (req, res) => {
 });
 
 // Rota para informar funcionários
-app.post('/obter-funcionarios', async (req, res) => {
+app.get('/obter-funcionarios', async (req, res) => {
     const { empresa } = req.body;
 
     try {
