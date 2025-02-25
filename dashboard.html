@@ -151,40 +151,38 @@
                 <!-- Lista de funcionários -->
                 <div class="GradeLista" id="FuncionariosLista">
 
-                    <script>
-
+                    async () => {
                         let empresa = sessionStorage.getItem('UsuarioLogadoEmpresa');
 
                         try {
-                        // Comunicação com o backend
-                        const response = await fetch('https://evolved-legible-spider.ngrok-free.app/obter-funcionarios', {
-                            method: 'POST',
-                            headers: {
-                                'Content-Type': 'application/json'
-                            },
-                            body: JSON.stringify({ empresa })
-                        });
+                            // Comunicação com o backend
+                            const response = await fetch('https://evolved-legible-spider.ngrok-free.app/obter-funcionarios', {
+                                method: 'POST',
+                                headers: {
+                                    'Content-Type': 'application/json'
+                                },
+                                body: JSON.stringify({ empresa })
+                            });
 
-                        const data = await response.json();
+                            const data = await response.json();
 
-                        if(data.error_message) return Notificar(`Erro de requisição de funcionários`, `${data.error_message}`, 'OK');
+                            if(data.error_message) return Notificar(`Erro de requisição de funcionários`, `${data.error_message}`, 'OK');
 
-                        if (!response.ok) {
-                            throw new Error('Falha na solicitação');
+                            if (!response.ok) {
+                                throw new Error('Falha na solicitação');
+                            }
+
+                            // Código específico
+                            Array.from(data.funcionarios).forEach(element => {
+                                document.write(element)
+                            });
+                            
+
+                        } catch (error) {
+                            console.error(error);
+                            Notificar('Erro ao realizar login', error, 'OK');
                         }
-
-                        // Código específico
-                        Array.from(data.funcionarios).forEach(element => {
-                            document.write(element)
-                        });
-                        
-
-                    } catch (error) {
-                        console.error(error);
-                        Notificar('Erro ao realizar login', error, 'OK');
                     }
-
-                    </script>
 
                 </div>
 
