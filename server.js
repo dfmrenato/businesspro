@@ -111,7 +111,7 @@ app.post('/obter-funcionarios', async (req, res) => {
 
     try {
         
-        const retorno = db.collection('empresas').find();
+        const retorno = db.collection('funcionarios').find({ empresa });
         return res.status(201).json({ funcionarios: (await retorno.toArray())});
 
     } catch (error) {
@@ -124,7 +124,7 @@ app.post('/obter-funcionarios', async (req, res) => {
 })
 
 // Rota para adicionar um funcionário
-app.post('/add-user', async (req, res) => {
+app.post('/add-funcionario', async (req, res) => {
     const { nome, email, senha, empresa, funcao, datacriacao } = req.body;
 
     try {
