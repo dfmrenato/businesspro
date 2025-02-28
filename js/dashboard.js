@@ -109,7 +109,7 @@ async () => {
             throw new Error('Falha na solicitação');
         }
 
-        document.getElementById('FuncionariosLista').innerText = `${await data.funcionarios}`;
+        document.getElementById('FuncionariosLista').innerText = `${data.funcionarios}`;
         
 
     } catch (error) {
