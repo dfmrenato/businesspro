@@ -112,8 +112,8 @@ app.post('/obter-funcionarios', async (req, res) => {
     try {
         
         const retorno = (await client).db('businesspro').collection('empresas').find();
-        console.log("Retorno: "+retorno.toArray())
-        return res.status(201).json({ funcionarios: retorno.toArray()});
+        console.log("Retorno: "+await retorno.toArray())
+        return res.status(201).json({ funcionarios: await retorno.toArray()});
 
     } catch (error) {
         console.error('Erro ao obter funcionários:', error);
