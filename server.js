@@ -118,10 +118,38 @@ app.post('/obter-funcionarios', async (req, res) => {
 
         console.error('Erro ao obter funcionários:', error);
         res.status(500).json({ error_message: error.message });
-        
+
     };
 
 })
+
+// Rota para adicionar um funcionário
+app.post('/add-user', async (req, res) => {
+    const { nome, email, senha, empresa, funcao, datacriacao } = req.body;
+
+    try {
+        if (!nome || !empresa || !email || !senha || !funcao || !datacriacao) {
+            return res.status(400).json({ error_message: 'Nome, empresa, email, função, data de criação e senha são obrigatórios' });
+        }
+
+        const usersCollection = db.collection('funcionarios');
+
+        // Verifica se o e-mail ou empresa já existe no banco de dados
+        if (await usersCollection.findOne({ email, empresa })) {
+            return res.status(409).json({ error_message: 'Já existe um funcionário com esse e-mail na sua empresa.' }); // Código 409 = Conflito
+        }
+
+        const newUser = { nome, email, senha, empresa, funcao, datacriacao };
+        const result = await usersCollection.insertOne(newUser);
+
+        console.log('Funcionário inserido:', result);
+        res.status(201).json(result);
+
+    } catch (error) {
+        console.error('Erro ao adicionar funcionário:', error);
+        res.status(500).json({ error_message: error.message });
+    }
+});
 
 // Iniciar o servidor
 app.listen(port, () => {

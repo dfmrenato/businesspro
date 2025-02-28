@@ -50,6 +50,43 @@ document.getElementById("CancelarFuncionarioBotao").addEventListener('click', (e
 });
 
 // Adicionar funcionários 
+document.getElementById('AdicionarFuncionario').addEventListener('submit', async (event) => {
+    event.preventDefault();
+    
+    const nome = document.getElementById('AdicionarFuncionario').elements["nome"].value;
+    const funcao = document.getElementById('AdicionarFuncionario').elements["funcao"].value;
+    const empresa = sessionStorage.getItem('UsuarioLogadoEmpresa');
+    const email = document.getElementById('AdicionarFuncionario').elements["email"].value;
+    const senha = document.getElementById('AdicionarFuncionario').elements["senha"].value;
+    const datacriacao = new Date();
+
+    try {
+        // Comunicação com o backend
+        const response = await fetch('https://evolved-legible-spider.ngrok-free.app/add-funcionario', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ nome, email, senha, empresa, funcao, datacriacao })
+        });
+
+        const data = await response.json();
+        
+        if(data.error_message) return Notificar(`Erro de cadastro`, `${data.error_message}`, 'OK');
+
+        if (!response.ok) {
+            throw new Error('Falha na solicitação');
+        }
+
+        // Código específico
+        console.log('Funcionário adicionado:', data);
+        window.location.reload();
+        
+    } catch (error) {
+        console.error(error);
+        Notificar('Erro ao realizar cadastro', error, 'OK');
+    }
+});
 
 // Pesquisar funcionários
 document.getElementById('FuncionariosPesquisa').addEventListener('submit', async (event) => {
@@ -111,13 +148,13 @@ async function obterFuncionarios() {
 
         data.funcionarios.forEach(funcionario => {
             document.getElementById('FuncionariosLista').innerHTML +=
-            `<div>Nome: ${funcionario.nome}<br>Proprietario: ${funcionario.proprietario}</div>`;
+            `<div>Nome: ${funcionario.nome}<br>Email: ${funcionario.email}</div>`;
         })
         
 
     } catch (error) {
         console.error(error);
-        Notificar('Erro ao realizar login', error, 'OK');
+        Notificar('Erro ao obter funcionários', error, 'OK');
     }
 }
 obterFuncionarios();
