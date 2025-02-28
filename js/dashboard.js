@@ -3,28 +3,6 @@ if(!sessionStorage.getItem('UsuarioLogado')) {
     location.replace('./index');
 }
 
-// Sidebar oculta
-let startX = 0;
-let sidebar = document.getElementById("BarraLateral");
-
-document.addEventListener("touchstart", function (e) {
-  startX = e.touches[0].clientX;
-});
-document.addEventListener("touchmove", function (e) {
-  let moveX = e.touches[0].clientX;
-  let diff = moveX - startX;
-
-  if (startX < 50 && diff > 50) {
-    sidebar.style.left = "0"; // Exibe a sidebar
-  }
-});
-document.addEventListener("touchend", function () {
-  setTimeout(() => {
-    sidebar.style.left = "-100%"; // Esconde a sidebar após um tempo
-  }, 5000);
-});
-
-
 // Selecionar uma aba
 const Abas = Array.from(document.getElementsByClassName('BarraLateralItem')).filter(aba => aba.onclick == null);
 const CorpoAbas = Array.from(document.getElementsByClassName('CorpoAba'));

@@ -246,8 +246,6 @@ body {
         height: 100vh;
         border: none;
         transition-duration: 0.4s;
-        left: 0;
-        position: static;
 
         .BarraLateralItens {
             display: flex;
@@ -331,13 +329,6 @@ body {
                 background-color: var(--cor-principal);
                 color: var(--cor-branca);
             }
-        }
-
-        /*Responsivo */
-        @media (max-width: 960px) {
-            left: -100%;
-            position: relative;
-            width: 200px;
         }
 
     }
