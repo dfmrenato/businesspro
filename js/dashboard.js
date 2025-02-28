@@ -120,6 +120,7 @@ async function obterFuncionarios() {
         Notificar('Erro ao realizar login', error, 'OK');
     }
 }
+obterFuncionarios();
 
 /// Produtos
 
