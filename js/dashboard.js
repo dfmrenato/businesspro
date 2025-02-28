@@ -109,7 +109,10 @@ async () => {
             throw new Error('Falha na solicitação');
         }
 
-        console.log(data.funcionarios);
+        data.funcionarios.forEach(funcionario => {
+            document.getElementById('FuncionariosLista').innerHTML = document.getElementById('FuncionariosLista').innerHTML 
+            + `<div>Nome: ${funcionario.nome}\nProprietario: ${funcionario.proprietario}</div>`;
+        })
         
 
     } catch (error) {
