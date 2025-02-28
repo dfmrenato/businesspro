@@ -127,7 +127,6 @@ document.getElementById('FuncionariosPesquisa').addEventListener('submit', async
 // Pegar funcionários
 async function obterFuncionarios() {
     let empresa = sessionStorage.getItem('UsuarioLogadoEmpresa');
-    console.log("Rolou")
     try {
         // Comunicação com o backend
         const response = await fetch('https://evolved-legible-spider.ngrok-free.app/obter-funcionarios', {
@@ -146,13 +145,14 @@ async function obterFuncionarios() {
             throw new Error('Falha na solicitação');
         }
 
+        let datafunc = new Date(funcionario.datacriacao)
         data.funcionarios.forEach(funcionario => {
             document.getElementById('FuncionariosLista').innerHTML +=
             `<div>
-            <h2>${funcionario.nome}</h2><br>
-            Função: ${funcionario.funcao}<br>
-            Email: ${funcionario.email}<br>
-            Funcionário desde ${funcionario.datacriacao}
+            <h2>${funcionario.nome}</h2>
+            <h5>${funcionario.funcao}</h5>
+            ${funcionario.email}<br>
+            Funcionário desde ${datafunc.getDate()}/${datafunc.getMonth()}/${datafunc.getFullYear()}
             </div>`;
         })
         
