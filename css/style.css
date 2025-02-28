@@ -158,7 +158,6 @@
 .GradeLista {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(99, 1fr);
     gap: 8px;
     margin-top: 10px;
 
