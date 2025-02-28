@@ -88,37 +88,34 @@ document.getElementById('FuncionariosPesquisa').addEventListener('submit', async
 })
 
 // Pegar funcionários
-async () => {
-    let empresa = sessionStorage.getItem('UsuarioLogadoEmpresa');
+let empresa = sessionStorage.getItem('UsuarioLogadoEmpresa');
+try {
+    // Comunicação com o backend
+    const response = await fetch('https://evolved-legible-spider.ngrok-free.app/obter-funcionarios', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ empresa })
+    });
 
-    try {
-        // Comunicação com o backend
-        const response = await fetch('https://evolved-legible-spider.ngrok-free.app/obter-funcionarios', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ empresa })
-        });
+    const data = await response.json();
 
-        const data = await response.json();
+    if(data.error_message) Notificar(`Erro de requisição de funcionários`, `${data.error_message}`, 'OK');
 
-        if(data.error_message) return Notificar(`Erro de requisição de funcionários`, `${data.error_message}`, 'OK');
-
-        if (!response.ok) {
-            throw new Error('Falha na solicitação');
-        }
-
-        data.funcionarios.forEach(funcionario => {
-            document.getElementById('FuncionariosLista').innerHTML = document.getElementById('FuncionariosLista').innerHTML 
-            + `<div>Nome: ${funcionario.nome}\nProprietario: ${funcionario.proprietario}</div>`;
-        })
-        
-
-    } catch (error) {
-        console.error(error);
-        Notificar('Erro ao realizar login', error, 'OK');
+    if (!response.ok) {
+        throw new Error('Falha na solicitação');
     }
+
+    data.funcionarios.forEach(funcionario => {
+        document.getElementById('FuncionariosLista').innerHTML +=
+        `<div>Nome: ${funcionario.nome}<br>Proprietario: ${funcionario.proprietario}</div>`;
+    })
+    
+
+} catch (error) {
+    console.error(error);
+    Notificar('Erro ao realizar login', error, 'OK');
 }
 
 /// Produtos
