@@ -50,6 +50,7 @@ document.getElementById("CancelarFuncionarioBotao").addEventListener('click', (e
 });
 
 // Adicionar funcionários 
+
 // Pesquisar funcionários
 document.getElementById('FuncionariosPesquisa').addEventListener('submit', async (event) => {
     event.preventDefault();
@@ -87,6 +88,35 @@ document.getElementById('FuncionariosPesquisa').addEventListener('submit', async
 })
 
 // Pegar funcionários
+async () => {
+    let empresa = sessionStorage.getItem('UsuarioLogadoEmpresa');
+
+    try {
+        // Comunicação com o backend
+        const response = await fetch('https://evolved-legible-spider.ngrok-free.app/obter-funcionarios', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ empresa })
+        });
+
+        const data = await response.json();
+
+        if(data.error_message) return Notificar(`Erro de requisição de funcionários`, `${data.error_message}`, 'OK');
+
+        if (!response.ok) {
+            throw new Error('Falha na solicitação');
+        }
+
+        document.getElementById('FuncionariosLista').innerText = `${data.funcionarios}`;
+        
+
+    } catch (error) {
+        console.error(error);
+        Notificar('Erro ao realizar login', error, 'OK');
+    }
+}
 
 /// Produtos
 
