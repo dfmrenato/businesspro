@@ -148,7 +148,12 @@ async function obterFuncionarios() {
 
         data.funcionarios.forEach(funcionario => {
             document.getElementById('FuncionariosLista').innerHTML +=
-            `<div>Nome: ${funcionario.nome}<br>Email: ${funcionario.email}</div>`;
+            `<div>
+            <h2>${funcionario.nome}</h2><br>
+            Função: ${funcionario.funcao}<br>
+            Email: ${funcionario.email}<br>
+            Funcionário desde ${funcionario.datacriacao}
+            </div>`;
         })
         
 
