@@ -112,7 +112,7 @@ app.post('/obter-funcionarios', async (req, res) => {
     try {
         
         const retorno = db.collection('empresas').find();
-        console.log("Retorno: "+(await retorno).toArray())
+        console.log("Retorno: "+(await retorno.toArray()))
         return res.status(201).json({ funcionarios: (await retorno).toArray()});
 
     } catch (error) {
