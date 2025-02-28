@@ -130,6 +130,7 @@
 .CaixaAlerta.ativo {
     display: flex;
 }
+
 .CabecalhoPequeno {
     background-color: var(--cor-esbranquiçada);
     border-radius: 200px;
@@ -151,6 +152,20 @@
     }
     select:hover {
         box-shadow: 0px 0px 0px 2px var(--cor-principal) inset;
+    }
+}
+
+.GradeLista {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(99, 1fr);
+    gap: 8px;
+    margin-top: 10px;
+
+    div {
+        background-color: var(--cor-de-fundo);
+        padding: 10px;
+        border-radius: 10px;
     }
 }
 
