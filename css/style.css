@@ -161,11 +161,17 @@
     gap: 8px;
     margin-top: 10px;
     overflow-wrap: break-word;
+    transition-duration: 0.4s;
 
     div {
         background-color: var(--cor-de-fundo);
         padding: 10px;
         border-radius: 10px;
+        transition-duration: 0.4s;
+    }
+    div:hover {
+        background-color: var(--cor-branca);
+        padding: 16px;
     }
 }
 
