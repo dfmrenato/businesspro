@@ -11,6 +11,31 @@ document.getElementById('CabecalhoPesquisa').addEventListener('submit', (event) 
     document.getElementById('CabecalhoPesquisa').elements["pesquisa"].value = "";
 });*/
 
+// Carregar EmailJS
+(function() {
+    // https://dashboard.emailjs.com/admin/account
+    emailjs.init({
+        publicKey: "8aKoHvVdxMzLMZv2B",
+    });
+})();
+
+// Função enviar email
+function EnviarEmail(assunto, mensagem, remetente, destinatario) {
+    emailjs.send('service_mr1z653', 'template_8qj7bar', {
+        subject: assunto,
+        message: mensagem,
+        email: destinatario,
+        name: remetente
+    }).then(
+        (response) => {
+            console.log('SUCESSO!', response.status, response.text);
+        },
+        (error) => {
+            console.log('FALHOU...', error);
+        },
+    );
+}
+
 // Botões da caixa de alerta
 
 // Abrir o menu do cabeçalho em dispositivos pequenos
