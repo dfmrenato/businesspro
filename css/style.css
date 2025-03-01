@@ -283,7 +283,7 @@ body {
                 color: var(--cor-secundaria);
                 display: flex;
                 align-items: center;
-                gap: 10px;
+                justify-content: center;
 
                 i {
                     display: flex;
@@ -291,6 +291,13 @@ body {
                     height: 20px;
                     align-items: center;
                     justify-content: center;
+                }
+
+                .BarraLateralItemDescricao {
+                    width: 0px;
+                    overflow: hidden;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
                 }
             }
             .BarraLateralItem.ativo {
@@ -336,8 +343,17 @@ body {
 
             #BotaoBarraLateralAbrir {
                 position: absolute;
-                top: 30px;
+                top: 20px;
                 right: -10px;
+                background-color: var(--cor-secundaria);
+                color: var(--cor-branca);
+                padding: 5px;
+                border-radius: 999px;
+                transition-duration: 0.4s;
+                cursor: pointer;
+            }
+            #BotaoBarraLateralAbrir:hover {
+                background-color: var(--cor-principal);
             }
 
         }
@@ -513,7 +529,8 @@ body {
     background-color: var(--cor-branca);
 
     main {
-        
+        margin-left: 20px;
+
         .DashboardAbaSuperior {
             display: flex;
             gap: 12px;
@@ -523,7 +540,6 @@ body {
                 flex: 0 1;
             }
         }
-
     }
 
     .DashboardSobreposicoes {
