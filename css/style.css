@@ -277,6 +277,7 @@ body {
         transition: all .5s;
         min-width: 82px;
         max-width: 82px;
+        position: fixed;
 
         .BarraLateralItens {
             display: flex;
@@ -564,8 +565,7 @@ body {
     background-color: var(--cor-branca);
 
     main {
-        margin-left: 20px;
-        overflow-y: scroll;
+        margin-left: 102px;
 
         .DashboardAbaSuperior {
             display: flex;
