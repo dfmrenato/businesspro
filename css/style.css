@@ -559,7 +559,7 @@ body {
 
     main {
         margin-left: 20px;
-        overflow: scroll;
+        overflow-y: scroll;
 
         .DashboardAbaSuperior {
             display: flex;
