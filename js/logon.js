@@ -125,7 +125,9 @@ document.getElementById('RegistroFormulario').addEventListener('submit', async (
         // Código específico
         sessionStorage.setItem('VerificacaoEmail', email)
         EnviarEmail(`Criação de conta empresarial Business PRO`, `Seu código de verificação é ${data.codigo}`, "Business PRO", email)
-        location.replace('./verify');
+        .then(() => {
+            location.replace('./verify');
+        });
         
     } catch (error) {
         console.error(error);

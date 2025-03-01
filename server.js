@@ -115,36 +115,36 @@ app.post('/verify-email-success', async (req, res) => {
 
     let usuario = (await client).db('businesspro').collection('temporario').findOne({ temporario_tipo, email, codigo });
 
-    if(await usuario) {
+    if((await usuario) != null) {
 
         try {
     
             const usersCollection = db.collection('usuarios');
     
             // Verifica se o e-mail ou empresa já existe no banco de dados
-            if (await usersCollection.findOne({ email }) || await usersCollection.findOne({ empresa: usuario.empresa }) && tipo == "empresarial") {
+            if (await usersCollection.findOne({ email }) || await usersCollection.findOne({ empresa: (await usuario).empresa }) && tipo == "empresarial") {
                 return res.status(409).json({ error_message: 'Já existe um usuário com este e-mail ou empresa. Tente fazer login ou alterá-los.' }); // Código 409 = Conflito
             }
             
             const newUser = {
-                nome: usuario.nome,
-                tipo: usuario.tipo,
-                empresa: usuario.empresa,
-                email: usuario.email,
-                senha: usuario.senha,
-                data_criacao: usuario.data_criacao
+                nome: (await usuario).nome,
+                tipo: (await usuario).tipo,
+                empresa: (await usuario).empresa,
+                email: (await usuario).email,
+                senha: (await usuario).senha,
+                data_criacao: (await usuario).data_criacao
             };
             const result = await usersCollection.insertOne(newUser);
     
             console.log('Usuário inserido:', result);
-            res.status(201).json({ email: usuario.email, nome: usuario.nome, empresa: usuario.empresa});
+            res.status(201).json({ email: (await usuario).email, nome: (await usuario).nome, empresa: (await usuario).empresa});
     
-            if(usuario.tipo == "empresarial") {
+            if((await usuario).tipo == "empresarial") {
                 // Cadastrar empresa
                 (await client).db('businesspro').collection('empresas').insertOne({
-                    nome: usuario.empresa,
-                    proprietario: (await (await client).db('businesspro').collection('usuarios').findOne({ empresa: usuario.empresa }))._id,
-                    data_criacao: usuario.data_criacao,
+                    nome: (await usuario).empresa,
+                    proprietario: (await (await client).db('businesspro').collection('usuarios').findOne({ empresa: (await usuario).empresa }))._id,
+                    data_criacao: (await usuario).data_criacao,
                 })/*.then(async (empresa_registrada) => {
                     (await (await client).db('businesspro').collection('usuarios').findOne({ email })).empresa = empresa_registrada.insertedId;
                 })*/
