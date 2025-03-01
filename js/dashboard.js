@@ -109,7 +109,7 @@ async function obterFuncionarios(filtrar=false, filtro_tipo=undefined, filtro_va
             throw new Error('Falha na solicitação');
         }
 
-        let funcionarios_local = data.funcionarios.sort((a, b) => b.nome - a.nome);
+        let funcionarios_local = data.funcionarios;
 
         if(filtrar) {
             switch (filtro_tipo) {
@@ -129,6 +129,8 @@ async function obterFuncionarios(filtrar=false, filtro_tipo=undefined, filtro_va
                     funcionarios_local = funcionarios_local.sort((a, b) => b.nome - a.nome).filter(func => func.nome.toUpperCase().includes(filtro_valor.toUpperCase()));
                     break;
             }
+        } else {
+            funcionarios_local = funcionarios_local.sort((a, b) => b.nome - a.nome);
         }
 
         document.getElementById('FuncionariosLista').innerHTML = "";
