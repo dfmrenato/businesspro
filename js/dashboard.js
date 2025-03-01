@@ -3,6 +3,11 @@ if(!sessionStorage.getItem('UsuarioLogado')) {
     location.replace('./index');
 }
 
+// Abrir aba
+document.getElementById('BotaoBarraLateralAbrir').addEventListener('click', () => {
+    document.getElementById('BarraLateral').classList.toggle('aberta')
+});
+
 // Selecionar uma aba
 const Abas = Array.from(document.getElementsByClassName('BarraLateralItem')).filter(aba => aba.onclick == null);
 const CorpoAbas = Array.from(document.getElementsByClassName('CorpoAba'));
