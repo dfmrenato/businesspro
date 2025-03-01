@@ -22,12 +22,12 @@
                 <div id="BarraLateralUsuario">
                     <img src="img/BusinessPro.png" id="BarraLateralAvatar">
                     <p id="BarraLateralUsuarioInfo">
-                        <span class="ItemDescricao">
+                        <span class="BarraLateralItemDescricao">
                             <script>
                                 document.write(sessionStorage.getItem('UsuarioLogadoNome'))
                             </script>
                         </span>
-                        <span class="ItemDescricao">
+                        <span class="BarraLateralItemDescricao">
                             <script>
                                 document.write(sessionStorage.getItem('UsuarioLogadoEmpresa'))
                             </script>
@@ -106,7 +106,7 @@
                     <!-- Sair da conta -->
                     <button onclick="UsuarioSair()" class="BarraLateralItem" id="BarraLateralLogoutBotao">
                         <i class="fa-solid fa-right-from-bracket"></i>
-                        <span class="ItemDescricao">
+                        <span class="BarraLateralItemDescricao">
                             Sair da conta
                         </span>
                     </button>
