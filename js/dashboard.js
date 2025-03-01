@@ -63,7 +63,7 @@ document.getElementById('AdicionarFuncionario').addEventListener('submit', async
     const empresa = sessionStorage.getItem('UsuarioLogadoEmpresa');
     const email = document.getElementById('AdicionarFuncionario').elements["email"].value;
     const senha = document.getElementById('AdicionarFuncionario').elements["senha"].value;
-    const datacriacao = new Date();
+    const data_criacao = new Date();
 
     try {
         // Comunicação com o backend
@@ -72,7 +72,7 @@ document.getElementById('AdicionarFuncionario').addEventListener('submit', async
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ nome, email, senha, empresa, funcao, datacriacao })
+            body: JSON.stringify({ nome, email, senha, empresa, funcao, data_criacao })
         });
 
         const data = await response.json();
@@ -127,7 +127,7 @@ async function obterFuncionarios(filtrar=false, filtro_tipo="", filtro_valor="")
                     break;
 
                 case "data":
-                    funcionarios_local = funcionarios_local.sort((a, b) => new Date(b.datacriacao) - new Date(a.datacriacao));
+                    funcionarios_local = funcionarios_local.sort((a, b) => new Date(b.data_criacao) - new Date(a.data_criacao));
                     break;
             
                 default:
@@ -140,7 +140,7 @@ async function obterFuncionarios(filtrar=false, filtro_tipo="", filtro_valor="")
 
         funcionarios_local.forEach(funcionario => {
 
-            let datafunc = new Date(funcionario.datacriacao);
+            let datafunc = new Date(funcionario.data_criacao);
 
             document.getElementById('FuncionariosLista').innerHTML +=
             `<div>

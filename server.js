@@ -40,33 +40,36 @@ app.get('/', (req, res) => {
 
 // Rota para adicionar um usuário
 app.post('/add-user', async (req, res) => {
-    const { nome, empresa, email, senha } = req.body;
+    const { nome, tipo, empresa, email, senha, data_criacao } = req.body;
 
     try {
-        if (!nome || !empresa || !email || !senha) {
+        if (!nome || !tipo || !empresa || !email || !senha || !data_criacao) {
             return res.status(400).json({ error_message: 'Nome, empresa, email e senha são obrigatórios' });
         }
 
         const usersCollection = db.collection('usuarios');
 
         // Verifica se o e-mail ou empresa já existe no banco de dados
-        if (await usersCollection.findOne({ email }) || await usersCollection.findOne({ empresa })) {
+        if (await usersCollection.findOne({ email }) || await usersCollection.findOne({ empresa }) && tipo == "empresarial") {
             return res.status(409).json({ error_message: 'Já existe um usuário com este e-mail ou empresa. Tente fazer login ou alterá-los.' }); // Código 409 = Conflito
         }
 
-        const newUser = { nome, empresa, email, senha };
+        const newUser = { nome, tipo, empresa, email, senha, data_criacao };
         const result = await usersCollection.insertOne(newUser);
 
         console.log('Usuário inserido:', result);
         res.status(201).json(result);
 
-        // Cadastrar empresa
-        (await client).db('businesspro').collection('empresas').insertOne({
-            nome: empresa,
-            proprietario: (await (await client).db('businesspro').collection('usuarios').findOne({ empresa }))._id
-        })/*.then(async (empresa_registrada) => {
-            (await (await client).db('businesspro').collection('usuarios').findOne({ email })).empresa = empresa_registrada.insertedId;
-        })*/
+        if(tipo == "empresarial") {
+            // Cadastrar empresa
+            (await client).db('businesspro').collection('empresas').insertOne({
+                nome: empresa,
+                proprietario: (await (await client).db('businesspro').collection('usuarios').findOne({ empresa }))._id,
+                data_criacao: data_criacao,
+            })/*.then(async (empresa_registrada) => {
+                (await (await client).db('businesspro').collection('usuarios').findOne({ email })).empresa = empresa_registrada.insertedId;
+            })*/
+        }
 
     } catch (error) {
         console.error('Erro ao adicionar usuário:', error);
@@ -125,10 +128,10 @@ app.post('/obter-funcionarios', async (req, res) => {
 
 // Rota para adicionar um funcionário
 app.post('/add-funcionario', async (req, res) => {
-    const { nome, email, senha, empresa, funcao, datacriacao } = req.body;
+    const { nome, email, senha, empresa, funcao, data_criacao } = req.body;
 
     try {
-        if (!nome || !empresa || !email || !senha || !funcao || !datacriacao) {
+        if (!nome || !empresa || !email || !senha || !funcao || !data_criacao) {
             return res.status(400).json({ error_message: 'Nome, empresa, email, função, data de criação e senha são obrigatórios' });
         }
 
@@ -139,7 +142,7 @@ app.post('/add-funcionario', async (req, res) => {
             return res.status(409).json({ error_message: 'Já existe um funcionário com esse e-mail na sua empresa.' }); // Código 409 = Conflito
         }
 
-        const newUser = { nome, email, senha, empresa, funcao, datacriacao };
+        const newUser = { nome, email, senha, empresa, funcao, data_criacao };
         const result = await usersCollection.insertOne(newUser);
 
         console.log('Funcionário inserido:', result);

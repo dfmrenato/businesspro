@@ -51,9 +51,11 @@ document.getElementById('RegistroFormulario').addEventListener('submit', async (
     event.preventDefault();
     
     const nome = document.getElementById('RegistroFormulario').elements["nome"].value;
+    const tipo = document.getElementById('RegistroFormulario').elements["tipo"].value;
     const empresa = document.getElementById('RegistroFormulario').elements["empresa"].value;
     const email = document.getElementById('RegistroFormulario').elements["email"].value;
     const senha = document.getElementById('RegistroFormulario').elements["senha"].value;
+    const data_criacao = new Date();
 
     try {
         // Comunicação com o backend
@@ -62,7 +64,7 @@ document.getElementById('RegistroFormulario').addEventListener('submit', async (
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ nome, empresa, email, senha })
+            body: JSON.stringify({ nome, tipo, empresa, email, senha, data_criacao })
         });
 
         const data = await response.json();
