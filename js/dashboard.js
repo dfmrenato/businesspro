@@ -109,13 +109,12 @@ async function obterFuncionarios(filtrar=false, filtro_tipo=undefined, filtro_va
             throw new Error('Falha na solicitação');
         }
 
-        let funcionarios_local = data.funcionarios;
-        funcionarios_local.sort((a, b) => b.nome - a.nome);
+        let funcionarios_local = data.funcionarios.sort((a, b) => a.nome - b.nome);
 
         if(filtrar) {
             switch (filtro_tipo) {
                 case "nome":
-                    funcionarios_local.sort((a, b) => b.nome - a.nome);
+                    funcionarios_local.sort((a, b) => a.nome - b.nome);
                     break;
 
                 case "funcao":
