@@ -77,7 +77,7 @@
 }
 
 .CaixaAlerta {
-    display: none;
+    display: flex;
     position: fixed;
     top: 0;
     left: 0;
@@ -88,6 +88,9 @@
     -webkit-backdrop-filter: blur(2px);
     justify-content: center;
     align-items: center;
+    visibility: hidden;
+    transition-duration: 0.4s;
+    opacity: 0;
 
     .CaixaAlertaConteudo {
         background-color: var(--cor-branca);
@@ -96,6 +99,10 @@
         width: 300px;
         text-align: center;
         box-shadow: 20px 20px 20px rgba(0, 0, 0, 0.1);
+        opacity: 1;
+        transition-duration: 0.4s;
+        top: 100%;
+        position: relative;
 
         h2 {
             font-size: 22px;
@@ -129,6 +136,12 @@
 }
 .CaixaAlerta.ativo {
     display: flex;
+    visibility: visible;
+    opacity: 1;
+
+    .CaixaAlertaConteudo {
+        top: 0%;
+    }
 }
 
 .CabecalhoPequeno {
