@@ -89,7 +89,7 @@ document.getElementById('AdicionarFuncionario').addEventListener('submit', async
 });
 
 // Pegar funcionários
-async function obterFuncionarios(filtrar=false, filtro_tipo="nome", filtro_valor="") {
+async function obterFuncionarios(filtrar=false, filtro_tipo="", filtro_valor="") {
     let empresa = sessionStorage.getItem('UsuarioLogadoEmpresa');
     try {
         // Comunicação com o backend
