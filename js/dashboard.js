@@ -88,44 +88,8 @@ document.getElementById('AdicionarFuncionario').addEventListener('submit', async
     }
 });
 
-// Pesquisar funcionários
-document.getElementById('FuncionariosPesquisa').addEventListener('submit', async (event) => {
-    event.preventDefault();
-
-    const empresa = window.sessionStorage.getItem('UsuarioLogadoEmpresa');
-    const pesquisa = document.getElementById('FuncionariosCabecalhoPesquisa').elements["pesquisa"].value;
-    const classificar = document.getElementById('FuncionariosCabecalhoPesquisa').elements["classificar"].value;
-
-    try {
-        // Comunicação com o backend
-        const response = await fetch('https://evolved-legible-spider.ngrok-free.app/dashboard-funcionarios-pesquisa', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ empresa, pesquisa, classificar })
-        });
-
-        const data = await response.json();
-
-        if(data.error_message) return Notificar(`Erro de pesquisa`, `${data.error_message}`, 'OK');
-
-        if (!response.ok) {
-            throw new Error('Falha na solicitação');
-        }
-
-        // Código específico
-        
-
-    } catch (error) {
-        console.error(error);
-        Notificar('Erro de pesquisa', error, 'OK');
-    }
-
-})
-
 // Pegar funcionários
-async function obterFuncionarios() {
+async function obterFuncionarios(filtrar=false, filtro_tipo=undefined, filtro_valor="") {
     let empresa = sessionStorage.getItem('UsuarioLogadoEmpresa');
     try {
         // Comunicação com o backend
@@ -145,22 +109,86 @@ async function obterFuncionarios() {
             throw new Error('Falha na solicitação');
         }
 
-        let GlobalVarFuncionarios = data.funcionarios;
-        
-        data.funcionarios.forEach(funcionario => {
+        let funcionarios_local = data.funcionarios;
+
+        if(filtrar) {
+            switch (filtro_tipo) {
+                case "nome":
+                    funcionarios_local.sort((a, b) => b.nome - a.nome);
+                    break;
+
+                case "funcao":
+                    funcionarios_local.sort((a, b) => b.funcao - a.funcao);
+                    break;
+
+                case "data":
+                    funcionarios_local.sort((a, b) => new Date(b.datacriacao) - new Date(a.datacriacao));
+                    break;
+            
+                default:
+                    break;
+            }
+        }
+
+        funcionarios_local.forEach(funcionario => {
 
             let datafunc = new Date(funcionario.datacriacao);
+            document.getElementById('FuncionariosLista').innerHTML = "";
 
-            document.getElementById('FuncionariosLista').innerHTML +=
-            `<div>
-            <h2>${funcionario.nome}</h2>
-            <h4>${funcionario.funcao}</h4>
-            ${funcionario.email}
-            <h4>Funcionário desde ${datafunc.getDate()}/${datafunc.getMonth()+1}/${datafunc.getFullYear()}</h4>
-            </div>`;
+            if(filtrar) {
+
+                switch (filtro_tipo) {
+                    case "nome":
+                        if(funcionario.nome.toUpperCase().startsWith(filtro_valor.toUpperCase())) {
+                            document.getElementById('FuncionariosLista').innerHTML +=
+                            `<div>
+                            <h2>${funcionario.nome}</h2>
+                            <h4>${funcionario.funcao}</h4>
+                            ${funcionario.email}
+                            <h4>Funcionário desde ${datafunc.getDate()}/${datafunc.getMonth()+1}/${datafunc.getFullYear()}</h4>
+                            </div>`;
+                        };
+                        break;
+
+                    case "funcao":
+                        if(funcionario.funcao.toUpperCase().startsWith(filtro_valor.toUpperCase())) {
+                            document.getElementById('FuncionariosLista').innerHTML +=
+                            `<div>
+                            <h2>${funcionario.nome}</h2>
+                            <h4>${funcionario.funcao}</h4>
+                            ${funcionario.email}
+                            <h4>Funcionário desde ${datafunc.getDate()}/${datafunc.getMonth()+1}/${datafunc.getFullYear()}</h4>
+                            </div>`;
+                        };
+                        break;
+
+                    case "data":
+                        document.getElementById('FuncionariosLista').innerHTML +=
+                        `<div>
+                        <h2>${funcionario.nome}</h2>
+                        <h4>${funcionario.funcao}</h4>
+                        ${funcionario.email}
+                        <h4>Funcionário desde ${datafunc.getDate()}/${datafunc.getMonth()+1}/${datafunc.getFullYear()}</h4>
+                        </div>`;
+                        break;
+                
+                    default:
+                        window.location.reload();
+                        break;
+                }
+            } else {
+
+                document.getElementById('FuncionariosLista').innerHTML +=
+                `<div>
+                <h2>${funcionario.nome}</h2>
+                <h4>${funcionario.funcao}</h4>
+                ${funcionario.email}
+                <h4>Funcionário desde ${datafunc.getDate()}/${datafunc.getMonth()+1}/${datafunc.getFullYear()}</h4>
+                </div>`;
+
+            }
 
         })
-        
 
     } catch (error) {
         console.error(error);
@@ -168,6 +196,14 @@ async function obterFuncionarios() {
     }
 }
 obterFuncionarios();
+
+// Pesquisar funcionários
+document.getElementById('FuncionariosPesquisa').addEventListener('submit', async (event) => {
+    event.preventDefault();
+
+    obterFuncionarios(true, document.getElementById('FuncionariosPesquisa').elements["classificar"].value, document.getElementById('FuncionariosPesquisa').elements["pesquisa"].value);
+
+})
 
 /// Produtos
 
