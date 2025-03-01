@@ -145,8 +145,10 @@ async function obterFuncionarios() {
             throw new Error('Falha na solicitação');
         }
 
-        let datafunc = new Date(funcionario.datacriacao)
         data.funcionarios.forEach(funcionario => {
+
+            let datafunc = new Date(funcionario.datacriacao);
+
             document.getElementById('FuncionariosLista').innerHTML +=
             `<div>
             <h2>${funcionario.nome}</h2>
@@ -154,6 +156,7 @@ async function obterFuncionarios() {
             ${funcionario.email}<br>
             Funcionário desde ${datafunc.getDate()}/${datafunc.getMonth()}/${datafunc.getFullYear()}
             </div>`;
+            
         })
         
 
