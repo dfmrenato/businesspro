@@ -267,6 +267,7 @@ body {
         height: 100vh;
         border: none;
         transition-duration: 0.4s;
+        position: relative;
 
         .BarraLateralItens {
             display: flex;
@@ -331,6 +332,12 @@ body {
                         font-size: 12px;
                     }
                 }
+            }
+
+            #BotaoBarraLateralAbrir {
+                position: absolute;
+                top: 30px;
+                right: -10px;
             }
 
         }
