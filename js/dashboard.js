@@ -131,7 +131,7 @@ async function obterFuncionarios(filtrar=false, filtro_tipo=undefined, filtro_va
         }
 
         document.getElementById('FuncionariosLista').innerHTML = "";
-        
+
         funcionarios_local.forEach(funcionario => {
 
             let datafunc = new Date(funcionario.datacriacao);
@@ -140,7 +140,7 @@ async function obterFuncionarios(filtrar=false, filtro_tipo=undefined, filtro_va
 
                 switch (filtro_tipo) {
                     case "nome":
-                        if(funcionario.nome.toUpperCase().startsWith(filtro_valor.toUpperCase())) {
+                        if(funcionario.nome.toUpperCase().includes(filtro_valor.toUpperCase())) {
                             document.getElementById('FuncionariosLista').innerHTML +=
                             `<div>
                             <h2>${funcionario.nome}</h2>
@@ -152,7 +152,7 @@ async function obterFuncionarios(filtrar=false, filtro_tipo=undefined, filtro_va
                         break;
 
                     case "funcao":
-                        if(funcionario.funcao.toUpperCase().startsWith(filtro_valor.toUpperCase())) {
+                        if(funcionario.funcao.toUpperCase().includes(filtro_valor.toUpperCase())) {
                             document.getElementById('FuncionariosLista').innerHTML +=
                             `<div>
                             <h2>${funcionario.nome}</h2>
