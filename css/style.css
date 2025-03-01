@@ -295,14 +295,6 @@ body {
                     justify-content: center;
                 }
 
-                .BarraLateralItemDescricao {
-                    width: 0px;
-                    overflow: hidden;
-                    white-space: nowrap;
-                    text-overflow: ellipsis;
-                    transition: width .6s;
-                    height: 0px;
-                }
             }
             .BarraLateralItem.ativo {
                 background-color: var(--cor-secundaria);
@@ -367,6 +359,15 @@ body {
 
         }
 
+        .BarraLateralItemDescricao {
+            width: 0px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            transition: width .6s;
+            height: 0px;
+        }
+        
         #BarraLateralLogout {
             padding: 12px;
 
