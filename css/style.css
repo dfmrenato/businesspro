@@ -365,7 +365,6 @@ body {
             white-space: nowrap;
             text-overflow: ellipsis;
             transition: width .6s;
-            height: 0px;
             text-align: left;
         }
 
@@ -409,7 +408,6 @@ body {
 
         .BarraLateralItemDescricao {
             width: 150px;
-            height: auto;
         }
 
         #BotaoBarraLateralAbrir i {
