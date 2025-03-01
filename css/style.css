@@ -280,6 +280,17 @@ body {
                 cursor: pointer;
                 background-color: var(--botao-secundario);
                 color: var(--cor-secundaria);
+                display: flex;
+                align-items: center;
+                gap: 10px;
+
+                i {
+                    display: flex;
+                    width: 20px;
+                    height: 20px;
+                    align-items: center;
+                    justify-content: center;
+                }
             }
             .BarraLateralItem.ativo {
                 background-color: var(--cor-secundaria);
