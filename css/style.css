@@ -134,7 +134,6 @@
     }
 }
 .CaixaAlerta.ativo {
-    display: flex;
     visibility: visible;
     opacity: 1;
 
