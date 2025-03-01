@@ -114,19 +114,19 @@ async function obterFuncionarios(filtrar=false, filtro_tipo=undefined, filtro_va
         if(filtrar) {
             switch (filtro_tipo) {
                 case "nome":
-                    funcionarios_local.sort((a, b) => b.nome - a.nome);
+                    funcionarios_local = funcionarios_local.sort((a, b) => b.nome - a.nome);
                     break;
 
                 case "funcao":
-                    funcionarios_local.sort((a, b) => b.funcao - a.funcao);
+                    funcionarios_local = funcionarios_local.sort((a, b) => b.funcao - a.funcao);
                     break;
 
                 case "data":
-                    funcionarios_local.sort((a, b) => new Date(b.datacriacao) - new Date(a.datacriacao));
+                    funcionarios_local = funcionarios_local.sort((a, b) => new Date(b.datacriacao) - new Date(a.datacriacao));
                     break;
             
                 default:
-                    funcionarios_local.sort((a, b) => b.nome - a.nome);
+                    funcionarios_local = funcionarios_local.sort((a, b) => b.nome - a.nome);
                     break;
             }
         }
