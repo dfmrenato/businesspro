@@ -110,6 +110,7 @@ async function obterFuncionarios(filtrar=false, filtro_tipo=undefined, filtro_va
         }
 
         let funcionarios_local = data.funcionarios;
+        funcionarios_local.sort((a, b) => b.nome - a.nome);
 
         if(filtrar) {
             switch (filtro_tipo) {
