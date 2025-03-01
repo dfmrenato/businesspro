@@ -367,7 +367,7 @@ body {
             transition: width .6s;
             height: 0px;
         }
-        
+
         #BarraLateralLogout {
             padding: 12px;
 
@@ -404,11 +404,11 @@ body {
         .BarraLateralItem {
             justify-content: flex-start;
             gap: 10px;
+        }
 
-            .BarraLateralItemDescricao {
-                width: 150px;
-                height: auto;
-            }
+        .BarraLateralItemDescricao {
+            width: 150px;
+            height: auto;
         }
 
         #BotaoBarraLateralAbrir i {
