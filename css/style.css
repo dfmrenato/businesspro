@@ -270,6 +270,7 @@ body {
         position: relative;
         transition: all .5s;
         min-width: 82px;
+        max-width: 82px;
 
         .BarraLateralItens {
             display: flex;
@@ -400,6 +401,7 @@ body {
 
     .BarraLateral.aberta {
         min-width: 200px;
+        max-width: 200px;
 
         .BarraLateralItem {
             justify-content: flex-start;
