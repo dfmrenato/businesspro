@@ -122,7 +122,7 @@ app.post('/verify-email-success', async (req, res) => {
             const usersCollection = db.collection('usuarios');
     
             // Verifica se o e-mail ou empresa já existe no banco de dados
-            if (await usersCollection.findOne({ email }) || await usersCollection.findOne({ empresa }) && tipo == "empresarial") {
+            if (await usersCollection.findOne({ email }) || await usersCollection.findOne({ empresa: usuario.empresa }) && tipo == "empresarial") {
                 return res.status(409).json({ error_message: 'Já existe um usuário com este e-mail ou empresa. Tente fazer login ou alterá-los.' }); // Código 409 = Conflito
             }
             
