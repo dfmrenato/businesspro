@@ -114,19 +114,19 @@ async function obterFuncionarios(filtrar=false, filtro_tipo="", filtro_valor="")
         if(filtrar) {
             switch (filtro_tipo) {
                 case "nome":
-                    funcionarios_local.sort((a, b) => a.nome.localeCompare(b.nome)).filter(func => func.nome.toUpperCase().includes(filtro_valor.toUpperCase()));
+                    funcionarios_local = funcionarios_local.sort((a, b) => a.nome.localeCompare(b.nome)).filter(func => func.nome.toUpperCase().includes(filtro_valor.toUpperCase()));
                     break;
 
                 case "funcao":
-                    funcionarios_local.sort((a, b) => a.funcao.localeCompare(b.funcao)).filter(func => func.funcao.toUpperCase().includes(filtro_valor.toUpperCase()));
+                    funcionarios_local = funcionarios_local.sort((a, b) => a.funcao.localeCompare(b.funcao)).filter(func => func.funcao.toUpperCase().includes(filtro_valor.toUpperCase()));
                     break;
 
                 case "data":
-                    funcionarios_local.sort((a, b) => new Date(b.datacriacao) - new Date(a.datacriacao));
+                    funcionarios_local = funcionarios_local.sort((a, b) => new Date(b.datacriacao) - new Date(a.datacriacao));
                     break;
             
                 default:
-                    funcionarios_local.sort((a, b) => a.nome.localeCompare(b.nome)).filter(func => func.nome.toUpperCase().includes(filtro_valor.toUpperCase()));
+                    funcionarios_local = funcionarios_local.sort((a, b) => a.nome.localeCompare(b.nome));
                     break;
             };
         };
