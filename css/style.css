@@ -157,9 +157,10 @@
 
 .GradeLista {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(4, 25%);
     gap: 8px;
     margin-top: 10px;
+    overflow-wrap: break-word;
 
     div {
         background-color: var(--cor-de-fundo);
