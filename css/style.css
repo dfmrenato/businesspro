@@ -354,6 +354,7 @@ body {
                 padding: 5px;
                 border-radius: 999px;
                 transition-duration: 0.4s;
+                border: none;
                 cursor: pointer;
 
                 i {
@@ -396,7 +397,7 @@ body {
 
     }
 
-    .BarraLateral aberta {
+    .BarraLateral.aberta {
         min-width: 15%;
 
         .BarraLateralItem {
