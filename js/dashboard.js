@@ -89,7 +89,7 @@ document.getElementById('AdicionarFuncionario').addEventListener('submit', async
 });
 
 // Pegar funcionários
-async function obterFuncionarios(filtrar=false, filtro_tipo="funcao", filtro_valor="") {
+async function obterFuncionarios(filtrar=false, filtro_tipo="nome", filtro_valor="") {
     let empresa = sessionStorage.getItem('UsuarioLogadoEmpresa');
     try {
         // Comunicação com o backend
@@ -109,29 +109,27 @@ async function obterFuncionarios(filtrar=false, filtro_tipo="funcao", filtro_val
             throw new Error('Falha na solicitação');
         }
 
-        let funcionarios_local = data.funcionarios;
+        let funcionarios_local = data.funcionarios.sort((a, b) => a.nome.localeCompare(b.nome));
 
         if(filtrar) {
             switch (filtro_tipo) {
                 case "nome":
-                    funcionarios_local = funcionarios_local.sort((a, b) => b.nome - a.nome).filter(func => func.nome.toUpperCase().includes(filtro_valor.toUpperCase()));
+                    funcionarios_local.sort((a, b) => a.nome.localeCompare(b.nome)).filter(func => func.nome.toUpperCase().includes(filtro_valor.toUpperCase()));
                     break;
 
                 case "funcao":
-                    funcionarios_local = funcionarios_local.sort((a, b) => b.funcao - a.funcao).filter(func => func.funcao.toUpperCase().includes(filtro_valor.toUpperCase()));
+                    funcionarios_local.sort((a, b) => a.funcao.localeCompare(b.funcao)).filter(func => func.funcao.toUpperCase().includes(filtro_valor.toUpperCase()));
                     break;
 
                 case "data":
-                    funcionarios_local = funcionarios_local.sort((a, b) => new Date(b.datacriacao) - new Date(a.datacriacao));
+                    funcionarios_local.sort((a, b) => new Date(b.datacriacao) - new Date(a.datacriacao));
                     break;
             
                 default:
-                    funcionarios_local = funcionarios_local.sort((a, b) => b.nome - a.nome).filter(func => func.nome.toUpperCase().includes(filtro_valor.toUpperCase()));
+                    funcionarios_local.sort((a, b) => a.nome.localeCompare(b.nome)).filter(func => func.nome.toUpperCase().includes(filtro_valor.toUpperCase()));
                     break;
-            }
-        } else {
-            funcionarios_local = funcionarios_local.sort((a, b) => b.nome - a.nome);
-        }
+            };
+        };
 
         document.getElementById('FuncionariosLista').innerHTML = "";
 
