@@ -400,7 +400,7 @@ body {
     }
 
     .BarraLateral.aberta {
-        min-width: 15%;
+        min-width: min-content;
 
         .BarraLateralItem {
             justify-content: flex-start;
