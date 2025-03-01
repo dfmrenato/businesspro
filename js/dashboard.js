@@ -130,10 +130,11 @@ async function obterFuncionarios(filtrar=false, filtro_tipo=undefined, filtro_va
             }
         }
 
+        document.getElementById('FuncionariosLista').innerHTML = "";
+        
         funcionarios_local.forEach(funcionario => {
 
             let datafunc = new Date(funcionario.datacriacao);
-            document.getElementById('FuncionariosLista').innerHTML = "";
 
             if(filtrar) {
 
