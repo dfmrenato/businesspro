@@ -145,6 +145,8 @@ async function obterFuncionarios() {
             throw new Error('Falha na solicitação');
         }
 
+        let GlobalVarFuncionarios = data.funcionarios;
+        
         data.funcionarios.forEach(funcionario => {
 
             let datafunc = new Date(funcionario.datacriacao);
