@@ -152,11 +152,11 @@ async function obterFuncionarios() {
             document.getElementById('FuncionariosLista').innerHTML +=
             `<div>
             <h2>${funcionario.nome}</h2>
-            <h5>${funcionario.funcao}</h5>
-            ${funcionario.email}<br>
-            Funcionário desde ${datafunc.getDate()}/${datafunc.getMonth()}/${datafunc.getFullYear()}
+            <h4>${funcionario.funcao}</h4>
+            ${funcionario.email}
+            <h4>Funcionário desde ${datafunc.getDate()}/${datafunc.getMonth()+1}/${datafunc.getFullYear()}</h4>
             </div>`;
-            
+
         })
         
 
