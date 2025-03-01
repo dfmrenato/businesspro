@@ -150,7 +150,9 @@ app.post('/verify-email-success', async (req, res) => {
                 })*/
             };
 
-            (await client).db('businesspro').collection('temporario').deleteOne({ _id: (await usuario)._id });
+            result.finally(async () => {
+                (await client).db('businesspro').collection('temporario').deleteOne({ _id: (await usuario)._id });
+            })
     
         } catch (error) {
             console.error('Erro ao adicionar usuário:', error);
