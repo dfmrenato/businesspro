@@ -77,6 +77,92 @@ app.post('/add-user', async (req, res) => {
     }
 });
 
+// Rota para adicionar um usuário (início da verificação do email)
+app.post('/verify-email-register', async (req, res) => {
+    const { nome, tipo, empresa, email, senha, data_criacao } = req.body;
+
+    try {
+        if (!nome || !tipo || !empresa || !email || !senha || !data_criacao) {
+            return res.status(400).json({ error_message: 'Nome, empresa, email e senha são obrigatórios' });
+        }
+
+        const usersCollection = db.collection('temporario');
+
+        // Verifica se o e-mail ou empresa já existe no banco de dados
+        if (await usersCollection.findOne({ email }) || await usersCollection.findOne({ empresa }) && tipo == "empresarial") {
+            return res.status(409).json({ error_message: 'Já existe um usuário com este e-mail ou empresa. Tente fazer login ou alterá-los.' }); // Código 409 = Conflito
+        }
+
+        const temporario_tipo = "conta";
+        const codigo = Math.floor(Math.random() * 1000000).toString().padStart(6, '0');
+
+        const newUser = { temporario_tipo, email, codigo, nome, tipo, empresa, senha, data_criacao };
+        const result = await usersCollection.insertOne(newUser);
+
+        console.log('Usuário inserido para verificar:', result);
+        res.status(201).json({ codigo: codigo });
+
+    } catch (error) {
+        console.error('Erro ao adicionar usuário:', error);
+        res.status(500).json({ error_message: error.message });
+    }
+});
+
+// Rota para adicionar um usuário (verificação bem sucedida)
+app.post('/verify-email-success', async (req, res) => {
+    const { email, codigo } = req.body;
+    const temporario_tipo = "conta";
+
+    let usuario = (await client).db('businesspro').collection('temporario').findOne({ temporario_tipo, email, codigo });
+
+    if(await usuario) {
+
+        try {
+    
+            const usersCollection = db.collection('usuarios');
+    
+            // Verifica se o e-mail ou empresa já existe no banco de dados
+            if (await usersCollection.findOne({ email }) || await usersCollection.findOne({ empresa }) && tipo == "empresarial") {
+                return res.status(409).json({ error_message: 'Já existe um usuário com este e-mail ou empresa. Tente fazer login ou alterá-los.' }); // Código 409 = Conflito
+            }
+            
+            const newUser = {
+                nome: usuario.nome,
+                tipo: usuario.tipo,
+                empresa: usuario.empresa,
+                email: usuario.email,
+                senha: usuario.senha,
+                data_criacao: usuario.data_criacao
+            };
+            const result = await usersCollection.insertOne(newUser);
+    
+            console.log('Usuário inserido:', result);
+            res.status(201).json({ email: usuario.email, nome: usuario.nome, empresa: usuario.empresa});
+    
+            if(usuario.tipo == "empresarial") {
+                // Cadastrar empresa
+                (await client).db('businesspro').collection('empresas').insertOne({
+                    nome: usuario.empresa,
+                    proprietario: (await (await client).db('businesspro').collection('usuarios').findOne({ empresa: usuario.empresa }))._id,
+                    data_criacao: usuario.data_criacao,
+                })/*.then(async (empresa_registrada) => {
+                    (await (await client).db('businesspro').collection('usuarios').findOne({ email })).empresa = empresa_registrada.insertedId;
+                })*/
+            };
+
+            (await client).db('businesspro').collection('temporario').deleteOne({ _id: (await usuario)._id });
+    
+        } catch (error) {
+            console.error('Erro ao adicionar usuário:', error);
+            res.status(500).json({ error_message: error.message });
+        }
+
+    } else {
+        return res.status(404).json({ error_message: 'Código de verificação incorreto ou expirado.' });
+    };
+
+})
+
 // Rota para login
 app.post('/login', async (req, res) => {
     const { email, senha } = req.body;

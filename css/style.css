@@ -567,6 +567,24 @@ body {
             display: block;
         }
 
+        .CaixaVerificarEmail {
+            margin: auto;
+            display: flex;
+            width: min-content;
+            flex-direction: column;
+            top: 33%;
+            position: fixed;
+            padding: 10px;
+            gap: 8px;
+            border-radius: 10px;
+
+            .FormularioCampoPrimario {
+                text-align: center;
+                letter-spacing: 30px;
+                text-indent: 30px;
+            }
+        }
+
     }
 
 }
