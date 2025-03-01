@@ -114,11 +114,11 @@ async function obterFuncionarios(filtrar=false, filtro_tipo=undefined, filtro_va
         if(filtrar) {
             switch (filtro_tipo) {
                 case "nome":
-                    funcionarios_local = funcionarios_local.sort((a, b) => b.nome - a.nome);
+                    funcionarios_local = funcionarios_local.sort((a, b) => b.nome - a.nome).filter(func => func.nome.toUpperCase().includes(filtro_valor.toUpperCase()));
                     break;
 
                 case "funcao":
-                    funcionarios_local = funcionarios_local.sort((a, b) => b.funcao - a.funcao);
+                    funcionarios_local = funcionarios_local.sort((a, b) => b.funcao - a.funcao).filter(func => func.funcao.toUpperCase().includes(filtro_valor.toUpperCase()));
                     break;
 
                 case "data":
@@ -126,7 +126,7 @@ async function obterFuncionarios(filtrar=false, filtro_tipo=undefined, filtro_va
                     break;
             
                 default:
-                    funcionarios_local = funcionarios_local.sort((a, b) => b.nome - a.nome);
+                    funcionarios_local = funcionarios_local.sort((a, b) => b.nome - a.nome).filter(func => func.nome.toUpperCase().includes(filtro_valor.toUpperCase()));
                     break;
             }
         }
@@ -137,58 +137,13 @@ async function obterFuncionarios(filtrar=false, filtro_tipo=undefined, filtro_va
 
             let datafunc = new Date(funcionario.datacriacao);
 
-            if(filtrar) {
-
-                switch (filtro_tipo) {
-                    case "nome":
-                        if(funcionario.nome.toUpperCase().includes(filtro_valor.toUpperCase())) {
-                            document.getElementById('FuncionariosLista').innerHTML +=
-                            `<div>
-                            <h2>${funcionario.nome}</h2>
-                            <h4>${funcionario.funcao}</h4>
-                            ${funcionario.email}
-                            <h4>Funcionário desde ${datafunc.getDate()}/${datafunc.getMonth()+1}/${datafunc.getFullYear()}</h4>
-                            </div>`;
-                        };
-                        break;
-
-                    case "funcao":
-                        if(funcionario.funcao.toUpperCase().includes(filtro_valor.toUpperCase())) {
-                            document.getElementById('FuncionariosLista').innerHTML +=
-                            `<div>
-                            <h2>${funcionario.nome}</h2>
-                            <h4>${funcionario.funcao}</h4>
-                            ${funcionario.email}
-                            <h4>Funcionário desde ${datafunc.getDate()}/${datafunc.getMonth()+1}/${datafunc.getFullYear()}</h4>
-                            </div>`;
-                        };
-                        break;
-
-                    case "data":
-                        document.getElementById('FuncionariosLista').innerHTML +=
-                        `<div>
-                        <h2>${funcionario.nome}</h2>
-                        <h4>${funcionario.funcao}</h4>
-                        ${funcionario.email}
-                        <h4>Funcionário desde ${datafunc.getDate()}/${datafunc.getMonth()+1}/${datafunc.getFullYear()}</h4>
-                        </div>`;
-                        break;
-                
-                    default:
-                        window.location.reload();
-                        break;
-                }
-            } else {
-
-                document.getElementById('FuncionariosLista').innerHTML +=
-                `<div>
-                <h2>${funcionario.nome}</h2>
-                <h4>${funcionario.funcao}</h4>
-                ${funcionario.email}
-                <h4>Funcionário desde ${datafunc.getDate()}/${datafunc.getMonth()+1}/${datafunc.getFullYear()}</h4>
-                </div>`;
-
-            }
+            document.getElementById('FuncionariosLista').innerHTML +=
+            `<div>
+            <h2>${funcionario.nome}</h2>
+            <h4>${funcionario.funcao}</h4>
+            ${funcionario.email}
+            <h4>Funcionário desde ${datafunc.getDate()}/${datafunc.getMonth()+1}/${datafunc.getFullYear()}</h4>
+            </div>`;
 
         })
 
