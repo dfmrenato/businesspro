@@ -32,7 +32,6 @@ client.then((client) => {
 }).catch((error) => {
     console.error('Erro ao conectar ao MongoDB:', error);
 });
-db = (await client).db('businesspro');
 
 // Rota de exemplo
 app.get('/', (req, res) => {
