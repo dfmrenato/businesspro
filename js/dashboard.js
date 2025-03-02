@@ -94,33 +94,6 @@ document.getElementById('AdicionarFuncionario').addEventListener('submit', async
         Notificar('Erro ao realizar cadastro', error, 'OK');
     }
 
-    // Criar conta de funcionário
-    try {
-        // Comunicação com o backend
-        const response = await fetch('https://evolved-legible-spider.ngrok-free.app/add-user', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ nome, tipo, empresa, email, senha, data_criacao })
-        });
-
-        const data = await response.json();
-        
-        if(data.error_message) return Notificar(`Erro de cadastro`, `${data.error_message}`, 'OK');
-
-        if (!response.ok) {
-            throw new Error('Falha na solicitação');
-        }
-
-        // Código específico
-        console.log('Usuário adicionado:', data);
-        
-    } catch (error) {
-        console.error(error);
-        Notificar('Erro ao realizar cadastro', error, 'OK');
-    }
-    
 });
 
 // Pegar funcionários
