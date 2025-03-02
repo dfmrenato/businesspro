@@ -1,8 +1,10 @@
+// Importações
 const express = require('express');
 const { MongoClient } = require('mongodb');
 const cors = require('cors');
 const ngrok = require("@ngrok/ngrok");
 
+// Definições
 const app = express();
 const port = 3000; 
 
@@ -26,7 +28,7 @@ const uri = 'mongodb+srv://renatosantos36:2t9s1qGOojyShgs7@projetocluster.i1z4e.
 let db;
 
 // Conectar ao MongoDB
-const client = MongoClient.connect(uri)
+const client = MongoClient.connect(uri);
 client.then((client) => {
     db = client.db('businesspro');  // Acessa o banco de dados padrão
     console.log('Conectado ao MongoDB');
@@ -131,7 +133,7 @@ app.post('/verify-email-success', async (req, res) => {
         return res.status(404).json({ error_message: 'Código de verificação incorreto ou expirado.' });
     };
 
-})
+});
 
 // Rota para login
 app.post('/login', async (req, res) => {
@@ -180,7 +182,7 @@ app.post('/obter-funcionarios', async (req, res) => {
 
     };
 
-})
+});
 
 // Rota para adicionar um funcionário
 app.post('/add-funcionario', async (req, res) => {
@@ -229,4 +231,4 @@ app.listen(port, () => {
 });
 process.on('uncaughtException', (error) => {
     return console.error(`Exceção não capturada: `+error);
-})
+});
