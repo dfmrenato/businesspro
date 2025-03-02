@@ -38,72 +38,33 @@ app.get('/', (req, res) => {
     res.send('Olá, mundo! Conectado ao MongoDB!');
 });
 
-// Rota para adicionar um usuário
-app.post('/add-user', async (req, res) => {
-    const { nome, tipo, empresa, email, senha, data_criacao } = req.body;
-
-    try {
-        if (!nome || !tipo || !empresa || !email || !senha || !data_criacao) {
-            return res.status(400).json({ error_message: 'Nome, empresa, email e senha são obrigatórios' });
-        }
-
-        const usersCollection = db.collection('usuarios');
-
-        // Verifica se o e-mail ou empresa já existe no banco de dados
-        if (await usersCollection.findOne({ email }) || await usersCollection.findOne({ empresa }) && tipo == "empresarial") {
-            return res.status(409).json({ error_message: 'Já existe um usuário com este e-mail ou empresa. Tente fazer login ou alterá-los.' }); // Código 409 = Conflito
-        }
-
-        const newUser = { nome, tipo, empresa, email, senha, data_criacao };
-        const result = await usersCollection.insertOne(newUser);
-
-        console.log('Usuário inserido:', result);
-        res.status(201).json(result);
-
-        if(tipo == "empresarial") {
-            // Cadastrar empresa
-            (await client).db('businesspro').collection('empresas').insertOne({
-                nome: empresa,
-                proprietario: (await (await client).db('businesspro').collection('usuarios').findOne({ empresa }))._id,
-                data_criacao: data_criacao,
-            })/*.then(async (empresa_registrada) => {
-                (await (await client).db('businesspro').collection('usuarios').findOne({ email })).empresa = empresa_registrada.insertedId;
-            })*/
-        }
-
-    } catch (error) {
-        console.error('Erro ao adicionar usuário:', error);
-        res.status(500).json({ error_message: error.message });
-    }
-});
-
 // Rota para adicionar um usuário (início da verificação do email)
 app.post('/verify-email-register', async (req, res) => {
-    const { nome, tipo, empresa, email, senha, data_criacao } = req.body;
+    const { nome, empresa, email, senha, data_criacao } = req.body;
 
     try {
-        if (!nome || !tipo || !empresa || !email || !senha || !data_criacao) {
+        if (!nome || !empresa || !email || !senha || !data_criacao) {
             return res.status(400).json({ error_message: 'Nome, empresa, email e senha são obrigatórios' });
         }
 
         const usersCollection = db.collection('temporario');
 
         // Verifica se o e-mail ou empresa já existe no banco de dados
-        if (await db.collection('usuarios').findOne({ email }) || await db.collection('usuarios').findOne({ empresa }) && tipo == "empresarial") {
-            return res.status(409).json({ error_message: 'Já existe um usuário com este e-mail ou empresa. Tente fazer login ou alterá-los.' }); // Código 409 = Conflito
+        if (await db.collection('funcionarios').findOne({ email }) || await db.collection('usuarios').findOne({ email }) || await db.collection('usuarios').findOne({ empresa })) {
+            return res.status(409).json({ error_message: 'Já existe uma conta com este e-mail ou empresa. Tente fazer login ou alterá-los.' }); // Código 409 = Conflito
         }
 
         // Verifica se o e-mail ou empresa já existe aguardando
         if (await usersCollection.findOne({ email })) {
             (await client).db('businesspro').collection('temporario').deleteOne({ temporario_tipo: "conta", email });
-        } else if (await usersCollection.findOne({ empresa }) && tipo == "empresarial") {
+        } else if (await usersCollection.findOne({ empresa })) {
             (await client).db('businesspro').collection('temporario').deleteOne({ temporario_tipo: "conta", empresa });
         }
 
         const temporario_tipo = "conta";
         const codigo = Math.floor(Math.random() * 1000000).toString().padStart(6, '0');
 
-        const newUser = { temporario_tipo, email, codigo, nome, tipo, empresa, senha, data_criacao };
+        const newUser = { temporario_tipo, email, codigo, nome, empresa, senha, data_criacao };
         const result = await usersCollection.insertOne(newUser);
 
         console.log('Usuário inserido para verificar:', result);
@@ -135,13 +96,12 @@ app.post('/verify-email-success', async (req, res) => {
             const usersCollection = db.collection('usuarios');
     
             // Verifica se o e-mail ou empresa já existe no banco de dados
-            if (await usersCollection.findOne({ email }) || await usersCollection.findOne({ empresa: (await usuario).empresa }) && tipo == "empresarial") {
-                return res.status(409).json({ error_message: 'Já existe um usuário com este e-mail ou empresa. Tente fazer login ou alterá-los.' }); // Código 409 = Conflito
+            if (await db.collection('funcionarios').findOne({ email }) || await usersCollection.findOne({ email }) || await usersCollection.findOne({ empresa: (await usuario).empresa })) {
+                return res.status(409).json({ error_message: 'Já existe uma conta com este e-mail ou empresa. Tente fazer login ou alterá-los.' }); // Código 409 = Conflito
             }
             
             const newUser = {
                 nome: (await usuario).nome,
-                tipo: (await usuario).tipo,
                 empresa: (await usuario).empresa,
                 email: (await usuario).email,
                 senha: (await usuario).senha,

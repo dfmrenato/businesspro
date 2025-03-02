@@ -46,53 +46,6 @@ document.getElementById('ExibirSenhaL').addEventListener('click', (event) => {
     }
 });
 
-/*
-
-// Cadastrar usuário novo na DB
-document.getElementById('RegistroFormulario').addEventListener('submit', async (event) => {
-    event.preventDefault();
-    
-    const nome = document.getElementById('RegistroFormulario').elements["nome"].value;
-    const tipo = document.getElementById('RegistroFormulario').elements["tipo"].value;
-    const empresa = document.getElementById('RegistroFormulario').elements["empresa"].value;
-    const email = document.getElementById('RegistroFormulario').elements["email"].value;
-    const senha = document.getElementById('RegistroFormulario').elements["senha"].value;
-    const data_criacao = new Date();
-
-    try {
-        // Comunicação com o backend
-        const response = await fetch('https://evolved-legible-spider.ngrok-free.app/add-user', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ nome, tipo, empresa, email, senha, data_criacao })
-        });
-
-        const data = await response.json();
-        
-        if(data.error_message) return Notificar(`Erro de cadastro`, `${data.error_message}`, 'OK');
-
-        if (!response.ok) {
-            throw new Error('Falha na solicitação');
-        }
-
-        // Código específico
-        console.log('Usuário adicionado:', data);
-        Notificar('Bem-vindo!', 'Usuário cadastrado com sucesso!', 'Prosseguir', () => {window.location.replace("./dashboard")});
-
-        sessionStorage.setItem('UsuarioLogado', email);
-        sessionStorage.setItem('UsuarioLogadoNome', nome);
-        sessionStorage.setItem('UsuarioLogadoEmpresa', empresa);
-        
-    } catch (error) {
-        console.error(error);
-        Notificar('Erro ao realizar cadastro', error, 'OK');
-    }
-});
-
-*/
-
 // Tentar criar conta nova na DB
 document.getElementById('RegistroFormulario').addEventListener('submit', async (event) => {
     event.preventDefault();
