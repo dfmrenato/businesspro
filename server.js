@@ -22,7 +22,7 @@ app.use(express.json());
 
 // Conectar ao MongoDB usando o link de conexão fornecido
 const uri = 'mongodb+srv://renatosantos36:2t9s1qGOojyShgs7@projetocluster.i1z4e.mongodb.net/?retryWrites=true&w=majority&appName=ProjetoCluster';
-let db;
+let db = (await client).db('businesspro');
 
 // Conectar ao MongoDB
 const client = MongoClient.connect(uri)
@@ -56,9 +56,9 @@ app.post('/verify-email-register', async (req, res) => {
 
         // Verifica se o e-mail ou empresa já existe aguardando
         if (await usersCollection.findOne({ email })) {
-            (await client).db('businesspro').collection('temporario').deleteOne({ temporario_tipo: "conta", email });
+            db.collection('temporario').deleteOne({ temporario_tipo: "conta", email });
         } else if (await usersCollection.findOne({ empresa })) {
-            (await client).db('businesspro').collection('temporario').deleteOne({ temporario_tipo: "conta", empresa });
+            db.collection('temporario').deleteOne({ temporario_tipo: "conta", empresa });
         }
 
         const temporario_tipo = "conta";
@@ -87,7 +87,7 @@ app.post('/verify-email-success', async (req, res) => {
     const { email, codigo } = req.body;
     const temporario_tipo = "conta";
 
-    let usuario = (await client).db('businesspro').collection('temporario').findOne({ temporario_tipo, email, codigo });
+    let usuario = db.collection('temporario').findOne({ temporario_tipo, email, codigo });
 
     if((await usuario) != null) {
 
@@ -112,18 +112,14 @@ app.post('/verify-email-success', async (req, res) => {
             console.log('Usuário inserido:', result);
             res.status(201).json({ email: (await usuario).email, nome: (await usuario).nome, empresa: (await usuario).empresa});
     
-            if((await usuario).tipo == "empresarial") {
-                // Cadastrar empresa
-                (await client).db('businesspro').collection('empresas').insertOne({
-                    nome: (await usuario).empresa,
-                    proprietario: (await (await client).db('businesspro').collection('usuarios').findOne({ empresa: (await usuario).empresa }))._id,
-                    data_criacao: (await usuario).data_criacao,
-                })/*.then(async (empresa_registrada) => {
-                    (await (await client).db('businesspro').collection('usuarios').findOne({ email })).empresa = empresa_registrada.insertedId;
-                })*/
-            };
+            // Cadastrar empresa
+            db.collection('empresas').insertOne({
+                nome: (await usuario).empresa,
+                proprietario: (await db.collection('usuarios').findOne({ empresa: (await usuario).empresa }))._id,
+                data_criacao: (await usuario).data_criacao,
+            })
 
-            (await client).db('businesspro').collection('temporario').deleteOne({ _id: (await usuario)._id });
+            db.collection('temporario').deleteOne({ _id: (await usuario)._id });
     
         } catch (error) {
             console.error('Erro ao adicionar usuário:', error);
