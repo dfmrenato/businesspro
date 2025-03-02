@@ -82,13 +82,21 @@ function UsuarioSair() {
 // Usuário offline
 window.addEventListener('offline', () => {
     console.log('Você ficou offline!');
-    Notificar('Você está offline!', 'Tente novamente quando tiver conexão à internet', 'OK', () => {
+    Notificar('Você está offline!', 'Para a segurança dos usuários, o Business PRO só funciona com uma conexão à internet. Tente novamente quando seu dispositivo estiver conectado.', 'OK', () => {
         sessionStorage.clear();
         document.body.innerHTML = `
-            <h1>Que chato...</h1>
-            <p>Você está sem internet</p>
-        `
-        document.querySelector('#CaixaAlerta').classList.add('ativo');
+            <!-- Você está sem internet -->
+            <div style="
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                height: 100vh;
+                justify-content: center;
+            ">
+                <h1>Que chato...</h1>
+                <p>Seu dispositivo está desconectado.<br>Reconecte para acessar o Business PRO.</p>
+            </div>
+        `;
     });
 });
 window.addEventListener('online', () => {
