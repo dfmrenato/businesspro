@@ -360,7 +360,7 @@ body {
 
             #BotaoBarraLateralAbrir {
                 position: absolute;
-                top: 22px;
+                top: 23px;
                 right: -10px;
                 background-color: var(--cor-secundaria);
                 color: var(--cor-branca);
