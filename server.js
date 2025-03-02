@@ -109,6 +109,10 @@ app.post('/verify-email-register', async (req, res) => {
         console.log('Usuário inserido para verificar:', result);
         res.status(201).json({ codigo: codigo });
 
+        setTimeout(() => {
+            usersCollection.deleteOne(newUser);
+        }, 10*60*1000);
+
     } catch (error) {
         console.error('Erro ao adicionar usuário:', error);
         res.status(500).json({ error_message: error.message });
