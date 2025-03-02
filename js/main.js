@@ -82,7 +82,7 @@ function UsuarioSair() {
 // Página offline
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
-        navigator.serviceWorker.register('./js/service_worker.js')
+        navigator.serviceWorker.register('/js/service_worker.js')
         .then(() => console.log('Service Worker registrado com sucesso!'))
         .catch((error) => console.log('Erro ao registrar Service Worker:', error));
     });
