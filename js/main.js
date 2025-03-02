@@ -71,8 +71,7 @@ if(!document.getElementById('CaixaAlerta')) {
         document.querySelector('#CaixaAlerta').classList.remove('ativo');
     });
 
-    function Notificar(titulo, texto, botao, botao_funcao) {
-        if(!botao) botao = "Confirmar";
+    function Notificar(titulo="Título", texto="Texto", botao="Confirmar", botao_funcao=()=>{}) {
         document.getElementById("CaixaAlertaTitulo").innerHTML = titulo;
         document.getElementById("CaixaAlertaTexto").innerHTML = texto;
         document.getElementById("CaixaAlertaConfirmar").innerHTML = botao;
