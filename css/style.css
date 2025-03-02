@@ -188,7 +188,6 @@
     }
     div:hover {
         background-color: var(--cor-branca);
-        padding: 16px;
     }
 }
 
