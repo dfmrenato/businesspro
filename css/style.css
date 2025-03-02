@@ -37,7 +37,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100%;
 }
 .BotaoPrimario:hover {
     background-color: var(--cor-escura);
