@@ -594,6 +594,25 @@ body {
 
     }
 
+    .CorpoPaginaInicial {
+        margin: none;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        section {
+            display: flex;
+            flex-direction: row;
+
+            div {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+    }
+
 }
 
 #BodyDashboard {
