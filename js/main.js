@@ -1,26 +1,11 @@
-/*// Pesquisar no cabeçalho
-document.getElementById('CabecalhoPesquisa').addEventListener('submit', (event) => {
-    // Previne o envio real do formulário
-    event.preventDefault();
-
-    // Obtém os valores dos campos do formulário
-    const pesquisa = document.getElementById('CabecalhoPesquisa').elements["pesquisa"].value;
-
-    // Exibe um alerta com os dados preenchidos
-    window.alert(`Pesquisa: ${pesquisa}`);
-    document.getElementById('CabecalhoPesquisa').elements["pesquisa"].value = "";
-});*/
-
 // Carregar EmailJS
-(function() {
-    // https://dashboard.emailjs.com/admin/account
-    emailjs.init({
-        publicKey: "8aKoHvVdxMzLMZv2B",
-    });
-})();
+emailjs.init({
+    publicKey: "8aKoHvVdxMzLMZv2B",
+});
 
 // Função enviar email
-function EnviarEmail(assunto, mensagem, remetente, destinatario, template="template_8qj7bar") {
+function EnviarEmail(assunto="Assunto", mensagem="Mensagem", remetente="Business PRO", destinatario="undefined", template="template_8qj7bar") {
+    if(destinario=="undefined") return false;
     return emailjs.send('service_mr1z653', template, {
         subject: assunto,
         message: mensagem,
