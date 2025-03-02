@@ -110,7 +110,9 @@ app.post('/verify-email-register', async (req, res) => {
         res.status(201).json({ codigo: codigo });
 
         setTimeout(() => {
-            usersCollection.deleteOne(newUser);
+            if(usersCollection.findOne({newUser})) {
+                usersCollection.deleteOne(newUser);
+            };
         }, 10*60*1000);
 
     } catch (error) {
