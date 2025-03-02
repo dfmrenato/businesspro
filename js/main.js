@@ -20,8 +20,8 @@ document.getElementById('CabecalhoPesquisa').addEventListener('submit', (event) 
 })();
 
 // Função enviar email
-function EnviarEmail(assunto, mensagem, remetente, destinatario) {
-    return emailjs.send('service_mr1z653', 'template_8qj7bar', {
+function EnviarEmail(assunto, mensagem, remetente, destinatario, template="template_8qj7bar") {
+    return emailjs.send('service_mr1z653', template, {
         subject: assunto,
         message: mensagem,
         email: destinatario,

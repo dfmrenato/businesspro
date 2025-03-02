@@ -124,7 +124,7 @@ document.getElementById('RegistroFormulario').addEventListener('submit', async (
 
         // Código específico
         sessionStorage.setItem('VerificacaoEmail', email)
-        EnviarEmail(`Verificação de email`, `Seu código de verificação é ${data.codigo}.`, "Business PRO", email)
+        EnviarEmail(`Verificação de e-mail`, `${data.codigo}`, "Business PRO", email, 'template_blamdz5')
         .then(() => {
             location.replace('./verify');
         });
