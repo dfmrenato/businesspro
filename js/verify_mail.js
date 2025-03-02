@@ -35,6 +35,7 @@ document.getElementById('FormularioVerificarEmail').addEventListener('submit', a
         sessionStorage.setItem('UsuarioLogado', data.email);
         sessionStorage.setItem('UsuarioLogadoNome', data.nome);
         sessionStorage.setItem('UsuarioLogadoEmpresa', data.empresa);
+        sessionStorage.removeItem('VerificacaoEmail');
         
     } catch (error) {
         console.error(error);

@@ -89,8 +89,15 @@ app.post('/verify-email-register', async (req, res) => {
         const usersCollection = db.collection('temporario');
 
         // Verifica se o e-mail ou empresa já existe no banco de dados
-        if (await usersCollection.findOne({ email }) || await usersCollection.findOne({ empresa }) && tipo == "empresarial") {
+        if (await db.collection('usuarios').findOne({ email }) || await db.collection('usuarios').findOne({ empresa }) && tipo == "empresarial") {
             return res.status(409).json({ error_message: 'Já existe um usuário com este e-mail ou empresa. Tente fazer login ou alterá-los.' }); // Código 409 = Conflito
+        }
+
+        // Verifica se o e-mail ou empresa já existe aguardando
+        if (await usersCollection.findOne({ email })) {
+            (await client).db('businesspro').collection('temporario').deleteOne({ temporario_tipo: "conta", email });
+        } else if (await usersCollection.findOne({ empresa }) && tipo == "empresarial") {
+            (await client).db('businesspro').collection('temporario').deleteOne({ temporario_tipo: "conta", empresa });
         }
 
         const temporario_tipo = "conta";
@@ -150,9 +157,7 @@ app.post('/verify-email-success', async (req, res) => {
                 })*/
             };
 
-            result.finally(async () => {
-                (await client).db('businesspro').collection('temporario').deleteOne({ _id: (await usuario)._id });
-            })
+            (await client).db('businesspro').collection('temporario').deleteOne({ _id: (await usuario)._id });
     
         } catch (error) {
             console.error('Erro ao adicionar usuário:', error);
