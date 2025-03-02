@@ -25,7 +25,7 @@ const uri = 'mongodb+srv://renatosantos36:2t9s1qGOojyShgs7@projetocluster.i1z4e.
 let db;
 
 // Conectar ao MongoDB
-let client = MongoClient.connect(uri)
+const client = MongoClient.connect(uri)
 client.then((client) => {
     db = client.db('businesspro');  // Acessa o banco de dados padrão
     console.log('Conectado ao MongoDB');
