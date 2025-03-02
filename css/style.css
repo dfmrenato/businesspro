@@ -335,8 +335,10 @@ body {
             #BarraLateralUsuario {
                 display: flex;
                 align-items: center;
-                gap: 8px;
+                gap: 0px;
                 margin-bottom: 24px;
+                transition-duration: 0.4s;
+                justify-content: center;
     
                 #BarraLateralAvatar {
                     width: 50px;
@@ -432,6 +434,15 @@ body {
 
         #BotaoBarraLateralAbrir i {
             transform: rotate(180deg);
+        }
+
+        #BarraLateralConteudo {
+
+            #BarraLateralUsuario {
+                gap: 8px;
+                justify-content: unset;
+            }
+
         }
     }
 
