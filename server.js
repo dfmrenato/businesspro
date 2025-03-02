@@ -25,7 +25,8 @@ app.use(express.json());
 
 // Conectar ao MongoDB usando o link de conexão fornecido
 const uri = 'mongodb+srv://renatosantos36:2t9s1qGOojyShgs7@projetocluster.i1z4e.mongodb.net/?retryWrites=true&w=majority&appName=ProjetoCluster';
-let db;
+
+console.log(process.env.MONGODB_URI)
 
 // Conectar ao MongoDB
 const client = MongoClient.connect(uri);
