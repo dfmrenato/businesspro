@@ -97,6 +97,8 @@ window.addEventListener('offline', () => {
                 <p>Seu dispositivo está desconectado.<br>Reconecte para acessar o Business PRO.</p>
             </div>
         `;
+        document.body.id = '';
+        document.body.classList.forEach(c => document.body.classList.remove(c));
     });
 });
 window.addEventListener('online', () => {
