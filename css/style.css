@@ -221,11 +221,12 @@ body {
             }
 
             .Lista {
+                margin-right: 35px;
                 display: flex;
                 align-items: center;
+                gap: 10px;
 
                 li {
-                    margin: 0 35px;
                     font-size: 15px;
                     a {
                         color: var(--cor-esbranquiçada);
