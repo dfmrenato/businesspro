@@ -595,7 +595,7 @@ body {
     }
 
     .CorpoPaginaInicial {
-        margin: none;
+        margin: unset;
         display: flex;
         flex-direction: column;
         gap: 10px;
@@ -603,12 +603,14 @@ body {
         section {
             display: flex;
             flex-direction: row;
+            gap: 8px;
 
             div {
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
                 align-items: center;
+                padding: 10px;
             }
         }
     }
