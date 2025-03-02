@@ -1,6 +1,7 @@
 const express = require('express');
 const { MongoClient } = require('mongodb');
 const cors = require('cors');
+const ngrok = require("@ngrok/ngrok");
 
 const app = express();
 const port = 3000; 
@@ -208,6 +209,19 @@ app.post('/add-funcionario', async (req, res) => {
         res.status(500).json({ error_message: error.message });
     }
 });
+
+// Ngrok
+(async () => {
+    // Conectar
+    const listener = await ngrok.forward({
+        addr: port,
+        authtoken: '2t5tX4YHTvdoMPC68nuelFiqKmR_3dTEdyxv6fJHezCAyUvEC',
+        domain: 'evolved-legible-spider.ngrok-free.app'
+    });
+  
+    // Avisar
+    console.log(`Ngrok conectado em ${listener.url()}`);
+})();
 
 // Iniciar o servidor
 app.listen(port, () => {
