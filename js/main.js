@@ -88,6 +88,7 @@ window.addEventListener('offline', () => {
             <h1>Que chato...</h1>
             <p>Você está sem internet</p>
         `
+        document.querySelector('#CaixaAlerta').classList.add('ativo');
     });
 });
 window.addEventListener('online', () => {
