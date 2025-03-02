@@ -22,16 +22,17 @@ app.use(express.json());
 
 // Conectar ao MongoDB usando o link de conexão fornecido
 const uri = 'mongodb+srv://renatosantos36:2t9s1qGOojyShgs7@projetocluster.i1z4e.mongodb.net/?retryWrites=true&w=majority&appName=ProjetoCluster';
-let db = (await client).db('businesspro');
+let db;
 
 // Conectar ao MongoDB
-const client = MongoClient.connect(uri)
+let client = MongoClient.connect(uri)
 client.then((client) => {
     db = client.db('businesspro');  // Acessa o banco de dados padrão
     console.log('Conectado ao MongoDB');
 }).catch((error) => {
     console.error('Erro ao conectar ao MongoDB:', error);
 });
+db = (await client).db('businesspro');
 
 // Rota de exemplo
 app.get('/', (req, res) => {
