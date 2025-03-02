@@ -173,7 +173,7 @@
     margin-top: 10px;
     overflow-wrap: break-word;
     transition-duration: 0.4s;
-    width: fit-content;
+    width: -webkit-fill-available;
 
     /*Responsivo */
     @media (max-width: 960px) {
