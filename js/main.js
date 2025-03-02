@@ -82,7 +82,8 @@ function UsuarioSair() {
 // Usuário offline
 window.addEventListener('offline', () => {
     console.log('Você ficou offline!');
-    document.body.innerHTML = '<h1>Você está sem internet!</h1><p>Tente novamente mais tarde.</p>';
+    document.body.innerHTML = '';
+    Notificar('Você está offline!', 'Tente novamente quando tiver conexão à internet', 'OK')
 });
 window.addEventListener('online', () => {
     window.location.reload();
