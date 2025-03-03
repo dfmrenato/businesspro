@@ -1,7 +1,7 @@
 if(sessionStorage.getItem('VerificacaoEmail')) {
     document.getElementById('CaixaVerificarEmailTexto').innerHTML = `Enviamos um código de verificação por email para <strong>${sessionStorage.getItem('VerificacaoEmail')}</strong>. Insira-o para verificar seu email e criar sua conta empresarial.`;
 } else {
-    location.replace('./index');
+    location.replace('./.');
 };
 
 document.getElementById('FormularioVerificarEmail').addEventListener('submit', async (event) => {

@@ -1,6 +1,6 @@
 // Página acessível apenas para usuários logados
 if(!sessionStorage.getItem('UsuarioLogado')) {
-    location.replace('./index');
+    location.replace('./.');
 }
 
 // Abrir aba
