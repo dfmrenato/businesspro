@@ -626,6 +626,26 @@ body {
         }
     }
 
+    .CorpoPaginaDownload {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 9%;
+        height: 80vh;
+        margin: 9px;
+
+        div {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 18%;
+
+            a img {
+                width: 50px;
+            }
+        }
+    }
+
 }
 
 #BodyDashboard {
