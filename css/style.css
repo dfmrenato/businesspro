@@ -634,6 +634,11 @@ body {
         height: 80vh;
         margin: 9px;
 
+        /* Responsivo */
+        @media (max-width: 960px) {
+            flex-direction: column;
+        }
+
         div {
             display: flex;
             align-items: center;
