@@ -4,6 +4,7 @@ const { MongoClient } = require('mongodb');
 const cors = require('cors');
 const ngrok = require("@ngrok/ngrok");
 const emailjs = require('@emailjs/nodejs');
+require('dotenv').config();
 
 // Função enviar email
 function EnviarEmail(assunto="Assunto", mensagem="Mensagem", remetente="Business PRO", destinatario="undefined", template="template_8qj7bar") {
@@ -14,8 +15,8 @@ function EnviarEmail(assunto="Assunto", mensagem="Mensagem", remetente="Business
         email: destinatario,
         name: remetente
     }, {
-        publicKey: '8aKoHvVdxMzLMZv2B',
-        privateKey: 'lcFoXYNQaoemHkQrBcT7n'
+        publicKey: process.env.EMAILJS_PUBLICKEY,
+        privateKey: process.env.EMAILJS_PRIVATEKEY
     }).then(
         (response) => {
             console.log('Envio de email SUCESSO!', response.status, response.text);
@@ -28,7 +29,7 @@ function EnviarEmail(assunto="Assunto", mensagem="Mensagem", remetente="Business
 
 // Definições
 const app = express();
-const port = 3000; 
+const port = process.env.BACKEND_PORTA; 
 
 // Configuração do CORS para permitir o frontend específico
 const corsOptions = {
@@ -46,7 +47,7 @@ app.options('*', cors(corsOptions));
 app.use(express.json());
 
 // Conectar ao MongoDB usando o link de conexão fornecido
-const uri = 'mongodb+srv://renatosantos36:2t9s1qGOojyShgs7@projetocluster.i1z4e.mongodb.net/?retryWrites=true&w=majority&appName=ProjetoCluster';
+const uri = process.env.MONGODB_URI;
 
 // Conectar ao MongoDB
 const client = MongoClient.connect(uri);
@@ -240,8 +241,8 @@ app.post('/add-funcionario', async (req, res) => {
     // Conectar
     const listener = await ngrok.forward({
         addr: port,
-        authtoken: '2t5tX4YHTvdoMPC68nuelFiqKmR_3dTEdyxv6fJHezCAyUvEC',
-        domain: 'evolved-legible-spider.ngrok-free.app'
+        authtoken: process.env.NGROK_AUTHTOKEN,
+        domain: process.env.NGROK_DOMAIN
     });
   
     // Avisar
