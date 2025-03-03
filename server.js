@@ -246,7 +246,7 @@ app.post('/add-funcionario', async (req, res) => {
     });
   
     // Avisar
-    console.log(`Ngrok conectado em ${listener.url()}`);
+    console.log(`Ngrok conectado`);
 })();
 
 // Iniciar o servidor
