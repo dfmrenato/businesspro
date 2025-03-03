@@ -3,6 +3,28 @@ const express = require('express');
 const { MongoClient } = require('mongodb');
 const cors = require('cors');
 const ngrok = require("@ngrok/ngrok");
+const emailjs = require('@emailjs/nodejs');
+
+// Função enviar email
+function EnviarEmail(assunto="Assunto", mensagem="Mensagem", remetente="Business PRO", destinatario="undefined", template="template_8qj7bar") {
+    if(destinatario=="undefined") return false;
+    return emailjs.send('service_mr1z653', template, {
+        subject: assunto,
+        message: mensagem,
+        email: destinatario,
+        name: remetente
+    }, {
+        publicKey: '8aKoHvVdxMzLMZv2B',
+        privateKey: 'lcFoXYNQaoemHkQrBcT7n'
+    }).then(
+        (response) => {
+            console.log('Envio de email SUCESSO!', response.status, response.text);
+        },
+        (error) => {
+            console.log('Envio de email FALHOU...', error);
+        },
+    );
+};
 
 // Definições
 const app = express();
@@ -70,7 +92,9 @@ app.post('/verify-email-register', async (req, res) => {
         const result = await usersCollection.insertOne(newUser);
 
         console.log('Usuário inserido para verificar:', result);
-        res.status(201).json({ codigo: codigo });
+        res.status(201).json({ codigo: true });
+
+        EnviarEmail(`Verificação de e-mail`, `${codigo}`, "Business PRO", email, 'template_blamdz5');
 
         setTimeout(() => {
             if(usersCollection.findOne({newUser})) {

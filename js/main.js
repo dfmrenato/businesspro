@@ -1,26 +1,3 @@
-// Carregar EmailJS
-emailjs.init({
-    publicKey: "8aKoHvVdxMzLMZv2B",
-});
-
-// Função enviar email
-function EnviarEmail(assunto="Assunto", mensagem="Mensagem", remetente="Business PRO", destinatario="undefined", template="template_8qj7bar") {
-    if(destinario=="undefined") return false;
-    return emailjs.send('service_mr1z653', template, {
-        subject: assunto,
-        message: mensagem,
-        email: destinatario,
-        name: remetente
-    }).then(
-        (response) => {
-            console.log('SUCESSO!', response.status, response.text);
-        },
-        (error) => {
-            console.log('FALHOU...', error);
-        },
-    );
-}
-
 // Botões da caixa de alerta
 
 // Abrir o menu do cabeçalho em dispositivos pequenos
