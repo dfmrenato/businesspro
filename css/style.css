@@ -4,11 +4,11 @@
 
 /*Variáveis*/
 :root {
-    --cor-escura: #14222f;
-    --cor-principal: #3d4652;
-    --cor-secundaria: #b3b9c5;
-    --cor-esbranquiçada: #e2e9ef;
-    --cor-branca: #f2f7fb;
+    --cor-escura: #14222F;
+    --cor-principal: #4F5A63;
+    --cor-secundaria: #8A9197;
+    --cor-esbranquiçada: #C5C8CB;
+    --cor-branca: #FFFFFF;
     --cor-de-fundo: var(--cor-esbranquiçada);
     --botao-primario: var(--cor-principal);
     --botao-secundario: #00000000;
