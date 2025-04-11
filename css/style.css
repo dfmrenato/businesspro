@@ -230,7 +230,7 @@ body {
                 li {
                     font-size: 15px;
                     a {
-                        color: var(--cor-esbranquiçada);
+                        color: var(--cor-branca);
                     }
                     form {
                         display: flex;
