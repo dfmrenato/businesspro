@@ -461,6 +461,7 @@ body {
             display: flex;
             margin: 0 auto;
             margin-top: 20px;
+            background-color: var(--cor-secundaria);
             border-radius: 40px;
             max-width: fit-content;
             align-items: center;
@@ -491,7 +492,6 @@ body {
         .Logon {
             display: flex;
             margin: 0 auto;
-            background-color: var(--cor-esbranquiçada);
             border-radius: 10px;
             max-width: fit-content;
             align-items: center;
