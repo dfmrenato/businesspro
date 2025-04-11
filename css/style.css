@@ -461,7 +461,6 @@ body {
             display: flex;
             margin: 0 auto;
             margin-top: 20px;
-            background-color: var(--cor-secundaria);
             border-radius: 40px;
             max-width: fit-content;
             align-items: center;
