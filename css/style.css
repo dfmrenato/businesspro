@@ -202,7 +202,7 @@ body {
 
     /*Cabeçalho*/
     header {
-        background-color: var(--cor-secundaria);
+        background-color: var(--cor-principal);
         text-decoration: none;
         color: var(--cor-esbranquiçada);
         
@@ -487,6 +487,7 @@ body {
 
             .Opcao.ativo {
                 background-color: var(--cor-principal);
+                color: var(--cor-branca);
             }
 
         }
@@ -561,7 +562,7 @@ body {
                             color: var(--cor-principal);
                         }
                         .BotaoSecundario:hover {
-                            color: var(--cor-esbranquiçada);
+                            color: var(--cor-branca);
                         }
                     }
                 }
@@ -732,7 +733,7 @@ body {
                     color: var(--cor-principal);
                 }
                 .BotaoSecundario:hover {
-                    color: var(--cor-esbranquiçada);
+                    color: var(--cor-branca);
                 }
             }
         }
