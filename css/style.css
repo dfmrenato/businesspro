@@ -258,7 +258,7 @@ body {
                     transition: 0.3s;
                     flex-direction: column;
                     justify-content: center;
-                    background-color: var(--cor-secundaria);
+                    background-color: var(--cor-principal);
 
                     li {
                         margin: 20px 0;
