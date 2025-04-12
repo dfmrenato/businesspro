@@ -33,7 +33,7 @@ const port = process.env.BACKEND_PORTA;
 
 // Configuração do CORS para permitir o frontend específico
 const corsOptions = {
-    origin: 'https://dfmrenato.github.io', // Permite requisições apenas deste site
+    origin: 'https://renatoaugusto-go.github.io', // Permite requisições apenas deste site
     methods: 'GET,POST', // Métodos permitidos
     allowedHeaders: 'Content-Type',
 };
