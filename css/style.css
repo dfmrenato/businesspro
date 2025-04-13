@@ -34,6 +34,8 @@
     border-radius: 8px;
     transition-duration: 0.4s;
     font-family: var(--fonte-principal);
+    font-weight: normal;
+    font-size: medium;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -50,6 +52,8 @@
     border-radius: 8px;
     transition-duration: 0.4s;
     font-family: var(--fonte-principal);
+    font-weight: normal;
+    font-size: medium;
     display: flex;
     align-items: center;
     justify-content: center;
