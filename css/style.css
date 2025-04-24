@@ -206,7 +206,7 @@ body {
 
     /*Cabeçalho*/
     header {
-        background-color: var(--cor-principal);
+        background-color: transparent;
         text-decoration: none;
         color: var(--cor-esbranquiçada);
         
@@ -216,14 +216,13 @@ body {
             align-items: center;
             padding: 20px 0;
             
-            .Logo a{
+            .Logo{
                 font-size: 30px;
                 font-weight: bold;
                 color: var(--cor-escura);
                 margin: 0 35px;
                 display: flex;
-                align-items: center;
-                justify-content: center;
+                gap: 5px;
             }
 
             .Lista {
@@ -234,9 +233,6 @@ body {
 
                 li {
                     font-size: 15px;
-                    a {
-                        color: var(--cor-branca);
-                    }
                     form {
                         display: flex;
                     }
@@ -248,6 +244,17 @@ body {
                 position: relative;
                 z-index: 10;
             }
+
+            .BotaoPrimario {
+                background-color: transparent;
+                color: var(--cor-escura);
+                box-shadow: 0px 0px 0px 0.8px var(--cor-escura) inset;
+            }
+            .BotaoSecundario {
+                background-color: transparent;
+                color: var(--cor-escura);
+            }
+
             /*Responsivo */
             @media (max-width: 960px) {
 
@@ -275,6 +282,16 @@ body {
 
                 .MenuIcone {
                     display: block;
+                }
+
+                .BotaoPrimario {
+                    background-color: transparent;
+                    color: var(--cor-branca);
+                    box-shadow: 0px 0px 0px 0.8px var(--cor-branca) inset;
+                }
+                .BotaoSecundario {
+                    background-color: transparent;
+                    color: var(--cor-branca);
                 }
             }
         }
