@@ -250,6 +250,9 @@ body {
                 color: var(--cor-escura);
                 box-shadow: 0px 0px 0px 0.8px var(--cor-escura) inset;
             }
+            .BotaoPrimario:hover {
+                color: var(--cor-branca);
+            }
             .BotaoSecundario {
                 background-color: transparent;
                 color: var(--cor-escura);
@@ -274,6 +277,7 @@ body {
                     li {
                         margin: 20px 0;
                     }
+
                 }
 
                 .Lista.ativo {
@@ -282,6 +286,14 @@ body {
 
                 .MenuIcone {
                     display: block;
+                    
+                    .BotaoSecundario {
+                        color: var(--cor-escura);
+                    }
+                }
+
+                .MenuIcone:hover .BotaoSecundario{
+                    color: var(--cor-branca);
                 }
 
                 .BotaoPrimario {
@@ -289,9 +301,16 @@ body {
                     color: var(--cor-branca);
                     box-shadow: 0px 0px 0px 0.8px var(--cor-branca) inset;
                 }
+                .BotaoPrimario:hover {
+                    background-color: var(--cor-branca);
+                    color: var(--cor-principal);
+                }
                 .BotaoSecundario {
                     background-color: transparent;
                     color: var(--cor-branca);
+                }
+                .BotaoSecundario:hover {
+                    background-color: var(--cor-escura);
                 }
             }
         }
