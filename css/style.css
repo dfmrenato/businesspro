@@ -216,7 +216,7 @@ body {
             align-items: center;
             padding: 20px 0;
             
-            .Logo{
+            .Logo a{
                 font-size: 30px;
                 font-weight: bold;
                 color: var(--cor-escura);
