@@ -666,8 +666,7 @@ body {
                 flex-direction: column;
                 justify-content: left;
                 align-items: left;
-                padding: 10px;
-                padding-top: 50dvh;
+                padding-top: 20dvh;
             }
         }
     }
