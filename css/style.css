@@ -667,6 +667,7 @@ body {
                 justify-content: left;
                 align-items: left;
                 padding: 10px;
+                padding-top: 50dvh;
             }
         }
     }
