@@ -506,7 +506,7 @@ body {
             background-color: var(--cor-secundaria);
             border-radius: 40px;
             max-width: fit-content;
-            align-items: center;
+            align-items: left;
             
             .Opcao {
                 color: var(--cor-esbranquiçada);
@@ -665,7 +665,7 @@ body {
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
-                align-items: center;
+                align-items: ce;
                 padding: 10px;
             }
         }
