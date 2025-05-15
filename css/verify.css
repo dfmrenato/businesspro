@@ -1,0 +1,47 @@
+@import url('./main.css');
+
+/*Conteúdo principal do site*/
+body {
+    background-color: var(--cor-de-fundo);
+    font-family: var(--fonte-principal);
+    user-select: none;
+    min-height: 100vh;
+
+    /*Corpo*/
+    main {
+        margin: 10px 10px;
+        display: block;
+
+        h1 {
+            color: var(--cor-escura);
+        }
+
+        .CaixaVerificarEmail {
+            margin: auto;
+            display: flex;
+            width: min-content;
+            flex-direction: column;
+            padding: 10px;
+            gap: 8px;
+            border-radius: 10px;
+            height: 100vh;
+            justify-content: center;
+
+            div {
+                display: flex;
+                
+                .FormularioCampoPrimario {
+                    text-align: center;
+                    letter-spacing: 30px;
+                    text-indent: 30px;
+                }
+
+                .BotaoPrimario {
+                    height: unset;
+                }
+            }
+        }
+
+    }
+
+}

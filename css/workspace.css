@@ -1,0 +1,21 @@
+@import url('./main.css');
+
+/*Conteúdo principal do site*/
+body {
+    background-color: var(--cor-de-fundo);
+    font-family: var(--fonte-principal);
+    user-select: none;
+    min-height: 100vh;
+
+    /*Corpo*/
+    main {
+        margin: 10px 10px;
+        display: block;
+
+        h1 {
+            color: var(--cor-escura);
+        }
+
+    }
+
+}

@@ -1,0 +1,148 @@
+@import url('./main.css');
+
+/*Conteúdo principal do site*/
+body {
+    background-color: var(--cor-de-fundo);
+    font-family: var(--fonte-principal);
+    user-select: none;
+    min-height: 100vh;
+
+    /*Cabeçalho*/
+    header {
+        background-color: transparent;
+        text-decoration: none;
+        color: var(--cor-esbranquiçada);
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            
+            .Logo a{
+                font-size: 30px;
+                font-weight: bold;
+                color: var(--cor-escura);
+                margin: 0 35px;
+                display: flex;
+                gap: 5px;
+            }
+
+            .Lista {
+                margin-right: 35px;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+
+                li {
+                    font-size: 15px;
+                    form {
+                        display: flex;
+                    }
+                }
+            }
+
+            .MenuIcone {
+                display: none;
+                position: relative;
+                z-index: 10;
+            }
+
+            .BotaoPrimario {
+                background-color: transparent;
+                color: var(--cor-escura);
+                box-shadow: 0px 0px 0px 0.8px var(--cor-escura) inset;
+            }
+            .BotaoPrimario:hover {
+                color: var(--cor-branca);
+            }
+            .BotaoSecundario {
+                background-color: transparent;
+                color: var(--cor-escura);
+            }
+
+            /*Responsivo */
+            @media (max-width: 960px) {
+
+                font-size: 20px;
+
+                .Lista {
+                    position: fixed;
+                    top: 0;
+                    width: 100%;
+                    height: 100%;
+                    left: 100%;
+                    transition: 0.3s;
+                    flex-direction: column;
+                    justify-content: center;
+                    background-color: var(--cor-principal);
+
+                    li {
+                        margin: 20px 0;
+                    }
+
+                }
+
+                .Lista.ativo {
+                    left: 0%;
+                }
+
+                .MenuIcone {
+                    display: block;
+                    
+                    .BotaoSecundario {
+                        color: var(--cor-escura);
+                    }
+                }
+
+                .MenuIcone:hover .BotaoSecundario{
+                    color: var(--cor-branca);
+                }
+
+                .BotaoPrimario {
+                    background-color: transparent;
+                    color: var(--cor-branca);
+                    box-shadow: 0px 0px 0px 0.8px var(--cor-branca) inset;
+                }
+                .BotaoPrimario:hover {
+                    background-color: var(--cor-branca);
+                    color: var(--cor-principal);
+                }
+                .BotaoSecundario {
+                    background-color: transparent;
+                    color: var(--cor-branca);
+                }
+                .BotaoSecundario:hover {
+                    background-color: var(--cor-escura);
+                }
+            }
+        }
+    }
+
+    /*Página de download */
+    main {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 9%;
+        height: 80vh;
+        margin: 9px;
+
+        /* Responsivo */
+        @media (max-width: 960px) {
+            flex-direction: column;
+        }
+
+        div {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 18%;
+
+            a img {
+                width: 50px;
+            }
+        }
+    }
+
+}
