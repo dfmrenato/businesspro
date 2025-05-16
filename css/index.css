@@ -48,19 +48,6 @@ body {
                 z-index: 10;
             }
 
-            .BotaoPrimario {
-                background-color: transparent;
-                color: var(--cor-escura);
-                box-shadow: 0px 0px 0px 0.8px var(--cor-escura) inset;
-            }
-            .BotaoPrimario:hover {
-                color: var(--cor-branca);
-            }
-            .BotaoSecundario {
-                background-color: transparent;
-                color: var(--cor-escura);
-            }
-
             /*Responsivo */
             @media (max-width: 960px) {
 
@@ -98,23 +85,6 @@ body {
                 .MenuIcone:hover .BotaoSecundario{
                     color: var(--cor-branca);
                 }
-
-                .BotaoPrimario {
-                    background-color: transparent;
-                    color: var(--cor-branca);
-                    box-shadow: 0px 0px 0px 0.8px var(--cor-branca) inset;
-                }
-                .BotaoPrimario:hover {
-                    background-color: var(--cor-branca);
-                    color: var(--cor-principal);
-                }
-                .BotaoSecundario {
-                    background-color: transparent;
-                    color: var(--cor-branca);
-                }
-                .BotaoSecundario:hover {
-                    background-color: var(--cor-escura);
-                }
             }
         }
     }
@@ -134,12 +104,13 @@ body {
             display: flex;
             flex-direction: row;
             gap: 8px;
+            height: 100dvh;
 
             div {
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
-                align-items: ce;
+                align-items: center;
                 padding: 10px;
             }
         }

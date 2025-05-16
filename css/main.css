@@ -10,8 +10,10 @@
     --cor-esbranquiçada: #C5C8CB;
     --cor-branca: #FFFFFF;
     --cor-de-fundo: var(--cor-branca);
+    --cor-de-destaque: #2b4d80;
     --botao-primario: var(--cor-principal);
-    --botao-secundario: #00000000;
+    --botao-secundario: transparent;
+    --botao-terciario: transparent;
     --fonte-principal: 'Poppins', sans-serif;
 }
 * {
@@ -45,10 +47,11 @@
 }
 .BotaoSecundario {
     padding: 10px 25px;
-    color: var(--cor-branca);
     border: none;
     cursor: pointer;
     background-color: var(--botao-secundario);
+    color: var(--cor-escura);
+    box-shadow: 0px 0px 0px 0.8px var(--cor-escura) inset;
     border-radius: 8px;
     transition-duration: 0.4s;
     font-family: var(--fonte-principal);
@@ -63,7 +66,27 @@
     color: var(--cor-branca);
     background-color: var(--botao-primario);
 }
-/**Formulários */
+.BotaoTerciario {
+    padding: 10px 25px;
+    color: var(--cor-escura);
+    border: none;
+    cursor: pointer;
+    background-color: var(--botao-terciario);
+    border-radius: 8px;
+    transition-duration: 0.4s;
+    font-family: var(--fonte-principal);
+    font-weight: normal;
+    font-size: medium;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+.BotaoTerciario:hover {
+    color: var(--cor-branca);
+    background-color: var(--botao-primario);
+}
+/* Formulários */
 .FormularioCampoPrimario {
     padding: 10px 25px;
     color: var(--cor-principal);
@@ -80,7 +103,7 @@
     box-shadow: 0px 0px 0px 2px var(--cor-principal) inset;
     border: none;
 }
-
+/* Caixa de alerta */
 .CaixaAlerta {
     display: flex;
     position: fixed;
@@ -146,7 +169,7 @@
         top: 0%;
     }
 }
-
+/* Cabeçalho */
 .CabecalhoPequeno {
     background-color: var(--cor-esbranquiçada);
     border-radius: 200px;
@@ -170,7 +193,7 @@
         box-shadow: 0px 0px 0px 2px var(--cor-principal) inset;
     }
 }
-
+/* Lista em grade */
 .GradeLista {
     display: grid;
     grid-template-columns: repeat(4, 25%);
