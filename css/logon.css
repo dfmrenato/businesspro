@@ -137,13 +137,6 @@ body {
                         justify-content: center;
                         align-items: center;
                         gap: 4px;
-                        
-                        .BotaoSecundario {
-                            color: var(--cor-principal);
-                        }
-                        .BotaoSecundario:hover {
-                            color: var(--cor-branca);
-                        }
                     }
                 }
             }

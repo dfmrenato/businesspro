@@ -24,13 +24,13 @@
                     </a>
                 </div>
                 <ul class="Lista">
-                    <li><a href="." class="BotaoSecundario">Página inicial</a></li>
+                    <li><a href="." class="BotaoTerciario">Página inicial</a></li>
                     <script>
                         if(sessionStorage.getItem('UsuarioLogado') != null) {
-                            document.write(`<li><a href="dashboard" class="BotaoSecundario">Painel de controle</a></li>`);
-                            document.write(`<li><button class="BotaoPrimario" onclick="UsuarioSair()">Sair</button></li>`);
+                            document.write(`<li><a href="dashboard" class="BotaoTerciario">Painel de controle</a></li>`);
+                            document.write(`<li><button class="BotaoTerciario" onclick="UsuarioSair()">Sair</button></li>`);
                         } else {
-                            document.write(`<li><a href="logon"><button class="BotaoPrimario">Começar!</button></a></li>`);
+                            document.write(`<li><a href="logon"><button class="BotaoSecundario">Começar!</button></a></li>`);
                         }
                     </script>
                 </ul>
