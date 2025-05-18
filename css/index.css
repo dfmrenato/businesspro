@@ -110,10 +110,36 @@ body {
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
-                align-items: center;
+                align-items: flex-start;
                 padding: 10px;
             }
         }
+
+        .Secao1 {
+            div {
+                font-size: x-large;
+
+                h1 {
+                    border-left: 5px solid var(--cor-de-destaque);
+                    padding-left: 10px;
+                }
+            }
+        }
+
+        .Secao2 {
+            background-color: black;
+
+            div {
+                width: 50%;
+
+                p {
+                    color: white;
+                    font-size: 50px;
+                }
+            }
+        }
+
+        
     }
 
 }
