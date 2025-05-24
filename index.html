@@ -11,7 +11,7 @@
         <meta name="keywords" content="business, pro, projeto, curso, renato, ovidio">
         <meta name="author" content="Renato Augusto">
         
-        <title>Business PRO</title>
+        <title>Business PRO X</title>
         <link rel="shortcut icon" href="img/BusinessPro.png">
 
     </head>
@@ -24,11 +24,12 @@
                     <a href=".">
                         <p style="font-weight: 400;">Business</p>
                         <p style="font-weight: 700;">PRO</p>
+                        <p style="font-weight: 1000;">X</p>
                     </a>
                 </div>
                 <ul class="Lista">
                     <script>
-                        if(window.process == undefined) {
+                        if(UsandoElectron() == false) {
                             document.write(`<li><a href="download" class="BotaoTerciario">Baixar aplicativo</a></li>`);
                         };
                         if(sessionStorage.getItem('UsuarioLogado') != null) {
@@ -47,13 +48,9 @@
 
         <!-- Corpo -->
         <main class="CorpoPaginaInicial">
-            <section>
-                <div style="font-size: x-large;">
-                    <h1 style="
-                        border-left: 5px solid var(--cor-de-destaque);
-                        padding-left: 10px;
-                        
-                    ">O que é o <br>Business PRO?</h1><br>
+            <section class="Secao1">
+                <div>
+                    <h1>O que é o Business PRO?</h1><br>
                     <p>O Business PRO é uma solução digital desenvolvida especialmente para você que está buscando otimizar a gestão de seus negócios de maneira simples e eficiente.</p>
                 </div>
                 <div>
@@ -61,15 +58,13 @@
                 </div>
             </section>
 
-            <section style="background-color:black;">
-
+            <section class="Secao2">
                 <div>
-                    <p style="color: white; font-size: 50px;">O controle do seu negócio na palma da mão.</p>
+                    <p>O controle do seu negócio na palma da mão.</p>
                 </div>
                 <div>
                     <img src="img/Smartphone.png" height="500">
                 </div>
-
             </section>
 
         </main>
