@@ -115,7 +115,7 @@ body {
             }
         }
 
-        .Secao1 {
+        #Secao1 {
             div {
                 font-size: x-large;
 
@@ -126,7 +126,7 @@ body {
             }
         }
 
-        .Secao2 {
+        #Secao2 {
             background-color: black;
 
             div {
