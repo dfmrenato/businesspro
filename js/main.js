@@ -100,4 +100,6 @@ function UsandoElectron() {
     }
 
     return false;
-}
+};
+
+// Detectar se o backend está ligado
