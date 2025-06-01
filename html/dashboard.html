@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" href="css/dashboard.css">
+
+        <title>Painel de controle</title>
+        <link rel="shortcut icon" href="img/BusinessPro.png">
+
+    </head>
+    <body id="BodyDashboard">
+
+        <!-- Javascript-->
+        <script src="js/preload.js"></script>
+
+        <!-- Barra lateral -->
+        <nav id="BarraLateral" class="BarraLateral">
+
+            <!-- Conteúdo superior -->
+            <div id="BarraLateralConteudo">
+
+                <!-- Usuário -->
+                <div id="BarraLateralUsuario">
+                    <img src="img/BusinessPro.png" id="BarraLateralAvatar">
+                    <p id="BarraLateralUsuarioInfo">
+                        <span class="BarraLateralItemDescricao">
+                            <script>
+                                document.write(sessionStorage.getItem('UsuarioLogadoNome'))
+                            </script>
+                        </span>
+                        <span class="BarraLateralItemDescricao">
+                            <script>
+                                document.write(sessionStorage.getItem('UsuarioLogadoEmpresa'))
+                            </script>
+                        </span>
+                    </p>
+                </div>
+
+                <!-- Lista de itens -->
+                <ul class="BarraLateralItens">
+
+                    <!-- Início -->
+                    <a href="#Inicio">
+                        <li class="BarraLateralItem">
+                            <i class="fa-solid fa-house"></i>
+                            <span name="span" id="LateralAbaInicio" class="BarraLateralItemDescricao">
+                                Início
+                            </span>
+                        </li>
+                    </a>
+
+                    <!-- Funcionários -->
+                    <a href="#Funcionarios">
+                        <li class="BarraLateralItem">
+                            <i class="fa-solid fa-people-group"></i>
+                            <span name="span" id="LateralAbaFuncionarios" class="BarraLateralItemDescricao">
+                                Funcionários
+                            </span>
+                        </li>
+                    </a>
+
+                    <!-- Produtos -->
+                    <a href="#Produtos">
+                        <li class="BarraLateralItem">
+                            <i class="fa-solid fa-bag-shopping"></i>
+                            <span name="span" id="LateralAbaProdutos" class="BarraLateralItemDescricao">
+                                Produtos
+                            </span>
+                        </li>
+                    </a>
+
+                    <!-- Estatísticas -->
+                    <a href="#Estatisticas">
+                        <li class="BarraLateralItem">
+                            <i class="fa-solid fa-chart-line"></i>
+                            <span name="span" id="LateralAbaEstatisticas" class="BarraLateralItemDescricao">
+                                Estatísticas
+                            </span>
+                        </li>
+                    </a>
+
+                </ul>
+
+                <!-- Botão de abrir -->
+                <button id="BotaoBarraLateralAbrir">
+                    <i id="BotaoBarraLateralAbrirIcone" class="fa-solid fa-chevron-right"></i>
+                </button>
+
+            </div>
+
+            <!-- Conteúdo inferior -->
+            <div id="BarraLateralLogout">
+
+                <!-- Lista de itens -->
+                <ul class="BarraLateralItens">
+
+                    <!-- Configurações -->
+                    <a href="#Configuracoes">
+                        <li class="BarraLateralItem">
+                            <i class="fa-solid fa-gear"></i>
+                            <span name="span" id="LateralAbaConfiguracoes" class="BarraLateralItemDescricao">
+                                Configurações
+                            </span>
+                        </li>
+                    </a>
+
+                    <!-- Sair da conta -->
+                    <button onclick="UsuarioSair()" class="BarraLateralItem" id="BarraLateralLogoutBotao">
+                        <i class="fa-solid fa-right-from-bracket"></i>
+                        <span class="BarraLateralItemDescricao">
+                            Sair da conta
+                        </span>
+                    </button>
+
+                </ul>
+
+            </div>
+
+        </nav>
+
+        <!-- Corpo -->
+        <main>
+            
+            <!-- Início -->
+            <div class="CorpoAba" id="CorpoAbaInicio">
+                
+                <h1>Início</h1>
+                <p>Conteúdo da página</p>
+
+            </div>
+
+            <!-- Funcionários -->
+            <div class="CorpoAba" id="CorpoAbaFuncionarios">
+                
+                <h1>Funcionários</h1>
+
+                <!-- Aba superior-->
+                <div id="FuncionariosAbaSuperior" class="DashboardAbaSuperior">
+
+                    <!-- Pesquisar -->
+                    <form id="FuncionariosPesquisa" class="CabecalhoPequeno">
+                        <input type="search" id="PesquisarFuncionarios" name="pesquisa" class="FormularioCampoPrimario" placeholder="Pesquisar">
+                        <select name="classificar" id="ClassificarFuncionarios" form="FuncionariosPesquisa">
+                            <option value="nome">Nome</option>
+                            <option value="funcao">Função</option>
+                            <option value="data">Data de adição</option>
+                        </select>
+                        <input type="submit" class="BotaoPrimario" value="Filtrar ou ordenar">
+                    </form>
+
+                    <!-- Adicionar -->
+                    <button class="BotaoPrimario" id="BotaoAdicionarFuncionario">Adicionar funcionário</button>
+
+                </div>
+
+                <!-- Lista de funcionários -->
+                <div class="GradeLista" id="FuncionariosLista">
+                </div>
+
+            </div>
+
+            <!-- Produtos -->
+            <div class="CorpoAba" id="CorpoAbaProdutos">
+                
+                <h1>Produtos</h1>
+
+                <!-- Aba superior-->
+                <div id="ProdutosAbaSuperior" class="DashboardAbaSuperior">
+
+                    <!-- Pesquisar -->
+                    <form id="ProdutosPesquisa" class="CabecalhoPequeno">
+                        <input type="search" id="PesquisarProdutos" name="pesquisa" class="FormularioCampoPrimario" placeholder="Pesquisar">
+                        <select name="classificar" id="ClassificarProdutos" form="ProdutosPesquisa">
+                            <option value="nome">Nome</option>
+                            <option value="funcao">Função</option>
+                            <option value="data">Data de adição</option>
+                        </select>
+                        <input type="submit" class="BotaoPrimario" value="Pesquisar">
+                    </form>
+
+                    <!-- Adicionar -->
+                    <button class="BotaoPrimario" id="BotaoAdicionarProduto">Adicionar produto</button>
+
+                </div>
+
+                <!-- Lista de produtos -->
+                <div class="GradeLista" id="ProdutosLista">
+
+                </div>
+
+            </div>
+
+            <!-- Estatísticas -->
+            <div class="CorpoAba" id="CorpoAbaEstatisticas">
+                
+                <h1>Estatísticas</h1>
+                <p>Vendas: 0 (parabéns)</p>
+
+            </div>
+
+            <!-- Configurações -->
+            <div class="CorpoAba" id="CorpoAbaConfiguracoes">
+                
+                <h1>Configurações</h1>
+                <p>Não tem ainda</p>
+
+            </div>
+
+        </main>
+
+        <!-- Sobreposições -->
+        <div class="DashboardSobreposicoes">
+
+            <!-- Adição -->
+
+            <!-- Formulário de adição de funcionário -->
+            <div id="DashboardFormularioFuncionario" class="DashboardFormulario">
+                <div class="DashboardFormularioConteudo">
+                    <h2>Criar conta de funcionário</h2>
+                    <form id="AdicionarFuncionario">
+                        
+                        <label for="NomeAF">Nome</label>
+                        <input class="FormularioCampoPrimario" type="text" id="NomeAF" name="nome" placeholder="Ovídio Antoninho Marques" required>
+
+                        <label for="FuncaoAF">Função</label>
+                        <input class="FormularioCampoPrimario" type="text" id="FuncaoAF" name="funcao" placeholder="Vendedor" required>
+
+                        <label for="EmailAF">E-mail</label>
+                        <input class="FormularioCampoPrimario" type="text" id="EmailAF" name="email" placeholder="vendedor@email.com" required>
+
+                        <label for="SenhaAF">Senha</label>
+                        <input class="FormularioCampoPrimario" type="text" id="SenhaAF" name="senha" placeholder="1234" required>
+
+
+                    </form>
+                    <div class="DashboardFormularioFooter">
+                        <input type="reset" form="AdicionarFuncionario" id="CancelarFuncionarioBotao" class="BotaoSecundario" value="Cancelar">
+                        <input type="submit" form="AdicionarFuncionario" id="AdicionarFuncionarioBotao" class="BotaoPrimario" value="Adicionar">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Formulário de adição de produto -->
+            <div id="DashboardFormularioProduto" class="DashboardFormulario">
+                <div class="DashboardFormularioConteudo">
+                    <h2>Adicionar produto</h2>
+                    <form id="AdicionarProduto">
+                        
+                        <label for="NomeAP">Nome</label>
+                        <input class="FormularioCampoPrimario" type="text" id="NomeAP" name="nome" placeholder="Fotografia" required>
+
+                        <label for="ValorAP">Valor (em R$)</label>
+                        <input class="FormularioCampoPrimario" type="number" id="ValorAP" name="valor" placeholder="5" required>
+
+                    </form>
+                    <div class="DashboardFormularioFooter">
+                        <input type="reset" id="CancelarProdutoBotao" class="BotaoSecundario" value="Cancelar">
+                        <button id="AdicionarProdutoBotao" class="BotaoPrimario">Adicionar</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Edição -->
+            
+            <!-- Formulário de adição de funcionário -->
+            <div id="DashboardFormularioFuncionarioEditar" class="DashboardFormulario">
+                <div class="DashboardFormularioConteudo">
+                    <h2>Título</h2>
+                    <form id="EditarFuncionario">
+                        d
+                    </form>
+                    <div class="DashboardFormularioFooter">
+                        <button id="EditarFuncionarioBotao" class="BotaoPrimario">Confirmar</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Formulário de edição de produto -->
+            <div id="DashboardFormularioProdutoEditar" class="DashboardFormulario">
+                <div class="DashboardFormularioConteudo">
+                    <h2>Título</h2>
+                    <form id="EditarProduto">
+                        c
+                    </form>
+                    <div class="DashboardFormularioFooter">
+                        <button id="EditarProdutoBotao" class="BotaoPrimario">Confirmar</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Javascript-->
+        <script src="js/main.js"></script>
+        <script src="js/dashboard.js"></script>
+
+    </body>
+</html>

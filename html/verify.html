@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" href="css/verify.css">
+
+        <title>Verificação de email</title>
+        <link rel="shortcut icon" href="img/BusinessPro.png">
+
+    </head>
+
+    <body>
+
+        <!-- Javascript-->
+        <script src="js/preload.js"></script>
+
+        <!-- Corpo -->
+        <main>
+            
+            <!-- Caixa de verificação -->
+            <div class="CaixaVerificarEmail">
+                <p id="CaixaVerificarEmailTexto">Enviamos um código de verificação por email para . Insira-o para verificar seu email e criar sua conta empresarial.</p>
+                <form id="FormularioVerificarEmail">
+                    <label for="CodigoVerificacao">Código de verificação</label>
+                    <div>
+                        <input type="text" id="CodigoVerificacao" name="codigo" placeholder="******" class="FormularioCampoPrimario">
+                        <button class="BotaoPrimario" type="submit"><i class="fa-solid fa-paper-plane"></i></button>
+                    </div>
+                </form>
+            </div>
+
+        </main>
+
+        <!-- Javascript-->
+        <script src="js/main.js"></script>
+        <script src="js/verify_mail.js"></script>
+
+    </body>
+</html>
