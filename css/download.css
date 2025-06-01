@@ -6,6 +6,8 @@ body {
     font-family: var(--fonte-principal);
     user-select: none;
     min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
 
     /*Cabeçalho*/
     header {
@@ -101,12 +103,12 @@ body {
         align-items: center;
         justify-content: center;
         gap: 9%;
-        height: 80vh;
-        margin: 9px;
+        flex-grow: 1;
 
         /* Responsivo */
         @media (max-width: 960px) {
             flex-direction: column;
+            gap: 20px;
         }
 
         div {
