@@ -117,7 +117,7 @@ body {
                 min-height: unset;
 
                 div img {
-                    width: 100%;
+                    max-width: 100%;
                     height: unset;
                 }
             }
