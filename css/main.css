@@ -64,7 +64,7 @@
 }
 .BotaoSecundario:hover {
     color: var(--cor-branca);
-    background-color: var(--botao-primario);
+    background-color: var(--cor-escura);
 }
 .BotaoTerciario {
     padding: 10px 25px;
@@ -84,7 +84,7 @@
 }
 .BotaoTerciario:hover {
     color: var(--cor-branca);
-    background-color: var(--botao-primario);
+    background-color: var(--cor-escura);
 }
 /* Formulários */
 .FormularioCampoPrimario {

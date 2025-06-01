@@ -11,7 +11,7 @@
         <meta name="keywords" content="business, pro, projeto, curso, renato, ovidio">
         <meta name="author" content="Renato Augusto">
         
-        <title>Business PROta</title>
+        <title>Business PRO</title>
         <link rel="shortcut icon" href="img/BusinessPro.png">
 
     </head>
@@ -36,9 +36,9 @@
                         };
                         if(sessionStorage.getItem('UsuarioLogado') != null) {
                             document.write(`<li><a href="dashboard" class="BotaoTerciario">Painel de controle</a></li>`);
-                            document.write(`<li><button class="BotaoTerciario" onclick="UsuarioSair()">Sair</button></li>`);
+                            document.write(`<li><a class="BotaoTerciario" onclick="UsuarioSair()">Sair</a></li>`);
                         } else {
-                            document.write(`<li><a href="logon"><button class="BotaoSecundario">Começar!</button></a></li>`);
+                            document.write(`<li><a href="logon" class="BotaoSecundario">Começar!</a></li>`);
                         };
                     </script>
                 </ul>
