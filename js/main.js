@@ -7,9 +7,11 @@ if(document.getElementById('MenuIcone')) {
         if(lista.classList.contains("ativo")) {
             lista.classList.remove('ativo');
             document.getElementById('MenuIcone').innerHTML = '<i class="fa-solid fa-bars"></i>';
+            document.getElementById('MenuIcone').style.color = '';
         } else {
             lista.classList.add('ativo');
             document.getElementById('MenuIcone').innerHTML = '<i class="fa-solid fa-xmark"></i>';
+            document.getElementById('MenuIcone').style.color = 'var(--cor-branca)';
         };
     });
 };
