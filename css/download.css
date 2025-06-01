@@ -62,7 +62,8 @@ body {
                     transition: 0.3s;
                     flex-direction: column;
                     justify-content: center;
-                    background-color: var(--cor-principal);
+                    background-color: rgba(0, 0, 0, 0.5);
+                    backdrop-filter: blur(5px);
 
                     li {
                         margin: 20px 0;
