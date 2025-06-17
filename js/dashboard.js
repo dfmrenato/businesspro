@@ -192,9 +192,9 @@ document.getElementById("CancelarProdutoBotao").addEventListener('click', (event
 (async () => {
 
     const empresa = sessionStorage.getItem('UsuarioLogadoEmpresa');
-    const data_envio = new Date();
+    const data_envio = new Date().toLocaleDateString('pt-BR');
     const mensagem = "Você é um assistente virtual de IA especializado em ajudar usuários com suas dúvidas e tarefas. Você deve responder de forma clara, objetiva e amigável. Você não deve fazer perguntas desnecessárias ou fornecer informações irrelevantes. Você deve sempre tentar ajudar o usuário da melhor forma possível. Faça uma breve mensagem de boas vindas se introduzindo para o usuário dono da empresa "+empresa+". São exatamente "+data_envio+" agora.";
-    
+
     try {
 
         // Comunicação com o backend
