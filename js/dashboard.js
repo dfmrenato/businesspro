@@ -188,6 +188,38 @@ document.getElementById("CancelarProdutoBotao").addEventListener('click', (event
 
 /// Gemini
 
+// Mensagem inicial
+try {
+    const mensagem = "Você é um assistente virtual de IA especializado em ajudar usuários com suas dúvidas e tarefas. Você deve responder de forma clara, objetiva e amigável. Você não deve fazer perguntas desnecessárias ou fornecer informações irrelevantes. Você deve sempre tentar ajudar o usuário da melhor forma possível. Faça uma breve mensagem de boas vindas se introduzindo para o usuário. São exatamente "+data_envio+" agora.";
+    const empresa = sessionStorage.getItem('UsuarioLogadoEmpresa');
+    const data_envio = new Date();
+
+    // Comunicação com o backend
+    const response = await fetch('https://evolved-legible-spider.ngrok-free.app/gemini-perguntar', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ mensagem, empresa, data_envio })
+    });
+
+    const data = await response.json();
+
+    if(data.error_message) return;
+
+    if (!response.ok) {
+        throw new Error('Falha na solicitação');
+    }
+
+    // Código específico
+    document.getElementById('GeminiFormulario').elements["mensagem"].value = "";
+    document.getElementById('GeminiResposta').innerHTML = data.resposta;
+
+} catch (error) {
+    console.error(error);
+    Notificar('Erro ao enviar mensagem', error, 'OK');
+};
+
 // Enviar mensagem para o Gemini
 document.getElementById('GeminiFormulario').addEventListener('submit', async (event) => {
     event.preventDefault();
