@@ -238,7 +238,7 @@ app.post('/add-funcionario', async (req, res) => {
 });
 
 // Perguntar para o Gemini
-app.post('/perguntar-gemini', async (req, res) => {
+app.post('/gemini-perguntar', async (req, res) => {
     const { mensagem, empresa, data_envio } = req.body;
 
     try {
