@@ -185,3 +185,42 @@ document.getElementById("BotaoAdicionarProduto").addEventListener('click', (even
 document.getElementById("CancelarProdutoBotao").addEventListener('click', (event) => {
     document.getElementById("DashboardFormularioProduto").classList.remove("ativo");
 });
+
+/// Gemini
+
+// Enviar mensagem para o Gemini
+document.getElementById('GeminiForm').addEventListener('submit', async (event) => {
+    event.preventDefault();
+
+    const mensagem = document.getElementById('GeminiForm').elements["mensagem"].value;
+    const empresa = sessionStorage.getItem('UsuarioLogadoEmpresa');
+    const data_envio = new Date();
+
+    // Enviar mensagem
+    try {
+        // Comunicação com o backend
+        const response = await fetch('https://evolved-legible-spider.ngrok-free.app/gemini-perguntar', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ mensagem, empresa, data_envio })
+        });
+
+        const data = await response.json();
+
+        if(data.error_message) return Notificar(`Erro ao enviar mensagem`, `${data.error_message}`, 'OK');
+
+        if (!response.ok) {
+            throw new Error('Falha na solicitação');
+        }
+
+        // Código específico
+        document.getElementById('GeminiForm').elements["mensagem"].value = "";
+        document.getElementById('GeminiResposta').innerHTML = data.resposta;
+
+    } catch (error) {
+        console.error(error);
+        Notificar('Erro ao enviar mensagem', error, 'OK');
+    };
+});
