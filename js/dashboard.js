@@ -189,10 +189,10 @@ document.getElementById("CancelarProdutoBotao").addEventListener('click', (event
 /// Gemini
 
 // Enviar mensagem para o Gemini
-document.getElementById('GeminiForm').addEventListener('submit', async (event) => {
+document.getElementById('GeminiFormulario').addEventListener('submit', async (event) => {
     event.preventDefault();
 
-    const mensagem = document.getElementById('GeminiForm').elements["mensagem"].value;
+    const mensagem = document.getElementById('GeminiFormulario').elements["mensagem"].value;
     const empresa = sessionStorage.getItem('UsuarioLogadoEmpresa');
     const data_envio = new Date();
 
@@ -216,7 +216,7 @@ document.getElementById('GeminiForm').addEventListener('submit', async (event) =
         }
 
         // Código específico
-        document.getElementById('GeminiForm').elements["mensagem"].value = "";
+        document.getElementById('GeminiFormulario').elements["mensagem"].value = "";
         document.getElementById('GeminiResposta').innerHTML = data.resposta;
 
     } catch (error) {
