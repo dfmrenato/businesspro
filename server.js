@@ -1,4 +1,5 @@
 // Importações
+const { GoogleGenAI } = require('@google/genai');
 const express = require('express');
 const { MongoClient } = require('mongodb');
 const cors = require('cors');
@@ -234,6 +235,28 @@ app.post('/add-funcionario', async (req, res) => {
         console.error('Erro ao adicionar funcionário:', error);
         res.status(500).json({ error_message: error.message });
     }
+});
+
+// Perguntar para o Gemini
+app.post('/perguntar-gemini', async (req, res) => {
+    const { mensagem, empresa, data_envio } = req.body;
+
+    try {
+        const ai = new GoogleGenAI({apiKey: process.env.GEMINI_API_KEY});
+
+        const prompt = `Você é um assistente de IA especializado em ajudar empresas. Sua tarefa é responder perguntas de forma clara e objetiva, fornecendo informações úteis e relevantes. Pergunta: ${mensagem}`;
+
+        const response = await ai.models.generateContent({
+            model: 'gemini-2.0-flash',
+            contents: prompt,
+        });
+
+        res.status(201).json({resposta: response.text});
+    } catch {
+        console.error('Erro ao perguntar ao Gemini:', error);
+        return res.status(500).json({ error_message: 'Erro ao perguntar ao Gemini.' });
+    }
+
 });
 
 // Ngrok
