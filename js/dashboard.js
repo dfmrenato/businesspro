@@ -230,7 +230,7 @@ document.getElementById('GeminiFormulario').addEventListener('submit', async (ev
 
     const mensagem = document.getElementById('GeminiFormulario').elements["mensagem"].value;
     const empresa = sessionStorage.getItem('UsuarioLogadoEmpresa');
-    const data_envio = new Date();
+    const data_envio = new Date().toLocaleDateString('pt-BR');
 
     // Enviar mensagem
     try {
