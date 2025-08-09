@@ -1,0 +1,174 @@
+/*Conteúdo principal do site*/
+#body {
+    background-color: var(--cor-de-fundo);
+    font-family: var(--fonte-principal);
+    user-select: none;
+    height: 100dvh;
+    display: flex;
+    flex-direction: column;
+
+    /*Cabeçalho*/
+    header {
+        background-color: transparent;
+        text-decoration: none;
+        color: var(--cor-esbranquiçada);
+        position: fixed;
+        width: -webkit-fill-available;
+        min-height: 10dvh;
+        max-height: 10dvh;
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            
+            .Logo a{
+                font-size: 30px;
+                font-weight: bold;
+                color: var(--cor-escura);
+                margin: 0 35px;
+                display: flex;
+                gap: 5px;
+            }
+
+            .Lista {
+                margin-right: 35px;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+
+                li {
+                    font-size: 15px;
+                    form {
+                        display: flex;
+                    }
+                }
+            }
+
+            .MenuIcone {
+                display: none;
+                position: relative;
+                z-index: 10;
+            }
+
+            /*Responsivo */
+            @media (max-width: 960px) {
+
+                font-size: 20px;
+
+                .Lista {
+                    position: fixed;
+                    top: 0;
+                    width: 100%;
+                    height: 100%;
+                    left: 100%;
+                    transition: 0.3s;
+                    flex-direction: column;
+                    justify-content: center;
+                    background-color: rgba(0, 0, 0, 0.5);
+                    backdrop-filter: blur(5px);
+
+                    li {
+                        margin: 20px 0;
+                    }
+
+                }
+
+                .Lista.ativo {
+                    left: 0%;
+
+                    li {
+                        a {
+                            color: var(--cor-branca);
+                        };
+                        .BotaoSecundario {
+                            box-shadow: 0px 0px 0px 0.8px var(--cor-branca) inset;
+                        }
+                    }
+                }
+
+                .MenuIcone {
+                    display: block;
+                    
+                    .BotaoSecundario {
+                        color: var(--cor-escura);
+                    }
+                }
+            }
+        }
+    }
+
+    /*Corpo*/
+    main {
+        margin: 0px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 80px;
+        flex-grow: 1;
+        overflow: scroll;
+        scroll-snap-type: y mandatory;
+        scroll-behavior: smooth;
+        
+        h1 {
+            color: var(--cor-escura);
+        }
+
+        section {
+            display: flex;
+            flex-direction: row;
+            gap: 8px;
+            min-height: 90dvh;
+            scroll-snap-align: start;
+            
+            @media (max-width: 960px) {
+                flex-direction: column;
+                min-height: unset;
+
+                div img {
+                    max-width: 100%;
+                    height: unset;
+                }
+            }
+
+            div {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: flex-start;
+                padding: 10px;
+            }
+        }
+
+        #Secao1 {
+            div {
+                font-size: x-large;
+
+                h1 {
+                    border-left: 5px solid var(--cor-de-destaque);
+                    padding-left: 10px;
+                }
+            }
+        }
+
+        #Secao2 {
+            background-color: black;
+
+            div {
+                width: 50%;
+
+                p {
+                    color: white;
+                    font-size: 50px;
+                }
+
+                @media (max-width: 960px) {
+                    width: unset;
+                }
+            }
+        }
+
+        
+    }
+}
