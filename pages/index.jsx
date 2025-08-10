@@ -17,7 +17,7 @@ export default function Index() {
         <link rel="shortcut icon" href="img/BusinessPro.png" />
       </Head>
       <header>
-        Cabeçalho
+        bpro
       </header>
       <main>
         Corpo
