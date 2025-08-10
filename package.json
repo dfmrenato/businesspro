@@ -9,7 +9,9 @@
     "start": "next start",
     "lint": "next lint",
     "electron": "electron .",
-    "electron:build": "electron-builder --win"
+    "electron:build": "electron-builder --win",
+    "android:build": "cd mobile && eas build -p android --profile preview",
+    "ios:build": "cd mobile && eas build -p ios --profile preview"
   },
   "dependencies": {
     "next": "15.4.6",
