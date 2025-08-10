@@ -1,6 +1,31 @@
-#header {
+.header {
     background-color: var(--cor-branca);
     padding: 20px;
     display: flex;
     align-items: center;
+    position: fixed;
+    width: 100dvw;
+    justify-content: space-between;
+
+    .logo {
+        font-weight: bold;
+    }
+
+    .list {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        @media (max-width: 640px) {
+            display: none;
+        }
+    }
+
+    .menuIcon {
+        display: none;
+
+        @media (max-width: 640px) {
+            display: flex;
+        }
+    }
 }

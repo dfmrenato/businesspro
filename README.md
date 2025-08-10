@@ -1,5 +1,5 @@
-# Business PRO
-Repositório do nosso projeto de curso (Business PRO)
+# Hermes
+Repositório do nosso projeto de curso (Hermes)
 > Nova versão desenvolvida em NextJS
 ## Informações
 3ª série de Informática - 2025

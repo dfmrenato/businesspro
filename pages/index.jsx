@@ -10,12 +10,12 @@ export default function Index() {
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 
-        <meta name="description" content="Gerencie sua empresa de forma eletrônica, gratuita e eficiente com o Business PRO." />
-        <meta name="keywords" content="business, pro, projeto, curso, renato, ovidio" />
+        <meta name="description" content="Gerencie sua empresa de forma eletrônica, gratuita e eficiente com o Hermes." />
+        <meta name="keywords" content="hermes, business, pro, projeto, curso, renato, ovidio" />
         <meta name="author" content="Renato Augusto" />
 
-        <title>Business PRO</title>
-        <link rel="shortcut icon" href="img/BusinessPro.png" />
+        <title>Hermes</title>
+        <link rel="shortcut icon" href="img/Hermes.png" />
       </Head>
       <Header />
       <main>

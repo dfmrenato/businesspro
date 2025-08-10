@@ -6,7 +6,7 @@ export default function App() {
   return (
     <View style={styles.container}>
       <StatusBar barStyle="dark-content" />
-      <WebView source={{ uri: 'https://businesspro.vercel.app' }} />
+      <WebView source={{ uri: 'https://projetohermes.vercel.app' }} />
     </View>
   );
 }
