@@ -1,3 +1,4 @@
+import Header from "@/components/Header";
 import styles from "@/styles/pages/index.module.css";
 import Head from "next/head";
 
@@ -16,9 +17,7 @@ export default function Index() {
         <title>Hermes</title>
         <link rel="shortcut icon" href="img/Hermes.png" />
       </Head>
-      <header>
-        Cabeçalho
-      </header>
+      <Header />
       <main>
         Corpo
       </main>

@@ -2,7 +2,13 @@ import { useState, useEffect } from 'react';
 import styles from "@/styles/components/Header.module.css";
 import Button from "@/components/Button";
 import Link from "next/link";
-import { BsList } from "react-icons/bs";
+import {
+    BsBoxArrowLeft,
+    BsDownload,
+    BsFire,
+    BsList,
+    BsToggles
+} from "react-icons/bs";
 import Tippy from '@tippyjs/react';
 
 export default function Header() {
@@ -52,15 +58,42 @@ export default function Header() {
             </ul>
             <div className={styles.menuIcon}>
                 <Tippy 
+                    theme="dropdown"
                     arrow={false}
                     trigger="click"
                     animation="scale-extreme"
                     interactive={true}
                     content={<>
-                        <p>Baixar aplicativo</p>
-                        <p>Painel de controle</p>
-                        <p>Começar</p>
-                        <p>Sair</p>
+                        {
+                            (
+                                typeof process !== 'undefined' && 
+                                typeof process.versions === 'object' && 
+                                process.versions.hasOwnProperty('electron')
+                            ) 
+                            ||
+                            <Link href="download">
+                                <BsDownload />
+                                Baixar aplicativo
+                            </Link>
+                        }
+                        {
+                            loggedUser == undefined ? 
+                                <Link href="login">
+                                    <BsFire />
+                                    Começar!
+                                </Link>
+                            :
+                                <>
+                                <Link href="dashboard">
+                                    <BsToggles />
+                                    Painel de controle
+                                </Link>
+                                <Link>
+                                    <BsBoxArrowLeft />
+                                    Sair
+                                </Link>
+                                </>
+                        }
                     </>}
                 >
                     <BsList />

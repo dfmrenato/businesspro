@@ -16,9 +16,6 @@ export default function Index() {
         <title>Hermes</title>
         <link rel="shortcut icon" href="img/Hermes.png" />
       </Head>
-      <header>
-        Cabeçalho
-      </header>
       <main>
         Corpo
       </main>

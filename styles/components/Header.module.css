@@ -23,6 +23,7 @@
 
     .menuIcon {
         display: none;
+        cursor: pointer;
 
         @media (max-width: 640px) {
             display: flex;
