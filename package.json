@@ -14,7 +14,10 @@
     "ios:build": "cd mobile && eas build -p ios --profile preview"
   },
   "dependencies": {
+    "@emailjs/nodejs": "^5.0.2",
+    "@google/genai": "^1.13.0",
     "@tippyjs/react": "^4.2.6",
+    "mongodb": "^6.18.0",
     "next": "15.4.6",
     "nprogress": "^0.2.0",
     "react": "19.1.0",
