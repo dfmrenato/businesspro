@@ -1,0 +1,60 @@
+.button {
+    font-weight: normal;
+    font-size: medium;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 8px;
+    transition-duration: 0.4s;
+    font-family: var(--fonte-principal);
+}
+.button:hover {
+    scale: 1.075;
+}
+
+/* Grupos de estilo */
+
+.primary {
+    color: var(--cor-branca);
+    border: none;
+    background-color: var(--botao-primario);
+}
+.primary:hover {
+    background-color: var(--cor-escura);
+}
+
+.secondary {
+    border: none;
+    background-color: var(--botao-secundario);
+    color: var(--cor-escura);
+    box-shadow: 0px 0px 0px 0.8px var(--cor-escura) inset;
+}
+.secondary:hover {
+    color: var(--cor-branca);
+    background-color: var(--cor-escura);
+}
+
+.tertiary {
+    color: var(--cor-escura);
+    border: none;
+    background-color: var(--botao-terciario);
+}
+.tertiary:hover {
+    color: var(--cor-branca);
+    background-color: var(--cor-escura);
+}
+
+/* Grupos de padding */
+
+.lowestPadding {
+    padding: 5px 10px;
+}
+
+.lowerPadding {
+    padding: 10px 12px;
+}
+
+.regularPadding {
+    padding: 18px;
+}

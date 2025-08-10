@@ -1,5 +1,6 @@
 import styles from "@/styles/pages/index.module.css";
 import Head from "next/head";
+import Header from "@/components/Header";
 
 export default function Index() {
   return (
@@ -16,9 +17,7 @@ export default function Index() {
         <title>Business PRO</title>
         <link rel="shortcut icon" href="img/BusinessPro.png" />
       </Head>
-      <header>
-        bpro
-      </header>
+      <Header />
       <main>
         Corpo
       </main>
