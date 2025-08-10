@@ -5,9 +5,8 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    border-radius: 8px;
+    border-radius: 12px;
     transition-duration: 0.4s;
-    font-family: var(--fonte-principal);
 }
 .button:hover {
     scale: 1.075;

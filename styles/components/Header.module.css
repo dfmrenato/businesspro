@@ -8,7 +8,11 @@
     justify-content: space-between;
 
     .logo {
+        font-size: 30px;
         font-weight: bold;
+        color: var(--cor-escura);
+        display: flex;
+        gap: 5px;
     }
 
     .list {
