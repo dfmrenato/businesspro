@@ -1,16 +1,14 @@
 /*Variáveis*/
 :root {
-    --cor-escura: #14222F;
-    --cor-principal: #4F5A63;
-    --cor-secundaria: #8A9197;
-    --cor-esbranquiçada: #C5C8CB;
-    --cor-branca: #FFFFFF;
-    --cor-de-fundo: var(--cor-branca);
-    --cor-de-destaque: #2b4d80;
-    --botao-primario: var(--cor-principal);
-    --botao-secundario: transparent;
-    --botao-terciario: transparent;
+    --accent-color: hsl(240, 20%, 17%);
+    --accent-color-hover: var(--darkest-color);
+    --darkest-color: hsl(0, 0%, 0%);
+    --lightest-color: hsl(0, 0%, 100%);
+    --lightest-color-hover: hsl(0, 0%, 95%);
+    --outline: 1px solid hsl(0, 0%, 90%);
+    --dark-text-color: hsl(0, 0%, 20%);
 }
+
 * {
     margin: 0;
     padding: 0;
@@ -19,6 +17,7 @@
     list-style: none;
     user-select: none;
 }
+
 body {
     font-family: 'Montserrat', monospace, sans-serif;
 }
@@ -27,156 +26,27 @@ body {
 ::-webkit-scrollbar {
     width: 5px;
 }
+
 ::-webkit-scrollbar-track {
     border-radius: 0px;
     background: transparent;
 }
+
 ::-webkit-scrollbar-thumb {
-    background: var(--cor-branca); 
+    background: var(--lightest-color);
     border-radius: 20px;
 }
+
 ::-webkit-scrollbar-thumb:hover {
-    background: var(--cor-esbranquiçada); 
+    background: var(--lightest-color-hover);
 }
 
-/* Classes reutilizáveis */
-
-/* Formulários */
-.FormularioCampoPrimario {
-    padding: 10px 25px;
-    color: var(--cor-principal);
-    border: 2px var(--cor-esbranquiçada);
-    cursor: text;
-    background-color: var(--cor-branca);
-    border-radius: 8px;
-    box-sizing: border-box;
-    transition-duration: 0.4s;
-    box-shadow: 0px -0.5px 0px 0.2px var(--cor-esbranquiçada) inset
-}
-.FormularioCampoPrimario:hover {
-    box-shadow: 0px 0px 0px 2px var(--cor-principal) inset;
-    border: none;
-    transform: scale(1.075);
-}
-/* Caixa de alerta */
-.CaixaAlerta {
-    display: flex;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #00000055;
-    backdrop-filter: blur(2px);
-    -webkit-backdrop-filter: blur(2px);
-    justify-content: center;
-    align-items: center;
-    visibility: hidden;
-    transition-duration: 0.4s;
-    opacity: 0;
-
-    .CaixaAlertaConteudo {
-        background-color: var(--cor-branca);
-        padding: 20px;
-        border-radius: 10px;
-        width: 300px;
-        text-align: center;
-        opacity: 1;
-        transition-duration: 0.4s;
-        top: 100%;
-        position: relative;
-
-        h2 {
-            font-size: 22px;
-            margin-bottom: 10px;
-            color: var(--cor-principal);
-        }
-
-        p {
-            font-size: 16px;
-            margin-bottom: 20px;
-            color: var(--cor-escura);
-        }
-
-        .BotaoPrimario {
-            justify-self: center;
-        }
-    }
-
-    .CaixaAlertaFooter {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        .BotaoSecundario {
-            color: var(--cor-principal);
-        }
-        .BotaoSecundario:hover {
-            color: var(--cor-esbranquiçada);
-        }
-    }
-}
-.CaixaAlerta.ativo {
-    visibility: visible;
-    opacity: 1;
-
-    .CaixaAlertaConteudo {
-        top: 0%;
-    }
-}
-/* Cabeçalho */
-.CabecalhoPequeno {
-    background-color: var(--cor-branca);
-    box-shadow: 0px -0.5px 0px 0.2px #C5C8CB inset;
-    border-radius: 200px;
-    display: flex;
-    gap: 12px;
-    padding: 12px;
-
-    input {
-        border-radius: 200px;
-    }
-    select {
-        border-radius: 200px;
-        color: var(--cor-principal);
-        border: none;
-        background-color: var(--cor-branca);
-        padding: 10px;
-        transition-duration: 0.4s;
-    }
-    select:hover {
-        box-shadow: 0px 0px 0px 2px var(--cor-principal) inset;
-    }
-}
-/* Lista em grade */
-.GradeLista {
-    display: grid;
-    grid-template-columns: repeat(4, 25%);
-    gap: 8px;
-    margin-top: 10px;
-    overflow-wrap: break-word;
-    transition-duration: 0.4s;
-    width: -webkit-fill-available;
-
-    /*Responsivo */
-    @media (max-width: 960px) {
-        grid-template-columns: repeat(2, 29%);
-    }
-
-    div {
-        background-color: var(--cor-de-fundo);
-        padding: 10px;
-        border-radius: 10px;
-        transition-duration: 0.4s;
-        box-shadow: 0px 0px 0px 0.2px var(--cor-esbranquiçada) inset
-    }
-    div:hover {
-        background-color: var(--cor-branca);
-    }
-}
-
+/* Evitar zoom não pedido */
 @media screen and (max-width: 767px) {
-    input, select, textarea {
-         font-size: 16px !important;
+
+    input,
+    select,
+    textarea {
+        font-size: 16px !important;
     }
 }

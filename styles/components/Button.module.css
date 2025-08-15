@@ -15,33 +15,35 @@
 /* Grupos de estilo */
 
 .primary {
-    color: var(--cor-branca);
+    color: var(--lightest-color);
     border: none;
-    background-color: var(--botao-primario);
+    background-color: var(--accent-color);
+    font-weight: 600;
 }
 .primary:hover {
-    background-color: var(--cor-escura);
+    background-color: var(--accent-color-hover);
 }
 
 .secondary {
     border: none;
-    background-color: var(--botao-secundario);
-    color: var(--cor-escura);
-    box-shadow: 0px 0px 0px 0.8px var(--cor-escura) inset;
+    background-color: transparent;
+    color: var(--accent-color);
+    border: 1px solid var(--accent-color);
+    font-weight: 500;
 }
 .secondary:hover {
-    color: var(--cor-branca);
-    background-color: var(--cor-escura);
+    color: var(--lightest-color);
+    background-color: var(--accent-color-hover);
 }
 
 .tertiary {
-    color: var(--cor-escura);
+    color: var(--accent-color);
     border: none;
-    background-color: var(--botao-terciario);
+    background-color: transparent;
 }
 .tertiary:hover {
-    color: var(--cor-branca);
-    background-color: var(--cor-escura);
+    color: var(--lightest-color);
+    background-color: var(--accent-color-hover);
 }
 
 /* Grupos de padding */

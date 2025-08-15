@@ -1,13 +1,7 @@
-:root {
-    --tippy-border-radius: 12px;
-    --tippy-color: rgba(14, 14, 14, 0.812);
-    --tippy-text-color: #ffffff;
-}
-
 .tippy-box {
-    background-color: var(--tippy-color);
-    border-radius: var(--tippy-border-radius);
-    backdrop-filter: var(--frosted-glass-blur);
+    background-color: var(--darkest-color);
+    border-radius: 12px;
+    backdrop-filter: blur(5px);
     border: var(--outline);
     box-shadow: var(--shadow);
 }
@@ -23,8 +17,8 @@
 }
 
 .tippy-box[data-theme="dropdown"] {
-    background-color: white;
-    border: 1px solid rgb(229, 229, 229);
+    background-color: var(--lightest-color);
+    border: var(--outline);
     flex-direction: column;
 
     .tippy-content div {
@@ -34,7 +28,7 @@
         border-radius: 12px;
 
         a {
-            color: rgb(42, 42, 42);
+            color: var(--dark-text-color);
             text-decoration: none;
             transition-duration: 0.4s;
             display: flex;
@@ -43,30 +37,20 @@
             padding: 8px;
         }
         a:hover {
-            color: black;
-            background-color: rgba(0, 0, 0, 0.042);
+            color: var(--darkest-color);
+            background-color: var(--lightest-color-hover);
         }
     }
 }
 
 .tippy-box[data-theme="white"] .tippy-arrow {
-    color: white;
-}
-
-.tippy-box[data-theme="transparent"] .tippy-arrow {
-    color: rgba(255, 255, 255, 0);
-}
-
-.tippy-box[data-theme="suggestion"] {
-    background-color: transparent;
-    padding: 0;
-    border-radius: 0;
+    color: var(--lightest-color);
 }
 
 .tippy-arrow {
     color: var(--tippy-color);
     height: 25px !important;
-    backdrop-filter: var(--frosted-glass-blur);
+    backdrop-filter: blur(5px);
 }
 
 .tippy-content {
