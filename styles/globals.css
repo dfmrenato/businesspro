@@ -19,6 +19,9 @@
     list-style: none;
     user-select: none;
 }
+body {
+    font-family: 'Montserrat', monospace, sans-serif;
+}
 
 /* Scrollbar */
 ::-webkit-scrollbar {
