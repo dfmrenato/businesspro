@@ -1,4 +1,5 @@
 import Header from "@/components/Header";
+import MainLayout from "@/layout/MainLayout";
 import styles from "@/styles/pages/index.module.css";
 import Head from "next/head";
 
@@ -18,9 +19,9 @@ export default function Index() {
         <link rel="shortcut icon" href="img/Hermes.png" />
       </Head>
       <Header />
-      <main>
+      <MainLayout>
         Corpo
-      </main>
+      </MainLayout>
     </>
   );
 }

@@ -1,7 +1,6 @@
 /*Conteúdo principal do site*/
 #body {
     background-color: var(--cor-de-fundo);
-    font-family: var(--fonte-principal);
     user-select: none;
     height: 100dvh;
     display: flex;
