@@ -9,13 +9,16 @@
     top: 0;
     box-shadow: none;
     border: none;
+    mix-blend-mode: difference;
+    color: white;
 
     .logo a {
         font-size: 30px;
         font-weight: bold;
-        color: var(--darkest-color);
         display: flex;
         gap: 5px;
+        mix-blend-mode: difference;
+        color: white;
     }
 
     .list {
@@ -32,9 +35,24 @@
     .menuIcon {
         display: none;
         cursor: pointer;
+        mix-blend-mode: difference;
+        color: white;
 
         @media (max-width: 640px) {
             display: flex;
         }
     }
+}
+.header::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(9px);
+    mask-image: linear-gradient(180deg, black, transparent);
 }
