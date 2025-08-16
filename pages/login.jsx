@@ -1,9 +1,18 @@
+import Button from "@/components/Button";
 import Header from "@/components/Header";
 import MainLayout from "@/layout/MainLayout";
-import styles from "@/styles/pages/index.module.css";
+import styles from "@/styles/pages/login.module.css";
 import Head from "next/head";
+import { useState } from "react";
+
+const Options = {
+  REGISTER: 1,
+  LOGIN: 2
+};
 
 export default function Login() {
+  const [selectedOption, setSelectedOption] = useState(Options.REGISTER);
+
   return (
     <>
       <Head>
@@ -19,58 +28,58 @@ export default function Login() {
         <link rel="shortcut icon" href="img/Hermes.png" />
       </Head>
       <Header />
-      <MainLayout>
-        <div className="LogonSeletor">
-          <button className="Opcao ativo" id="RegistroOpcao">cadastrar nova conta</button>
-          <button className="Opcao" id="LoginOpcao">entrar em conta existente</button>
-        </div>
-
-        <div className="Logon">
-
-          <div id="RegistroMenu" className="LogOption ativo">
-            <h1>Criar uma nova conta</h1>
-            <form id="RegistroFormulario">
-              <label htmlFor="NomeR">Nome</label><br />
-              <input className="FormularioCampoPrimario" type="text" id="NomeR" name="nome" placeholder="Ovídio Antoninho Marques" required /><br />
-
-              <label htmlFor="EmpresaR">Empresa</label><br />
-              <input className="FormularioCampoPrimario" type="text" id="EmpresaR" name="empresa" placeholder="Nome da empresa" required /><br />
-
-              <label htmlFor="EmailR">E-mail</label><br />
-              <input className="FormularioCampoPrimario" type="email" id="EmailR" name="email" placeholder="fulano@email.com" required /><br />
-
-              <label htmlFor="SenhaR">Senha</label><br />
-              <input className="FormularioCampoPrimario" type="password" id="SenhaR" name="senha" placeholder="****" required />
-              <button className="ExibirSenha" id="ExibirSenhaR" type="button"><i className="fa-solid fa-eye"></i></button><br />
-
-              <input type="hidden" name="tipo" value="empresarial" />
-
-              <div className="LogOptionBotoes">
-                <button className="BotaoTerciario" type="reset">Limpar dados</button>
-                <button className="BotaoPrimario" type="submit">Realizar cadastro</button>
-              </div>
-            </form>
+      <MainLayout id={styles.main}>
+        <main>
+            
+          <div className={styles.selector}>
+            <button id="RegistroOpcao" data-selected={selectedOption==Options.REGISTER} onClick={() => setSelectedOption(Options.REGISTER)}>cadastrar nova conta</button>
+            <button id="LoginOpcao" data-selected={selectedOption==Options.LOGIN} onClick={() => setSelectedOption(Options.LOGIN)}>entrar em conta existente</button>
           </div>
 
-          <div id="LoginMenu" className="LogOption">
-            <h1>Entrar na sua conta</h1>
-            <form id="LoginFormulario">
-              <label htmlFor="EmailL">E-mail</label><br />
-              <input className="FormularioCampoPrimario" type="email" id="EmailL" name="email" placeholder="fulano@email.com" required /><br />
+          {selectedOption == Options.REGISTER ?
+            <div className={styles.form}>
+              <h1>Criar uma nova conta</h1>
+              <form id="RegistroFormulario">
+                <label htmlFor="NomeR">Nome</label>
+                <input type="text" id="NomeR" name="nome" placeholder="Ovídio Antoninho Marques" required />
 
-              <label htmlFor="SenhaL">Senha</label><br />
-              <input className="FormularioCampoPrimario" type="password" id="SenhaL" name="senha" placeholder="****" required />
-              <button className="ExibirSenha" id="ExibirSenhaL" type="button"><i className="fa-solid fa-eye"></i></button><br />
+                <label htmlFor="EmpresaR">Empresa</label>
+                <input type="text" id="EmpresaR" name="empresa" placeholder="Nome da empresa" required />
 
-              <input type="hidden" name="tipo" value="login" />
-              <div className="LogOptionBotoes">
-                <button className="BotaoTerciario" id="BotaoEsqueciMinhaSenha" type="button">Esqueci minha senha</button>
-                <button className="BotaoPrimario" type="submit">Entrar</button>
-              </div>
-            </form>
-          </div>
+                <label htmlFor="EmailR">E-mail</label>
+                <input type="email" id="EmailR" name="email" placeholder="fulano@email.com" required />
 
-        </div>
+                <label htmlFor="SenhaR">Senha</label>
+                <input type="password" id="SenhaR" name="senha" placeholder="****" required />
+
+                <input type="hidden" name="tipo" value="empresarial" />
+
+                <footer>
+                  <Button hierarchy={3} type="reset">Limpar dados</Button>
+                  <Button type="submit">Realizar cadastro</Button>
+                </footer>
+              </form>
+            </div>
+          :
+            <div className={styles.form}>
+              <h1>Entrar na sua conta</h1>
+              <form id="LoginFormulario">
+                <label htmlFor="EmailL">E-mail</label>
+                <input type="email" id="EmailL" name="email" placeholder="fulano@email.com" required />
+
+                <label htmlFor="SenhaL">Senha</label>
+                <input type="password" id="SenhaL" name="senha" placeholder="****" required />
+                
+                <input type="hidden" name="tipo" value="login" />
+                <footer>
+                  <Button hierarchy={3}>Esqueci minha senha</Button>
+                  <Button type="submit">Realizar cadastro</Button>
+                </footer>
+              </form>
+            </div>
+          }
+
+        </main>
       </MainLayout>
     </>
   );
