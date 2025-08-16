@@ -21,7 +21,8 @@ export default function Header() {
         }
     }, []);
 
-    return (
+    return (<>
+        <div className={styles.blankSpace} />
         <header className={styles.header}>
             <div className={styles.logo}>
                 <Link href=".">
@@ -100,5 +101,5 @@ export default function Header() {
                 </Tippy>
             </div>
         </header>
-    )
+    </>)
 }

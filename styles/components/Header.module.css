@@ -1,16 +1,21 @@
+.blankSpace {
+    height: 10dvh;
+}
+
 .header {
     padding: 20px;
     display: flex;
     align-items: center;
     position: fixed;
     width: 100dvw;
+    height: 10dvh;
     justify-content: space-between;
     top: 0;
     background: linear-gradient(180deg, white, transparent);
     box-shadow: none;
     border: none;
 
-    .logo {
+    .logo a {
         font-size: 30px;
         font-weight: bold;
         color: var(--darkest-color);
