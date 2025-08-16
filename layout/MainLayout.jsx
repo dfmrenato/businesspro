@@ -6,10 +6,17 @@ const montserrat = Montserrat({
   display: 'swap',
 });
 
-export default function MainLayout({ children }) {
+export default function MainLayout({ children, ...props }) {
     return (
         <>
-            <main className={montserrat.className}>
+            <main 
+                className={
+                    props.className ? 
+                        [props.className, montserrat.className].join(' ') 
+                    :
+                        montserrat.className}
+                {...props}
+            >
                 {children}
             </main>
         </>

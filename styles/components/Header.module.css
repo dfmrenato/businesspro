@@ -1,7 +1,3 @@
-.blankSpace {
-    height: 10dvh;
-}
-
 .header {
     padding: 20px;
     display: flex;
@@ -11,7 +7,6 @@
     height: 10dvh;
     justify-content: space-between;
     top: 0;
-    background: linear-gradient(180deg, white, transparent);
     box-shadow: none;
     border: none;
 
@@ -42,17 +37,4 @@
             display: flex;
         }
     }
-}
-.header::before {
-    content: "";
-    position: absolute;
-    z-index: -1;
-    top: 0;
-    left: 0;
-    right: 0;
-    display: flex;
-    width: 100%;
-    height: 100%;
-    backdrop-filter: blur(5px);
-    mask-image: linear-gradient(180deg, black, transparent);
 }

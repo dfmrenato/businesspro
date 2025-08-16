@@ -19,7 +19,7 @@ export default function Index() {
         <link rel="shortcut icon" href="img/Hermes.png" />
       </Head>
       <Header />
-      <MainLayout>
+      <MainLayout id={styles.main}>
         <section>
           <div>
             <h1>O que é o Business PRO?</h1>
@@ -30,7 +30,7 @@ export default function Index() {
             <img src="img/EmpresariosFoto.png" height="500" />
           </div>
         </section>
-        <section>
+        <section style={{backgroundColor: 'var(--darkest-color)', color: 'var(--lightest-color)'}}>
           <div>
             <p>O controle do seu negócio na palma da mão.</p>
           </div>

@@ -22,28 +22,8 @@ body {
     font-family: 'Montserrat', monospace, sans-serif;
 }
 
-/* Scrollbar */
-::-webkit-scrollbar {
-    width: 5px;
-}
-
-::-webkit-scrollbar-track {
-    border-radius: 0px;
-    background: transparent;
-}
-
-::-webkit-scrollbar-thumb {
-    background: var(--lightest-color);
-    border-radius: 20px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: var(--lightest-color-hover);
-}
-
-/* Evitar zoom não pedido */
+/* Evitar zoom não desejado */
 @media screen and (max-width: 767px) {
-
     input,
     select,
     textarea {
