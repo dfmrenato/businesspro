@@ -11,6 +11,9 @@
 .button:hover {
     scale: 1.075;
 }
+.button:active {
+    rotate: 3deg;
+}
 
 /* Grupos de estilo */
 

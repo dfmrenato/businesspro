@@ -15,7 +15,7 @@ export default function Index() {
         <meta name="keywords" content="hermes, business, pro, projeto, curso, renato, ovidio" />
         <meta name="author" content="Renato Augusto" />
 
-        <title>Hermes</title>
+        <title>Entrada</title>
         <link rel="shortcut icon" href="img/Hermes.png" />
       </Head>
       <Header />
