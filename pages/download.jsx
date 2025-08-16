@@ -1,9 +1,9 @@
 import Header from "@/components/Header";
 import MainLayout from "@/layout/MainLayout";
-import styles from "@/styles/pages/index.module.css";
+import styles from "@/styles/pages/download.module.css";
 import Head from "next/head";
 
-export default function Index() {
+export default function Download() {
   return (
     <>
       <Head>
@@ -19,8 +19,19 @@ export default function Index() {
         <link rel="shortcut icon" href="img/Hermes.png" />
       </Head>
       <Header />
-      <MainLayout>
-        Corpo
+      <MainLayout id={styles.main}>
+        <p>Escolha sua plataforma preferida</p>
+        <div>
+          <a onClick={() => window?.alert('Em construção')}>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/8/87/Windows_logo_-_2021.svg" />
+          </a>
+          <a onClick={() => window?.alert('Em construção')}>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Android_robot.svg/1745px-Android_robot.svg.png" />
+          </a>
+          <a onClick={() => window?.alert('Em construção')}>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Tux.svg/800px-Tux.svg.png" />
+          </a>
+        </div>
       </MainLayout>
     </>
   );

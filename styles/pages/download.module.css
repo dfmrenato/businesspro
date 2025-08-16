@@ -1,0 +1,25 @@
+#main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9%;
+    width: 100dvw;
+    height: 100dvh;
+
+    /* Responsivo */
+    @media (max-width: 960px) {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    div {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 18%;
+
+        a img {
+            width: 50px;
+        }
+    }
+}

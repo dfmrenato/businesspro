@@ -3,7 +3,7 @@ import MainLayout from "@/layout/MainLayout";
 import styles from "@/styles/pages/index.module.css";
 import Head from "next/head";
 
-export default function Index() {
+export default function Login() {
   return (
     <>
       <Head>
