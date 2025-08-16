@@ -2,7 +2,6 @@
 #main {
     display: flex;
     flex-direction: column;
-    gap: 10px;
     flex-grow: 1;
     overflow: scroll;
     scroll-snap-type: y mandatory;
@@ -12,10 +11,7 @@
         margin-top: 10dvh;
     }
 
-    h1 {
-        color: var(--cor-escura);
-    }
-
+    /* Genérico para seções */
     section {
         display: flex;
         flex-direction: row;
@@ -23,15 +19,14 @@
         height: 100dvh;
         width: 100dvw;
         scroll-snap-align: start;
+        overflow: hidden;
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
 
         @media (max-width: 640px) {
             flex-direction: column;
-            min-height: unset;
-
-            div img {
-                max-width: 100%;
-                height: unset;
-            }
         }
 
         div {
@@ -39,7 +34,52 @@
             flex-direction: column;
             justify-content: center;
             align-items: flex-start;
-            padding: 10px;
+
+            img {
+                height: 100%;
+
+                @media (max-width: 640px) {
+                    width: 100%;
+                    height: unset;
+                }
+            }
+        }
+    }
+    
+    /* Seção Empreendedores */
+    section:nth-of-type(1) {
+        background-image: url('/img/EmpresariosFoto.png');
+        background-color: var(--lightest-color);
+        background-position: bottom center;
+
+        div {
+            mix-blend-mode: difference;
+            color: white;
+            font-size: large;
+            padding: 50px;
+        }
+    }
+
+    /* Seção Celular */
+    section:nth-of-type(2) {
+        background-image: url('/img/Smartphone.png');
+        background-color: var(--darkest-color);
+        background-size: auto 60%;
+        color: var(--lightest-color);
+        justify-content: center;
+        align-items: center;
+
+        p {
+            mix-blend-mode: difference;
+            color: white;
+            font-size: large;
+            padding: 50px;
+            width: 100%;
+            display: flex;
+            text-align: center;
+            filter: drop-shadow(0px 0px 8px white);
+            align-items: center;
+            justify-content: center;
         }
     }
 

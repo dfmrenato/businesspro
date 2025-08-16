@@ -11,6 +11,7 @@
     border: none;
     mix-blend-mode: difference;
     color: white;
+    z-index: 10;
 
     .logo a {
         font-size: 30px;
@@ -41,6 +42,12 @@
         @media (max-width: 640px) {
             display: flex;
         }
+    }
+
+    button, a {
+        mix-blend-mode: difference !important;
+        color: white !important;
+        border-color: white !important;
     }
 }
 .header::before {

@@ -23,20 +23,12 @@ export default function Index() {
         <section>
           <div>
             <h1>O que é o Business PRO?</h1>
-            <br/>
+            <br />
             <p>O Business PRO é uma solução digital desenvolvida especialmente para você que está buscando otimizar a gestão de seus negócios de maneira simples e eficiente.</p>
           </div>
-          <div>
-            <img src="img/EmpresariosFoto.png" height="500" />
-          </div>
         </section>
-        <section style={{backgroundColor: 'var(--darkest-color)', color: 'var(--lightest-color)'}}>
-          <div>
-            <p>O controle do seu negócio na palma da mão.</p>
-          </div>
-          <div>
-            <img src="img/Smartphone.png" height="500" />
-          </div>
+        <section>
+          <p>O controle do seu negócio na palma da mão.</p>
         </section>
       </MainLayout>
     </>

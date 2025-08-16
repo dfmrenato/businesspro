@@ -20,6 +20,7 @@
 
 body {
     font-family: 'Montserrat', monospace, sans-serif;
+    background-color: var(--lightest-color);
 }
 
 /* Evitar zoom não desejado */
