@@ -22,9 +22,9 @@ export default function Index() {
       <MainLayout id={styles.main}>
         <section>
           <div>
-            <h1>O que é o Business PRO?</h1>
+            <h1>O que é o Hermes?</h1>
             <br />
-            <p>O Business PRO é uma solução digital desenvolvida especialmente para você que está buscando otimizar a gestão de seus negócios de maneira simples e eficiente.</p>
+            <p>O Hermes é uma solução digital integrada com IA desenvolvida especialmente para otimizar a gestão de seus negócios de maneira simples e eficiente.</p>
           </div>
         </section>
         <section>

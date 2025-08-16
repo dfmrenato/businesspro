@@ -52,10 +52,10 @@
         background-position: bottom center;
 
         div {
-            mix-blend-mode: difference;
             color: white;
+            filter: drop-shadow(0 0 5px hsla(0, 0%, 0%, 50%));
             font-size: large;
-            padding: 50px;
+            padding: 25%;
         }
     }
 
